@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>暮冬Z羡慕的博客 • Posts by &#34;linux&#34; category</title>
-        <link>https://forcheetah.github.io/project</link>
+        <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
         <pubDate>Sun, 12 May 2024 21:14:18 +0800</pubDate>
@@ -13,9 +13,9 @@
         <category>openBlas</category>
         <category>lib</category>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/project/2024/05/12/test/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/05/12/test/</guid>
             <title>foo</title>
-            <link>https://forcheetah.github.io/project/2024/05/12/test/</link>
+            <link>https://forcheetah.github.io/2024/05/12/test/</link>
             <category>bar</category>
             <category>baz</category>
             <pubDate>Sun, 12 May 2024 21:14:18 +0800</pubDate>

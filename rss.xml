@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>暮冬Z羡慕的博客</title>
-        <link>https://forcheetah.github.io/project</link>
+        <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
         <pubDate>Mon, 13 May 2024 20:59:57 +0800</pubDate>
@@ -13,9 +13,9 @@
         <category>openBlas</category>
         <category>lib</category>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/project/2024/05/13/cpplib/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/05/13/cpplib/</guid>
             <title>C语言工程调用Cpp库解决方案</title>
-            <link>https://forcheetah.github.io/project/2024/05/13/cpplib/</link>
+            <link>https://forcheetah.github.io/2024/05/13/cpplib/</link>
             <category>Linux</category>
             <category>lib</category>
             <pubDate>Mon, 13 May 2024 20:59:57 +0800</pubDate>
@@ -52,9 +52,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/project/2024/05/13/openBlas/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/05/13/openBlas/</guid>
             <title>openBlas库的安装与简单使用</title>
-            <link>https://forcheetah.github.io/project/2024/05/13/openBlas/</link>
+            <link>https://forcheetah.github.io/2024/05/13/openBlas/</link>
             <category>Linux</category>
             <category>openBlas</category>
             <pubDate>Mon, 13 May 2024 19:55:19 +0800</pubDate>
@@ -70,9 +70,9 @@
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./demo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/project/2024/05/12/test/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/05/12/test/</guid>
             <title>foo</title>
-            <link>https://forcheetah.github.io/project/2024/05/12/test/</link>
+            <link>https://forcheetah.github.io/2024/05/12/test/</link>
             <category>bar</category>
             <category>baz</category>
             <pubDate>Sun, 12 May 2024 21:14:18 +0800</pubDate>
@@ -89,9 +89,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/project/2024/05/12/hello-world/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/05/12/hello-world/</guid>
             <title>Hello World</title>
-            <link>https://forcheetah.github.io/project/2024/05/12/hello-world/</link>
+            <link>https://forcheetah.github.io/2024/05/12/hello-world/</link>
             <pubDate>Sun, 12 May 2024 13:14:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;

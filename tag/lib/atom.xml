@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://forcheetah.github.io/project</id>
+    <id>https://forcheetah.github.io</id>
     <title>暮冬Z羡慕的博客 • Posts by &#34;lib&#34; tag</title>
-    <link href="https://forcheetah.github.io/project" />
+    <link href="https://forcheetah.github.io" />
     <updated>2024-05-13T12:59:57.146Z</updated>
     <category term="bar" />
     <category term="baz" />
@@ -10,9 +10,9 @@
     <category term="openBlas" />
     <category term="lib" />
     <entry>
-        <id>https://forcheetah.github.io/project/2024/05/13/cpplib/</id>
+        <id>https://forcheetah.github.io/2024/05/13/cpplib/</id>
         <title>C语言工程调用Cpp库解决方案</title>
-        <link rel="alternate" href="https://forcheetah.github.io/project/2024/05/13/cpplib/"/>
+        <link rel="alternate" href="https://forcheetah.github.io/2024/05/13/cpplib/"/>
         <content type="html">&lt;p&gt;本文为 C 语言工程调用 C++ 库的解决方案。&lt;/p&gt;
 &lt;p&gt;应用场景： 需要 C++ 程序编译成的库提供函数接口，来解决 C 语言工程的需求。&lt;/p&gt;
 &lt;p&gt;想要快速解决问题，直接看 三、通用解决方法&lt;/p&gt;

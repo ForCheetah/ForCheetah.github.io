@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://forcheetah.github.io/project</id>
+    <id>https://forcheetah.github.io</id>
     <title>暮冬Z羡慕的博客 • Posts by &#34;linux&#34; category</title>
-    <link href="https://forcheetah.github.io/project" />
+    <link href="https://forcheetah.github.io" />
     <updated>2024-05-12T13:14:18.428Z</updated>
     <category term="bar" />
     <category term="baz" />
@@ -10,9 +10,9 @@
     <category term="openBlas" />
     <category term="lib" />
     <entry>
-        <id>https://forcheetah.github.io/project/2024/05/12/test/</id>
+        <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>
-        <link rel="alternate" href="https://forcheetah.github.io/project/2024/05/12/test/"/>
+        <link rel="alternate" href="https://forcheetah.github.io/2024/05/12/test/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
