@@ -9,6 +9,8 @@
     <category term="Linux" />
     <category term="openBlas" />
     <category term="lib" />
+    <category term="accelerate" />
+    <category term="conv" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>

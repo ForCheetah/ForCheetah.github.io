@@ -9,6 +9,8 @@
     <category term="Linux" />
     <category term="openBlas" />
     <category term="lib" />
+    <category term="accelerate" />
+    <category term="conv" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/14/cpplib/</id>
         <title>C语言工程调用Cpp库解决方案</title>
