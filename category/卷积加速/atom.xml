@@ -11,6 +11,7 @@
     <category term="lib" />
     <category term="accelerate" />
     <category term="conv" />
+    <category term="tvm" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/23/conv2/</id>
         <title>【Im2Col】卷积加速算法【2】NHWC</title>

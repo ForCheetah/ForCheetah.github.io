@@ -11,6 +11,7 @@
     <category term="lib" />
     <category term="accelerate" />
     <category term="conv" />
+    <category term="tvm" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>
