@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Пусть этот камень будет более крепким, чем человек • All posts by \"目录\" category",
+    "description": "有自己的博客很帅，但是我很懒，要命！！！",
+    "home_page_url": "https://forcheetah.github.io",
+    "items": [
+        {
+            "id": "https://forcheetah.github.io/2024/05/24/category/",
+            "url": "https://forcheetah.github.io/2024/05/24/category/",
+            "title": "博客汇总目录",
+            "date_published": "2024-05-24T13:25:53.973Z",
+            "content_html": "<h1 id=\"暮冬z羡慕-的博客-文章汇总\"><a class=\"anchor\" href=\"#暮冬z羡慕-的博客-文章汇总\">#</a> 暮冬 Z 羡慕 的博客  文章汇总</h1>\n<h1 id=\"卷积加速算法\"><a class=\"anchor\" href=\"#卷积加速算法\">#</a> 卷积加速算法</h1>\n<ul>\n<li>\n<p><a href=\"https://forcheetah.github.io/2024/05/23/conv1/\">【Im2Col】卷积加速算法【1】 NCHW</a></p>\n</li>\n<li>\n<p><a href=\"https://forcheetah.github.io/2024/05/23/conv2/\">【Im2Col】卷积加速算法【2】NHWC</a></p>\n</li>\n<li></li>\n</ul>\n<h1 id=\"ai推理引擎\"><a class=\"anchor\" href=\"#ai推理引擎\">#</a> AI 推理引擎</h1>\n<h1 id=\"ai编译优化\"><a class=\"anchor\" href=\"#ai编译优化\">#</a> AI 编译优化</h1>\n<h1 id=\"问题解决\"><a class=\"anchor\" href=\"#问题解决\">#</a> 问题解决</h1>\n<ul>\n<li>\n<p><a href=\"https://forcheetah.github.io/2024/05/15/openBlas/\">openBlas 库的安装与简单使用</a></p>\n</li>\n<li>\n<p><a href=\"https://forcheetah.github.io/2024/05/14/cpplib/\">C 语言工程调用 Cpp 库解决方案</a></p>\n</li>\n</ul>\n<h1 id=\"杂谈\"><a class=\"anchor\" href=\"#杂谈\">#</a> 杂谈</h1>\n<blockquote>\n<p>持续更新中 ...</p>\n</blockquote>\n",
+            "tags": [
+                "accelerate",
+                "conv"
+            ]
+        }
+    ]
+}
