@@ -5,6 +5,17 @@
     "home_page_url": "https://forcheetah.github.io",
     "items": [
         {
+            "id": "https://forcheetah.github.io/2024/05/26/zatan3D/",
+            "url": "https://forcheetah.github.io/2024/05/26/zatan3D/",
+            "title": "【3D建模】IS-7攻城锤流纹岩皮肤展示",
+            "date_published": "2024-05-26T08:19:13.185Z",
+            "content_html": "<h1 id=\"坦克世界皮肤图片\"><a class=\"anchor\" href=\"#坦克世界皮肤图片\">#</a> 坦克世界皮肤图片</h1>\n<p><img loading=\"lazy\" data-src=\"1024x.jpg\" alt=\"洪水猛兽\"></p>\n<p><img loading=\"lazy\" data-src=\"24x.jpg\" alt=\"突击重坦\"></p>\n<p><img loading=\"lazy\" data-src=\"2x.jpg\" alt=\"钢铁之盾\"></p>\n<p><img loading=\"lazy\" data-src=\"2024x.jpg\" alt=\"胜利之师\"></p>\n<p>IS-7 皮肤台词：&quot; 原来是这样的： 如果有人回到基地，至少一辆坦克，那就算是一次营救任务。如果无人返回，那就是一次侦察任务。那就是他们在总部报告中对我们的分类方式，而我就是参加了一次营救任务。事情是这样的：我们整个小队一起移动，一些奇怪的大雾导致能见度为 0，坦克只能摸索着前行，就好像在牛奶中前进一样。然后坦克出现了。D 系的坦克。我记得它们的外形，也知道如何应对它们。你也知道，我以前经历过一些战事。接下来又遇到了没有沙子的沙尘暴… 我也不知道该怎么解释。我经历了持续的耳鸣，一些嗡嗡的声音。眼睛仿佛沾满了焦油。奇怪的低语。黑暗… 如同活物一般。我们摔得东倒西歪，被分散了。我害怕吗？当然不怕。起初我们都很困惑，但后来就适应了。没有什么区别，我们来都来了，还有什么好怕的？什么都改变不了。服从命令，祈祷可以回家。所以我就回来了… 一个人回来了。上尉，你的问题很奇怪。当小队重新集结时，我会回去吗？你已经知道答案，我们发过同样的誓言。而这只会发生一次。发了誓，就要遵守它。现在不是犹豫不决的时候了。我不希望加入一次... 侦察任务。当我们抵达那里的时候... 我们会挺过去的。</p>\n<h1 id=\"一些制作过程\"><a class=\"anchor\" href=\"#一些制作过程\">#</a> 一些制作过程</h1>\n<p><img loading=\"lazy\" data-src=\"0XGEG466R.png\" alt=\"solidworks 3D 建模\"></p>\n<p><img loading=\"lazy\" data-src=\"aaaaa.png\" alt=\"solidworks 3D 建模\"></p>\n<p><img loading=\"lazy\" data-src=\"6I6P.png\" alt=\"solidworks 3D 建模\"></p>\n<p><img loading=\"lazy\" data-src=\"194309.jpg\" alt=\"打印件出炉\"></p>\n<p><img loading=\"lazy\" data-src=\"120504.jpg\" alt=\"组装\"></p>\n<p><img loading=\"lazy\" data-src=\"120514.jpg\" alt=\"上色\"></p>\n<h1 id=\"最后\"><a class=\"anchor\" href=\"#最后\">#</a> 最后</h1>\n<p>该 IS-7 流纹岩皮肤模型还履带转动、炮塔旋转、炮管上下、夜视灯开关和发动机声音模拟功能。</p>\n<p>感兴趣的小伙伴可以到 bilibili 观看制作过程的视频呀！</p>\n<p>视频链接：</p>\n<p><a href=\"https://www.bilibili.com/video/BV1Tp4y1c719/\">【坦克模型】IS-7 攻城锤 坦克世界 is7 流纹岩 3D 皮肤模型</a></p>\n",
+            "tags": [
+                "accelerate",
+                "conv"
+            ]
+        },
+        {
             "id": "https://forcheetah.github.io/2024/05/24/tvm1/",
             "url": "https://forcheetah.github.io/2024/05/24/tvm1/",
             "title": "【TVM】根据例子走通代码库",
