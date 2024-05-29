@@ -123,6 +123,8 @@ Keras：Keras 本身是一个高级 API，集成到 Tensorflow 之后跟随 tens
 &lt;li&gt;NHWC 排布  input 在前  需要对权重进行转置&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当然，在真正运算矩阵乘时，如果有行优先货列优先的调整，就需要具体问题具体分析了。&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
 </content>
         <category term="accelerate" />
         <category term="conv" />
@@ -213,6 +215,8 @@ Im2Col 算法的原理就是将卷积运算&lt;br&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1715770657999.jpg&#34; alt=&#34;Input_2D * Kernel_2D&#34;&gt;&lt;br&gt;
  在输入为 nchw 排布，输出也是 nchw 排布情况下，Input_2D 在前，kernel_2D 在后，多出了对 kernel 和 output 的转置操作。&lt;/p&gt;
 &lt;p&gt;当然，在真正运算矩阵乘时，如果有行优先货列优先的调整，就需要具体问题具体分析了。&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
 </content>
         <category term="accelerate" />
         <category term="conv" />
