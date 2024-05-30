@@ -12,6 +12,8 @@
     <category term="accelerate" />
     <category term="conv" />
     <category term="tvm" />
+    <category term="tengine" />
+    <category term="ncnn" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/24/category/</id>
         <title>博客汇总目录</title>
