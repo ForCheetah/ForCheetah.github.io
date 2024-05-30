@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;ncnn&#34; tag</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2024-05-30T13:35:38.046Z</updated>
+    <updated>2024-05-30T13:44:20.534Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -18,11 +18,11 @@
         <id>https://forcheetah.github.io/2024/05/30/engine1/</id>
         <title>【推理引擎】NCNN和Tengine量化推理逻辑对比</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/05/30/engine1/"/>
-        <content type="html">&lt;p&gt;本文为最基本的 Im2Col 算法的原理及实现。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/23/conv1/&#34;&gt;【Im2Col】卷积加速算法 NHWC&lt;/a&gt; 【1】中已经讲了在输入和输出都是 nchw 排布下 Im2Col 算法的实现方式。常见的 tensor 输入有 NCHW 和 NHWC 两种内存排布方式，不同的排布方式各有优劣。排布方式不同，Im2Col 也有区别，本篇主要是在 NHWC 内存排布情况下的 Im2Col 算法原理和基本实现。&lt;/p&gt;
+        <content type="html">&lt;p&gt;本文讨论了 ncnn 和 tengine 两个框架在量化推理上的逻辑，并比较了它们之间的区别与联系，以及一点自己的思考。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;慌乱的时候全是破绽，冷静下来，能够找到对方的破绽。&lt;br&gt;
-------   大家好啊    我是   暮冬 Z 羡慕&lt;/p&gt;
+&lt;p&gt;风雨送春归，飞雪迎春到。&lt;br&gt;
+已是悬崖百丈冰，犹有花枝俏。  ---- 教员&lt;br&gt;
+ ------   大家好啊    我是   暮冬 Z 羡慕&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;量化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#量化&#34;&gt;#&lt;/a&gt; 量化&lt;/h1&gt;
 &lt;p&gt;这里仅简单介绍一下量化，不会展开，有机会再详细写一下量化算法。&lt;/p&gt;
@@ -39,70 +39,6 @@
 &lt;li&gt;训练后整形量化：            全整形量化，固定参数和层的输入输出都进行了量化，需要校准数据集&lt;/li&gt;
 &lt;li&gt;训练后整形量化 int16 的激活：        激活层采用 int16 量化，其余 int8&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Caffe：采用 NCHW 格式。Caffe 框架倾向于使用这种通道优先的布局。&lt;/p&gt;
-&lt;p&gt;TensorFlow：默认使用 NHWC 格式，特别是在早期版本中，这是由于 TensorFlow 最初设计时主要针对 CPU 进行优化，NHWC 布局在这种场景下有更好的内存访问局部性。&lt;br&gt;
-Keras：Keras 本身是一个高级 API，集成到 Tensorflow 之后跟随 tensorflow 的内存排布方式。&lt;/p&gt;
-&lt;h1 id=&#34;内存排布的优缺点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内存排布的优缺点&#34;&gt;#&lt;/a&gt; 内存排布的优缺点&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;NCHW 格式的优点：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;1. 在 GPU 中计算卷积时，比 NHWC 要快 2.5 倍左右。这是因为在 GPU 中，NCHW 格式的数据布局更符合 GPU 的内存访问模式和计算方式。&lt;/p&gt;
-&lt;p&gt;2.NCHW 格式更适合那些需要对每个通道单独做运算的操作，比如 “MaxPooling”。这是因为 NCHW 格式的同一通道的像素值连续排布，使得对每个通道的数据可以更高效地进行运算。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NCHW 格式的缺点：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;1.NCHW 格式需要把所有通道的数据都读取到，才能进行运算，因此在计算时需要的存储更多。这可能会限制其在一些具有限制的硬件环境下的应用。&lt;/p&gt;
-&lt;p&gt;2.NCHW 格式的访存与计算的控制逻辑相对简单，这使得在一些需要精细控制访存和计算的场景下，可能不是最佳的选择。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NHWC 格式的优点：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;1.NHWC 格式的访存局部性更好。这意味着每三个输入像素就可以得到一个输出像素，因此在一些特定的计算操作中，可以更高效地利用硬件资源。&lt;/p&gt;
-&lt;p&gt;2.NHWC 格式更适合那些需要对不同通道的同一像素做某种运算的操作，比如 “Conv1x1”。这是因为 NHWC 格式的不同通道中的同一位置元素顺序存储，使得对不同通道的数据可以进行更高效的运算。&lt;/p&gt;
-&lt;p&gt;3.NHWC 格式在早期的 CPU 开发中应用较多，因此对于主要基于 CPU 开发的深度学习框架和算法，NHWC 格式可能更受欢迎。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NHWC 格式的缺点：&lt;/strong&gt;&lt;br&gt;
-1. 在使用 GPU 进行计算加速时，NHWC 格式不如 NCHW 格式高效。这是因为 NCHW 格式更符合 GPU 的内存访问模式和计算方式。&lt;/p&gt;
-&lt;p&gt;2. 对于一些需要精细控制访存和计算的场景，NHWC 格式的控制逻辑可能相对复杂一些。&lt;/p&gt;
-&lt;h1 id=&#34;im2col变换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#im2col变换&#34;&gt;#&lt;/a&gt; Im2Col 变换&lt;/h1&gt;
-&lt;p&gt;Im2col 算法是将卷积转换成两个 2D 矩阵乘运算。(kernel_2D * input_2D)  与 (input_2D * kernel_2D) 矩阵乘的顺序不同，所需要的 4D 到 2D 变换也不同，我们先将 input_2D 放在前面，也就是 (input_2D * kernel_2D)，最后再讨论 kernel_2D 放在前面还是后面的区别。&lt;/p&gt;
-&lt;p&gt;依然采用下面这个简单的卷积样例，输入 tensor 按照 nhwc 排布，所以是一个 3 通道 5*5 的 input tensor。卷积核有 9 个，pad 为 1，因此输出是【1，5，5，9】。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1716464754440.jpg&#34; alt=&#34;卷积样例&#34;&gt;&lt;/p&gt;
-&lt;p&gt;直接展开 2D 形式，两个矩阵形式如下。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1716464821580.jpg&#34; alt=&#34;Im2Col 2D示意图&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;上图右边是权重 kernel_2D&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1. 原 kernel_4D 维度为【9，3，3，3】，拥有 9 个 kernel，将其第一个 kernel 按照【C_in, Kh, Kw】的顺序展成一列，也就是第一列绿色部分，共有 27 个数。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2. 依次将余下 8 个 kernel 按照相同的方式展成一列，就得到了 kernel_2D。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3.kernel_2D 维度为【27，9】&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;从内存排布上来看，需要将原本的 kernel_4D 进行数据重排。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;上图左边是输入 input_2D&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1. 矩阵乘是 行 * 列；kernel_2D 一列代表一个卷积核【C_in, Kh, Kw】；所以 input_2D 的一行是 “一个卷积核滑动窗口” 对应的数据，也就是 27 个。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2. 第一行橘黄色部分是第一个滑动窗口对应的数据，未填的数代表 Pad。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3. 滑动窗口需要纵移 5 次，每次纵移需要横移 5 次，因此有 5*5 行数据。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;4. 例如第 5 行蓝色是滑动窗口在图一中向右移动到第 5 格，蓝色格子时对应的数据。由于 Input_2D 的维度是 NHWC，也就是说图一中 “0，25，50” 三个数在内存中是相邻的（分别位于同一个 HW 位置的第一、第二、第三通道）。为了减少数据的搬运，这些连续的数被搬运到一起。即：图一中 3*3 的蓝色滑动窗口中前 3 个都对应 Pad，所以图二第 5 行蓝色行先有 3*3 (channel) 个 Pad 数据。图一蓝色滑动窗口在第 4 和第 5 个格子出现数据，所以图二 9 个 Pad 后面跟着 3，28，53；4，29，54。紧接着又出现了 Pad，以此类推。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;5. 总结：25 次窗口滑动，每次滑动形成窗口对应的一行 27 个数据。input_2D 的维度为【25，27】&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;6. 总结完 input_2D 的数据排布，那么 kernel_2D 每一列的数据具体怎么排也就清楚了，需要和 input_2D 的每一行一一对应。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;输出 output&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;input_2D【25，27】* kernel_2D 【27，9】得到结果 output_2D 【25，9】，刚好是输出 output【1，5，5，9】的内存排布方式。因此输出也不需要额外的内存转换。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;具体实现&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这里没有专门写 Im2Col 在 NHWC 排布情况下的代码，可以在卷积加速算法模拟下载完整的测试代码。并参考 “TestIm2FlavorConvLayer ();” 函数及文章&lt;a href=&#34;https://forcheetah.github.io/2024/05/15/accelerate1/&#34;&gt; im2col 卷积加速算法 NHWC&lt;/a&gt;，完成 NHWC 内存排布情况下的算法。&lt;/p&gt;
-&lt;h1 id=&#34;矩阵乘先后顺序的影响&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#矩阵乘先后顺序的影响&#34;&gt;#&lt;/a&gt; 矩阵乘先后顺序的影响&lt;/h1&gt;
-&lt;p&gt;以严格按照矩阵标准的 行 * 列 运算为前提，权重和输入的先后顺序会影响其内存排布。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1716466223424.jpg&#34; alt=&#34;两种排布情况下矩阵乘先后顺序不同对数据变换的影响&#34;&gt;&lt;/p&gt;
 &lt;p&gt;下面介绍和对比的 NCNN 和 Tengine 仅仅指的是运行再 CPU 上是采用的 Int8 量化策略，都属于训练后整形量化。&lt;/p&gt;
 &lt;h1 id=&#34;ncnn-量化推理逻辑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ncnn-量化推理逻辑&#34;&gt;#&lt;/a&gt; NCNN 量化推理逻辑&lt;/h1&gt;
 &lt;h2 id=&#34;ncnn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ncnn&#34;&gt;#&lt;/a&gt; ncnn&lt;/h2&gt;
@@ -202,6 +138,6 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
         <category term="conv" />
         <category term="tengine" />
         <category term="ncnn" />
-        <updated>2024-05-30T13:35:38.046Z</updated>
+        <updated>2024-05-30T13:44:20.534Z</updated>
     </entry>
 </feed>
