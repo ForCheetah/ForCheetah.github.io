@@ -260,6 +260,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai推理引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai推理引擎&#34;&gt;#&lt;/a&gt; AI 推理引擎&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/30/engine1/&#34;&gt;【推理引擎】NCNN 和 Tengine 量化推理逻辑对比&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;ai编译优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai编译优化&#34;&gt;#&lt;/a&gt; AI 编译优化&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/24/tvm1/&#34;&gt;【TVM】根据例子走通代码库&lt;/a&gt;&lt;/li&gt;
