@@ -121,11 +121,7 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
 &lt;li&gt;2.int8 类型的 输入和权重 经过卷积层 得到的输出是 int32 类型，再于 int32 类型的 bias 相加&lt;/li&gt;
 &lt;li&gt;3. 为了在 float 形式下进行激活操作， &lt;code&gt; * scale_w  * scale_in&lt;/code&gt;  反量化为 float 类型&lt;/li&gt;
 &lt;li&gt;4. 激活&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;code&gt;/ scale_out &lt;/code&gt;  量化为 int8 类型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
+&lt;li&gt;5. 通过 &lt;code&gt;/ scale_out &lt;/code&gt;  量化为 int8 类型&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;量化讨论和疑问留存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#量化讨论和疑问留存&#34;&gt;#&lt;/a&gt; 量化讨论和疑问留存&lt;/h1&gt;
 &lt;h2 id=&#34;简单比较&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简单比较&#34;&gt;#&lt;/a&gt; 简单比较&lt;/h2&gt;
