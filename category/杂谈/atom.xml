@@ -14,6 +14,8 @@
     <category term="tvm" />
     <category term="tengine" />
     <category term="ncnn" />
+    <category term="cmake" />
+    <category term="runtime" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/26/zatan3D/</id>
         <title>【3D建模】IS-7攻城锤流纹岩皮肤展示</title>

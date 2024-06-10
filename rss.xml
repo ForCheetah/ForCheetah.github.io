@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Thu, 30 May 2024 21:44:20 +0800</pubDate>
-        <lastBuildDate>Thu, 30 May 2024 21:44:20 +0800</lastBuildDate>
+        <pubDate>Mon, 10 Jun 2024 19:47:15 +0800</pubDate>
+        <lastBuildDate>Mon, 10 Jun 2024 19:47:15 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -17,6 +17,54 @@
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
+        <category>cmake</category>
+        <category>runtime</category>
+        <item>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/06/10/deployTVM/</guid>
+            <title>【TVM】C++部署运行TVM</title>
+            <link>https://forcheetah.github.io/2024/06/10/deployTVM/</link>
+            <category>tvm</category>
+            <category>cmake</category>
+            <category>runtime</category>
+            <pubDate>Mon, 10 Jun 2024 19:47:15 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇博客主要介绍如何通过 G++ 编译器编译 C++ 代码，部署 TVM。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总感觉，属于我们的时代还没开始，就要结束了呢。&lt;br&gt;
+------   大家好啊    我是   暮冬 Z 羡慕&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;现状&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#现状&#34;&gt;#&lt;/a&gt; 现状&lt;/h1&gt;
+&lt;p&gt;TVM 官方文档:&lt;a href=&#34;https://tvm.apache.org/docs&#34;&gt; 英文文档&lt;/a&gt; &lt;a href=&#34;https://tvm.hyper.ai/&#34;&gt;中文文档&lt;/a&gt; 主要介绍了通过 Python 脚本和 Python 命令行 tvmc 来编译和部署 TVM。但是这两种方式部署的话，部署设备还需要安装 Python 运行环境，带来额外空间占用和开销。显然不能以这种方式部署。&lt;/p&gt;
+&lt;p&gt;TVM 项目的 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;howto_deploy&lt;/a&gt; 目录下提供了 G++ 编译 C++ 代码部署 TVM 的方式。遗憾的是给的例子没有包含模型的权重.params 和图结构.json 的加载，也没有输入图片的加载。&lt;/p&gt;
+&lt;p&gt;因此本博客提供了一个简单的 C++ 部署 TVM 工程，可以在 &lt;a href=&#34;https://github.com/ForCheetah/TvmCppDeploy&#34;&gt;TvmCppDeploy 项目&lt;/a&gt; 找到并下载，用于你的 TVM 项目部署。&lt;/p&gt;
+&lt;p&gt;该项目没有使用 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;TVM 项目 howto_deploy&lt;/a&gt; 中的 Makefile，而是重写了 CMakeLists.txt 文件，更方便读懂和修改。&lt;/p&gt;
+&lt;h1 id=&#34;使用方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方式&#34;&gt;#&lt;/a&gt; 使用方式&lt;/h1&gt;
+&lt;p&gt;下载 &lt;a href=&#34;https://github.com/ForCheetah/TvmCppDeploy&#34;&gt;TvmCppDeploy 项目&lt;/a&gt; 到你的本地，可以通过下载 zip 文件后解压缩，也可以直接 git：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/ForCheetah/TvmCppDeploy.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;进入项目根目录，进行必要的路径修改。和 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;TVM 项目 howto_deploy&lt;/a&gt; 一样，本项目也提供了两种部署方式，所需要修改的内容也有些不同。&lt;/p&gt;
+&lt;h1 id=&#34;重新编译-tvm_runtime&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重新编译-tvm_runtime&#34;&gt;#&lt;/a&gt; 重新编译 tvm_runtime&lt;/h1&gt;
+&lt;p&gt;重新编译 tvm_runtime，和个人的 C++ 文件编译在一起，编译好的可执行文件可独立执行。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&amp;quot;/home/xiamu/whs/temp/resnet50-tvm/&amp;quot;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;第 2 步：还是 &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件， 找到 132 行，将其中的图片路径 &lt;code&gt;/home/xiamu/whs/python/remote_tvm/imagenet_cat.bin&lt;/code&gt;  改为自己的图片路径，该 bin 文件应当是已经转换好的 float 格式文件。&lt;/li&gt;
+&lt;li&gt;第 3 步：打开   &lt;code&gt;src/tvm\_runtime\_pack.cc&lt;/code&gt; ， 将文件中所有的路径中的  &lt;code&gt;/home/xiamu/tvm&lt;/code&gt;   修改为你本地 TVM 工程的根目录路径。 修改完一定要检查一下对应的目录中是否有相应的文件。&lt;/li&gt;
+&lt;li&gt;第 4 步：打开  &lt;code&gt;CMakeLists.txt&lt;/code&gt; , 找到第 10 行  &lt;code&gt;set(TVM_ROOT /home/xianmu/tvm)&lt;/code&gt; ，将其中的 &lt;code&gt;/home/xianmu/tvm&lt;/code&gt;  改成你本地 TVM 工程的根目录路径。&lt;/li&gt;
+&lt;li&gt;为防止编译报错，可以将 &lt;code&gt;部署方式二： tvm_runtime.so 作为动态链接库编译&lt;/code&gt; 对应的代码（43 至 63 行） 注释掉（当前可能还没有对其进行修改）。&lt;/li&gt;
+&lt;li&gt;第 5 步：编译和执行，在根目录下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyRunnable&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;tvm_runtimeso-作为动态链接库编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tvm_runtimeso-作为动态链接库编译&#34;&gt;#&lt;/a&gt; tvm_runtime.so 作为动态链接库编译&lt;/h1&gt;
+&lt;p&gt;tvm_runtime.so 作为动态链接库，仅编译个人的 C++ 文件，运行时需要链接 libtvm_runtime.so&lt;/p&gt;
+&lt;p&gt;这种方式的修改与第一种方式略有不同，修改如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&amp;quot;/home/xiamu/whs/temp/resnet50-tvm/&amp;quot;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;第 2 步：还是 &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件， 找到 132 行，将其中的图片路径 &lt;code&gt;/home/xiamu/whs/python/remote_tvm/imagenet_cat.bin&lt;/code&gt;  改为自己的图片路径，该 bin 文件应当是已经转换好的 float 格式文件。&lt;/li&gt;
+&lt;li&gt;第 3 步：打开  &lt;code&gt;CMakeLists.txt&lt;/code&gt; , 找到第 10 行  &lt;code&gt;set(TVM_ROOT /home/xianmu/tvm)&lt;/code&gt; ，将其中的 &lt;code&gt;/home/xianmu/tvm&lt;/code&gt;  改成你本地 TVM 工程的根目录路径。将 62 行的 &lt;code&gt;$&amp;#123;TVM_ROOT&amp;#125;/build&lt;/code&gt;  libtvm_runtime.so 路径修改为你存放 libtvm_runtime.so 库的路径。&lt;/li&gt;
+&lt;li&gt;为防止编译报错，可以将 &lt;code&gt;部署方式一： 重新编译 tvm_runtime&lt;/code&gt;  对应的代码（17 至 38 行）注释掉（当前可能还没有对其进行修改）。&lt;/li&gt;
+&lt;li&gt;第 5 步：编译和执行，在根目录下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyExcute&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/30/engine1/</guid>
             <title>【推理引擎】NCNN和Tengine量化推理逻辑对比</title>

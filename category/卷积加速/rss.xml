@@ -17,6 +17,8 @@
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
+        <category>cmake</category>
+        <category>runtime</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/23/conv2/</guid>
             <title>【Im2Col】卷积加速算法【2】NHWC</title>

@@ -17,6 +17,8 @@
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
+        <category>cmake</category>
+        <category>runtime</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/24/category/</guid>
             <title>博客汇总目录</title>
