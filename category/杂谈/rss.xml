@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Sun, 26 May 2024 16:19:13 +0800</pubDate>
-        <lastBuildDate>Sun, 26 May 2024 16:19:13 +0800</lastBuildDate>
+        <pubDate>Sat, 15 Jun 2024 20:42:27 +0800</pubDate>
+        <lastBuildDate>Sat, 15 Jun 2024 20:42:27 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -19,12 +19,37 @@
         <category>ncnn</category>
         <category>cmake</category>
         <category>runtime</category>
+        <category>tank</category>
+        <category>zatan</category>
+        <item>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/06/15/zatanE3/</guid>
+            <title>【3D建模】T110E3卡迪夫蓝调皮肤模型</title>
+            <link>https://forcheetah.github.io/2024/06/15/zatanE3/</link>
+            <category>tank</category>
+            <category>zatan</category>
+            <pubDate>Sat, 15 Jun 2024 20:42:27 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;新的坦克模型，T110E3 卡迪夫蓝调皮肤模型，快要问世了。这里展示制作过程。&lt;/p&gt;
+&lt;h1 id=&#34;卡迪夫蓝调皮肤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#卡迪夫蓝调皮肤&#34;&gt;#&lt;/a&gt; 卡迪夫蓝调皮肤&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615204753.jpg&#34; alt=&#34;111&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615204855.jpg&#34; alt=&#34;222&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;建模过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#建模过程&#34;&gt;#&lt;/a&gt; 建模过程&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615204959.png&#34; alt=&#34;solidworks 3D 建模&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205022.png&#34; alt=&#34;solidworks 3D 建模&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205036.png&#34; alt=&#34;solidworks 3D 建模&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;打印组装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打印组装&#34;&gt;#&lt;/a&gt; 打印组装&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205118.jpg&#34; alt=&#34;打印件出炉&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205148.jpg&#34; alt=&#34;组装&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205210.jpg&#34; alt=&#34;上色&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h1&gt;
+&lt;p&gt;此模型是摆件，没有行动能力。还是很期待啊。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/26/zatan3D/</guid>
             <title>【3D建模】IS-7攻城锤流纹岩皮肤展示</title>
             <link>https://forcheetah.github.io/2024/05/26/zatan3D/</link>
-            <category>accelerate</category>
-            <category>conv</category>
+            <category>tank</category>
+            <category>zatan</category>
             <pubDate>Sun, 26 May 2024 16:19:13 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;坦克世界皮肤图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坦克世界皮肤图片&#34;&gt;#&lt;/a&gt; 坦克世界皮肤图片&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1024x.jpg&#34; alt=&#34;洪水猛兽&#34;&gt;&lt;/p&gt;

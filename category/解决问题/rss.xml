@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Mon, 10 Jun 2024 21:02:01 +0800</pubDate>
-        <lastBuildDate>Mon, 10 Jun 2024 21:02:01 +0800</lastBuildDate>
+        <pubDate>Sat, 15 Jun 2024 20:52:53 +0800</pubDate>
+        <lastBuildDate>Sat, 15 Jun 2024 20:52:53 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -19,5 +19,7 @@
         <category>ncnn</category>
         <category>cmake</category>
         <category>runtime</category>
+        <category>tank</category>
+        <category>zatan</category>
     </channel>
 </rss>

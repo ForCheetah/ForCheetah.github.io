@@ -19,6 +19,8 @@
         <category>ncnn</category>
         <category>cmake</category>
         <category>runtime</category>
+        <category>tank</category>
+        <category>zatan</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/30/engine1/</guid>
             <title>【推理引擎】NCNN和Tengine量化推理逻辑对比</title>
