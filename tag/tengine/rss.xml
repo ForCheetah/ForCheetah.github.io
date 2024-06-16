@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Thu, 30 May 2024 21:44:20 +0800</pubDate>
-        <lastBuildDate>Thu, 30 May 2024 21:44:20 +0800</lastBuildDate>
+        <pubDate>Sun, 16 Jun 2024 20:28:49 +0800</pubDate>
+        <lastBuildDate>Sun, 16 Jun 2024 20:28:49 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -21,6 +21,65 @@
         <category>runtime</category>
         <category>tank</category>
         <category>zatan</category>
+        <item>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/06/16/engine2/</guid>
+            <title>【推理引擎】常见AI推理框架</title>
+            <link>https://forcheetah.github.io/2024/06/16/engine2/</link>
+            <category>accelerate</category>
+            <category>tengine</category>
+            <category>ncnn</category>
+            <pubDate>Sun, 16 Jun 2024 20:28:49 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;昇腾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#昇腾&#34;&gt;#&lt;/a&gt; 昇腾&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540428003.jpg&#34; alt=&#34;shengteng&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.hiascend.com/zh/document&#34;&gt;昇腾官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;华为昇腾（HUAWEI Ascend）是华为公司推出的一系列人工智能处理器，标志着华为在自主设计人工智能（AI）芯片领域的重要进展。昇腾芯片基于华为自主研发的达芬奇架构，这一架构设计旨在优化 AI 计算的效率和性能，特别是针对深度学习任务进行了专门优化。&lt;/p&gt;
+&lt;p&gt;还可以去找一下 《昇腾 AI 处理器架构与编程：深⼊理解 CANN 技术原理及应⽤》等相关书籍。&lt;/p&gt;
+&lt;h1 id=&#34;ncnn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ncnn&#34;&gt;#&lt;/a&gt; NCNN&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540505840.jpg&#34; alt=&#34;ncnn&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Tencent/ncnn&#34;&gt;腾讯 NCNN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架。 ncnn 从设计之初深刻考虑手机端的部署和使用。 无第三方依赖，跨平台，手机端 cpu 的速度快于目前所有已知的开源框架。 基于 ncnn，开发者能够将深度学习算法轻松移植到手机端高效执行， 开发出人工智能 APP，将 AI 带到你的指尖。 ncnn 目前已在腾讯多款应用中使用，如：QQ，Qzone，微信，天天 P 图等。&lt;/p&gt;
+&lt;h1 id=&#34;tvm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tvm&#34;&gt;#&lt;/a&gt; TVM&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540553346.jpg&#34; alt=&#34;tvm&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/apache/tvm&#34;&gt;TVM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Apache TVM 是用于深度学习系统的编译器堆栈。它旨在缩小以生产力为重点的深度学习框架与以性能和效率为重点的硬件后端之间的差距。TVM 与深度学习框架合作，为不同的后端提供端到端编译。&lt;/p&gt;
+&lt;h1 id=&#34;tengine&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tengine&#34;&gt;#&lt;/a&gt; Tengine&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540586818.jpg&#34; alt=&#34;tengine&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/OAID/Tengine&#34;&gt;Open AI Lib Tengine&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tengine 由 OPEN AI LAB 主导开发，该项目实现了深度学习神经网络模型在嵌入式设备上的快速、高效部署需求。为实现在众多 AIoT 应用中的跨平台部署，本项目使用 C 语言进行核心模块开发，针对嵌入式设备资源有限的特点进行了深度框架裁剪。同时采用了完全分离的前后端设计，有利于 CPU、GPU、NPU 等异构计算单元的快速移植和部署，降低评估、迁移成本。&lt;/p&gt;
+&lt;p&gt;尽管 Tengine 已经挺久不再维护了，但是作为一个完全使用 C 语言承担推理部分工作的框架，tengine 还是有轻量、框架结构清晰、易于拓展、容易学习、部署简单等优势，还是非常值得学习的。&lt;/p&gt;
+&lt;h1 id=&#34;地平线&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#地平线&#34;&gt;#&lt;/a&gt; 地平线&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540635472.jpg&#34; alt=&#34;horizon&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.horizon.cc/api/v1/fileData/horizon_j5_open_explorer_cn_doc/index.html&#34;&gt;地平线征程五官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;地平线 BPU（Brain Processing Unit）是地平线公司自主研发的专为智能驾驶及边缘计算场景设计的 AI 处理器架构。BPU 旨在通过软硬件深度结合，提供针对神经网络处理的高效解决方案，特别强调在自动驾驶、物联网、智能摄像头等领域的应用。地平线 J5 算法工具链（以下简称工具链）是一套完整的边缘计算平台算法落地解决方案，可以帮助您把浮点模型量化为定点模型， 并在地平线计算平台上快速部署自研算法模型。&lt;/p&gt;
+&lt;h1 id=&#34;tensorrt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tensorrt&#34;&gt;#&lt;/a&gt; TensorRT&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540670403.jpg&#34; alt=&#34;tensorrt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/NVIDIA/TensorRT&#34;&gt;TensorRT&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;NVIDIA TensorRT  是一个用于高性能深度学习推理的 API 生态系统。TensorRT 包括推理运行时和模型优化，可为生产应用程序提供低延迟和高吞吐量。TensorRT 生态系统包括 TensorRT、TensorRTLLM、TensorRT 模型优化器和 TensorRTCloud。&lt;/p&gt;
+&lt;h1 id=&#34;mnn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mnn&#34;&gt;#&lt;/a&gt; MNN&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540735181.jpg&#34; alt=&#34;mnn&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/alibaba/MNN&#34;&gt;alibaba MNN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MNN 是一个高效、轻量级的深度学习框架。它支持深度学习模型的推理和训练，并在设备上具有业界领先的推理和培训性能。目前，MNN 已整合到阿里巴巴旗下淘宝、天猫、优酷、钉钉、闲鱼等 30 多个应用中，涵盖直播、短视频拍摄、搜索推荐、图片搜货、互动营销、权益分销、安全风控等 70 多个使用场景。此外，MNN 还用于嵌入式设备，如物联网。&lt;/p&gt;
+&lt;h1 id=&#34;nvdla&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nvdla&#34;&gt;#&lt;/a&gt; NVDLA&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540758631.jpg&#34; alt=&#34;nvdla&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://nvdla.org/&#34;&gt;NVDLA 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;NVIDIA 深度学习加速器（NVDLA）是一种免费开放的架构，旨在推广设计深度学习推理加速器的标准方法。NVDLA 具有模块化架构，可扩展、高度可配置，旨在简化集成和可移植性。&lt;/p&gt;
+&lt;h1 id=&#34;arm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm&#34;&gt;#&lt;/a&gt; ARM&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540818151.jpg&#34; alt=&#34;arm&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ARM-software/armnn&#34;&gt;ARM NN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ARM NN 是一个开源的软件库，用于在基于 ARM 的平台上运行预先训练好的神经网络。它充当诸如 TensorFlow Lite、Caffe、ONNX 等框架与底层硬件加速器（如 GPU、NPU）之间的桥梁。ARM NN 支持异构执行，可以在 CPU、GPU 和 NPU 之间分配工作负载，以实现最优性能。&lt;/p&gt;
+&lt;p&gt;CMSIS-NN 是一个高度优化的神经网络内核集合，特别为基于 ARM Cortex-M 系列的微控制器设计。它提供了一系列高度优化的函数，用于在资源受限的设备上执行卷积神经网络 (CNNs) 和其他常见的神经网络操作。这些函数可以在 Keil MDK-ARM 或 GCC 等工具链中使用，帮助开发者在 MCU 上实现高效的机器学习推理。&lt;/p&gt;
+&lt;h1 id=&#34;mace&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mace&#34;&gt;#&lt;/a&gt; MACE&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540862260.jpg&#34; alt=&#34;xiaomi mace&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/XiaoMi/mace&#34;&gt;XiaoMi MACE&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;XiaoMi MACE 是一个深度学习推理框架，针对 Android、iOS、Linux 和 Windows 设备上的移动异构计算进行了优化。&lt;/p&gt;
+&lt;h1 id=&#34;pulsar2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pulsar2&#34;&gt;#&lt;/a&gt; Pulsar2&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540894460.jpg&#34; alt=&#34;pulsar&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pulsar2-docs.readthedocs.io/zh-cn/latest/&#34;&gt;Pulsar2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;爱芯元智 AX620A 视觉芯片  使用的编译工具链是 Pulsar2&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/30/engine1/</guid>
             <title>【推理引擎】NCNN和Tengine量化推理逻辑对比</title>
