@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;cmake&#34; tag</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2024-06-10T11:47:15.090Z</updated>
+    <updated>2024-06-18T13:01:39.606Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -18,6 +18,116 @@
     <category term="runtime" />
     <category term="tank" />
     <category term="zatan" />
+    <entry>
+        <id>https://forcheetah.github.io/2024/06/18/deployTVMPython/</id>
+        <title>【TVM】Python脚本实现模型编译和保存</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2024/06/18/deployTVMPython/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇博客提供简单的 Python 脚本代码，实现 onnx 模型转换编译，&lt;a href=&#34;http://xn--TVM-c88dw8e312al18b.so&#34;&gt;保存为 TVM 的.so&lt;/a&gt; .params 和 .json 文件 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;望长城内外，惟余莽莽；大河上下，顿失滔滔。&lt;br&gt;
+--------------- 教员&lt;br&gt;
+ ------   大家好啊    我是   暮冬 Z 羡慕&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;python脚本实现模型编译和保存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#python脚本实现模型编译和保存&#34;&gt;#&lt;/a&gt; Python 脚本实现模型编译和保存&lt;/h1&gt;
+&lt;p&gt;脚本中需要修改的就一些路径，很容易看明白，就不再过多介绍了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Python&#34;&gt;
+import onnx
+from tvm.contrib.download import download_testdata
+from PIL import Image
+import numpy as np
+import tvm.relay as relay
+import tvm
+from tvm.contrib import graph_executor
+
+
+# 图片
+img_path = &amp;quot;../image/imagenet_cat.png&amp;quot;
+# img_url = &amp;quot;https://s3.amazonaws.com/model-server/inputs/kitten.jpg&amp;quot;
+# img_path = download_testdata(img_url, &amp;quot;../image/imagenet_cat.png&amp;quot;, module=&amp;quot;data&amp;quot;)
+
+# 重设大小为 224x224
+resized_image = Image.open(img_path).resize((224, 224))
+img_data = np.array(resized_image).astype(&amp;quot;float32&amp;quot;)
+
+# 输入图像是 HWC 布局，而 ONNX 需要 CHW 输入，所以转换数组
+img_data = np.transpose(img_data, (2, 0, 1))
+
+# 根据 ImageNet 输入规范进行归一化
+imagenet_mean = np.array([0.485, 0.456, 0.406]).reshape((3, 1, 1))
+imagenet_stddev = np.array([0.229, 0.224, 0.225]).reshape((3, 1, 1))
+norm_img_data = (img_data / 255 - imagenet_mean) / imagenet_stddev
+
+
+# 添加 batch 维度，期望 4 维输入：NCHW。
+img_data = np.expand_dims(norm_img_data, axis=0)
+# 保存为 bin 文件  
+norm_img_data.astype(&amp;quot;float32&amp;quot;).tofile(&amp;quot;../image/imagenet_cat.bin&amp;quot;)
+
+
+# 目标设备配置
+target = &#39;llvm&#39;  # 以CPU为例
+
+input_name = &amp;quot;data&amp;quot;
+shape_dict = &amp;#123;input_name: img_data.shape&amp;#125;
+
+onnx_model = onnx.load(&amp;quot;../model/simple.onnx&amp;quot;)
+
+mod, params = relay.frontend.from_onnx(onnx_model, shape_dict)
+
+with tvm.transform.PassContext(opt_level=3):
+    lib = relay.build(mod, target=target, params=params)
+
+
+# 运行相关
+dev = tvm.device(str(target), 0)
+module = graph_executor.GraphModule(lib[&amp;quot;default&amp;quot;](dev))
+
+# 保存库文件
+lib_fname = &amp;quot;../lib/mod.so&amp;quot;
+lib.export_library(lib_fname)
+
+# 保存模型参数
+params_fname = &amp;quot;../lib/mod.params&amp;quot;
+with open(params_fname, &amp;quot;wb&amp;quot;) as param_file:
+    param_file.write(relay.save_param_dict(lib.get_params()))
+
+# 保存JSON格式的计算图
+json_fname = &amp;quot;../lib/mod.json&amp;quot;
+with open(json_fname, &amp;quot;w&amp;quot;) as json_file:
+    json_file.write(lib.get_executor_config())
+
+dtype = &amp;quot;float32&amp;quot;
+module.set_input(input_name, img_data)
+module.run()
+output_shape = (1, 10)
+tvm_output = module.get_output(0, tvm.nd.empty(output_shape)).numpy()
+
+from scipy.special import softmax
+
+# 下载标签列表
+labels_url = &amp;quot;https://s3.amazonaws.com/onnx-model-zoo/synset.txt&amp;quot;
+labels_path = download_testdata(labels_url, &amp;quot;synset.txt&amp;quot;, module=&amp;quot;data&amp;quot;)
+
+with open(labels_path, &amp;quot;r&amp;quot;) as f:
+    labels = [l.rstrip() for l in f]
+
+# 打开输出文件并读取输出张量
+scores = softmax(tvm_output)    #   直接输出模型结果
+scores = np.squeeze(tvm_output)
+ranks = np.argsort(scores)[::-1]
+for rank in ranks[0:5]:
+    print(&amp;quot;class=&#39;%s&#39; with probability=%f&amp;quot; % (labels[rank], scores[rank]))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+</content>
+        <category term="tvm" />
+        <category term="cmake" />
+        <category term="runtime" />
+        <updated>2024-06-18T13:01:39.606Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2024/06/10/deployTVM/</id>
         <title>【TVM】C++部署运行TVM</title>
