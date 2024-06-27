@@ -650,6 +650,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/23/conv2/&#34;&gt;【Im2Col】卷积加速算法【2】NHWC&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/06/27/conv3/&#34;&gt;【im2col】昇腾卷积加速算法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai推理引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai推理引擎&#34;&gt;#&lt;/a&gt; AI 推理引擎&lt;/h1&gt;
 &lt;ul&gt;
