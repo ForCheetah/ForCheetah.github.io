@@ -23,26 +23,12 @@
         <category>zatan</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/06/27/conv3/</guid>
-            <title></title>
+            <title>【im2col】昇腾卷积加速算法</title>
             <link>https://forcheetah.github.io/2024/06/27/conv3/</link>
+            <category>Linux</category>
+            <category>openBlas</category>
             <pubDate>Thu, 27 Jun 2024 23:21:34 +0800</pubDate>
-            <description><![CDATA[ &lt;hr&gt;
-&lt;p&gt;title : 【im2col】昇腾卷积加速算法&lt;/p&gt;
-&lt;p&gt;data: 2024-06-27 23:21:15&lt;/p&gt;
-&lt;p&gt;sticky  : false&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;accelerate&lt;/li&gt;
-&lt;li&gt;conv&lt;br&gt;
-categories:
-&lt;ul&gt;
-&lt;li&gt;[卷积加速]&lt;br&gt;
-audio: false&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;（1）本文讲解使用的例子&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;以如下的卷积为例，进行昇腾 Im2Col 卷积过程：&lt;/p&gt;
 &lt;ul&gt;

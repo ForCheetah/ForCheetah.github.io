@@ -20,25 +20,9 @@
     <category term="zatan" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/27/conv3/</id>
-        <title></title>
+        <title>【im2col】昇腾卷积加速算法</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/27/conv3/"/>
-        <content type="html">&lt;hr&gt;
-&lt;p&gt;title : 【im2col】昇腾卷积加速算法&lt;/p&gt;
-&lt;p&gt;data: 2024-06-27 23:21:15&lt;/p&gt;
-&lt;p&gt;sticky  : false&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;accelerate&lt;/li&gt;
-&lt;li&gt;conv&lt;br&gt;
-categories:
-&lt;ul&gt;
-&lt;li&gt;[卷积加速]&lt;br&gt;
-audio: false&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;（1）本文讲解使用的例子&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;以如下的卷积为例，进行昇腾 Im2Col 卷积过程：&lt;/p&gt;
 &lt;ul&gt;
@@ -191,6 +175,8 @@ audio: false&lt;/li&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
 </content>
+        <category term="Linux" />
+        <category term="openBlas" />
         <updated>2024-06-27T15:21:34.031Z</updated>
     </entry>
     <entry>
