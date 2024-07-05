@@ -18,6 +18,7 @@
     <category term="runtime" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="systemc" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/27/conv3/</id>
         <title>【im2col】昇腾卷积加速算法</title>
