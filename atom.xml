@@ -703,7 +703,7 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/06/27/conv3/&#34;&gt;【im2col】昇腾卷积加速算法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;[【Winograd】Winograd 卷积加速算法]&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/07/07/conv4/&#34;&gt;【Winograd】卷积加速算法原理及实现&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;[【conv 加速】NVDLA 卷积加速算法]&lt;/p&gt;
