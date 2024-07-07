@@ -24,26 +24,12 @@
         <category>systemc</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/07/07/conv4/</guid>
-            <title></title>
+            <title>【Winograd】卷积加速算法原理及实现</title>
             <link>https://forcheetah.github.io/2024/07/07/conv4/</link>
+            <category>accelerate</category>
+            <category>conv</category>
             <pubDate>Sun, 07 Jul 2024 20:57:48 +0800</pubDate>
-            <description><![CDATA[ &lt;hr&gt;
-&lt;p&gt;title : 【Winograd】卷积加速算法原理及实现&lt;/p&gt;
-&lt;p&gt;data: 2024-06-27 23:21:15&lt;/p&gt;
-&lt;p&gt;sticky  : false&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;winograd&lt;/li&gt;
-&lt;li&gt;conv&lt;br&gt;
-categories:
-&lt;ul&gt;
-&lt;li&gt;[卷积加速]&lt;br&gt;
-audio: false&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;算法原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#算法原理&#34;&gt;#&lt;/a&gt; 算法原理&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;算法原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#算法原理&#34;&gt;#&lt;/a&gt; 算法原理&lt;/h1&gt;
 &lt;p&gt;算法原理还没写，预计将来补上。可以在网络上搜索算法原理。&lt;/p&gt;
 &lt;h1 id=&#34;代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码实现&#34;&gt;#&lt;/a&gt; 代码实现&lt;/h1&gt;
 &lt;p&gt;可以在 github 项目 &lt;a href=&#34;https://github.com/ForCheetah/ConvAccelerate&#34;&gt;卷积加速算法实现&lt;/a&gt; 中下载代码实现，运行其中的测试函数：&lt;/p&gt;

@@ -21,25 +21,9 @@
     <category term="systemc" />
     <entry>
         <id>https://forcheetah.github.io/2024/07/07/conv4/</id>
-        <title></title>
+        <title>【Winograd】卷积加速算法原理及实现</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/07/07/conv4/"/>
-        <content type="html">&lt;hr&gt;
-&lt;p&gt;title : 【Winograd】卷积加速算法原理及实现&lt;/p&gt;
-&lt;p&gt;data: 2024-06-27 23:21:15&lt;/p&gt;
-&lt;p&gt;sticky  : false&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;winograd&lt;/li&gt;
-&lt;li&gt;conv&lt;br&gt;
-categories:
-&lt;ul&gt;
-&lt;li&gt;[卷积加速]&lt;br&gt;
-audio: false&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;算法原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#算法原理&#34;&gt;#&lt;/a&gt; 算法原理&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&#34;算法原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#算法原理&#34;&gt;#&lt;/a&gt; 算法原理&lt;/h1&gt;
 &lt;p&gt;算法原理还没写，预计将来补上。可以在网络上搜索算法原理。&lt;/p&gt;
 &lt;h1 id=&#34;代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码实现&#34;&gt;#&lt;/a&gt; 代码实现&lt;/h1&gt;
 &lt;p&gt;可以在 github 项目 &lt;a href=&#34;https://github.com/ForCheetah/ConvAccelerate&#34;&gt;卷积加速算法实现&lt;/a&gt; 中下载代码实现，运行其中的测试函数：&lt;/p&gt;
@@ -47,6 +31,8 @@ audio: false&lt;/li&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
 </content>
+        <category term="accelerate" />
+        <category term="conv" />
         <updated>2024-07-07T12:57:48.314Z</updated>
     </entry>
     <entry>

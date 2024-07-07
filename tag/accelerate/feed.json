@@ -5,6 +5,17 @@
     "home_page_url": "https://forcheetah.github.io",
     "items": [
         {
+            "id": "https://forcheetah.github.io/2024/07/07/conv4/",
+            "url": "https://forcheetah.github.io/2024/07/07/conv4/",
+            "title": "【Winograd】卷积加速算法原理及实现",
+            "date_published": "2024-07-07T12:57:48.314Z",
+            "content_html": "<h1 id=\"算法原理\"><a class=\"anchor\" href=\"#算法原理\">#</a> 算法原理</h1>\n<p>算法原理还没写，预计将来补上。可以在网络上搜索算法原理。</p>\n<h1 id=\"代码实现\"><a class=\"anchor\" href=\"#代码实现\">#</a> 代码实现</h1>\n<p>可以在 github 项目 <a href=\"https://github.com/ForCheetah/ConvAccelerate\">卷积加速算法实现</a> 中下载代码实现，运行其中的测试函数：</p>\n<figure class=\"highlight cpp\"><figcaption data-lang=\"C++\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token comment\">/*</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre>winograd 算法   F (2*2, 3*3)</pre></td></tr><tr><td data-num=\"3\"></td><td><pre>仅用于 3*3 卷积，stride=1, dilation=1</pre></td></tr><tr><td data-num=\"4\"></td><td><pre>推荐   w&lt;120 h&lt;120 in_c>16 out_c>16</pre></td></tr><tr><td data-num=\"5\"></td><td><pre>现已支持 pad   之后添加 dilation</pre></td></tr><tr><td data-num=\"6\"></td><td><pre>*/</pre></td></tr><tr><td data-num=\"7\"></td><td><pre><span class=\"token function\">TestWinogradF23ConvLayer</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>；</pre></td></tr><tr><td data-num=\"8\"></td><td><pre></pre></td></tr><tr><td data-num=\"9\"></td><td><pre><span class=\"token comment\">/*</span></pre></td></tr><tr><td data-num=\"10\"></td><td><pre>winograd 算法  nchw   F (6*6, 3*3)    8*8  3*3  ->  6*6</pre></td></tr><tr><td data-num=\"11\"></td><td><pre>仅用于 3*3 卷积，stride=1, dilation=1</pre></td></tr><tr><td data-num=\"12\"></td><td><pre>推荐   w&lt;120 h&lt;120 in_c>16 out_c>16</pre></td></tr><tr><td data-num=\"13\"></td><td><pre>现已支持 pad   之后添加 dilation</pre></td></tr><tr><td data-num=\"14\"></td><td><pre>*/</pre></td></tr><tr><td data-num=\"15\"></td><td><pre><span class=\"token function\">TestWinogradF63ConvLayer</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span>；</pre></td></tr></table></figure><p>两个函数分别测试了基于 F (2*2,3*3) 以及 F (6*6,3*3) 的 winograd 卷积算法。</p>\n<h1 id=\"后记\"><a class=\"anchor\" href=\"#后记\">#</a> 后记</h1>\n<p>本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 <a href=\"https://github.com/ForCheetah/ForCheetah.github.io\">github 项目</a> 或随便一个项目下提出 issue，或者<a href=\"https://www.zhihu.com/people/guai-dao-ji-de-3-50\">知乎</a> 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！</p>\n",
+            "tags": [
+                "accelerate",
+                "conv"
+            ]
+        },
+        {
             "id": "https://forcheetah.github.io/2024/06/16/engine2/",
             "url": "https://forcheetah.github.io/2024/06/16/engine2/",
             "title": "【推理引擎】常见AI推理框架",
