@@ -19,6 +19,7 @@
     <category term="tank" />
     <category term="zatan" />
     <category term="systemc" />
+    <category term="novel" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/14/cpplib/</id>
         <title>C语言工程调用Cpp库解决方案</title>

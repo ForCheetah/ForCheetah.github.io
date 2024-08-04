@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;杂谈&#34; category</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2024-06-15T12:42:27.991Z</updated>
+    <updated>2024-08-04T03:36:35.532Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -19,6 +19,22 @@
     <category term="tank" />
     <category term="zatan" />
     <category term="systemc" />
+    <category term="novel" />
+    <entry>
+        <id>https://forcheetah.github.io/2024/08/04/zatanNoval/</id>
+        <title>【感想】写作进度报告1</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2024/08/04/zatanNoval/"/>
+        <content type="html">&lt;h1 id=&#34;介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#介绍&#34;&gt;#&lt;/a&gt; 介绍&lt;/h1&gt;
+&lt;p&gt;四五年前就开始构思一部小说。那时起就不断地撰写纲要，描述关键节点剧情，甚至开始跳着写中间的一些章节。不过总感到不妥，小说的立意太低了，剧情太老套了，可能和 XX 很像，我才不愿意仿写，等等很多原因，我又不得不停下来重新思考整个小说的立意、构思。&lt;/p&gt;
+&lt;p&gt;小说经过了多次彻头彻尾的改造，重新设计了关键节点，调整了新的纲要。不得不说，尽管写作是一个漫长的过程，但是小说的立意构思阶段不见得工作量更小。&lt;/p&gt;
+&lt;p&gt;在几个月前，终于调整好构思之后，重新开始写作。现在写的很慢，之前在学校里会抽时间写一点，现在上班了，只能是下班玩够了之后，写一个小时左右。不知不觉，到今天正文已经有 3 万余字了。特意查了一下，《三体》三部曲最初版每本大概在 35 万到 45 万左右。所以现在已经有一部书的将近十分之一了，而我还觉得小说只写了个开头，哈哈。&lt;/p&gt;
+&lt;p&gt;随便记录一下，等到有其他进展后还会记录在博客里。&lt;/p&gt;
+&lt;h1 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h1&gt;
+&lt;p&gt;每个人都渴望成为天选之子，拥有传奇的人生。但是不得不承认，大部分人都是普通人而已，包括你我。没办法，只能让自己的灵魂寄托在小说的虚拟世界里，体验丰富而壮丽的人生。&lt;/p&gt;
+</content>
+        <category term="novel" />
+        <updated>2024-08-04T03:36:35.532Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2024/06/15/zatanE3/</id>
         <title>【3D建模】T110E3卡迪夫蓝调皮肤模型</title>
