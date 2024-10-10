@@ -23,6 +23,7 @@
         <category>zatan</category>
         <category>systemc</category>
         <category>novel</category>
+        <category>compile</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/06/27/conv3/</guid>
             <title>【im2col】昇腾卷积加速算法</title>

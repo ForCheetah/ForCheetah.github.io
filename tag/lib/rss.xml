@@ -23,6 +23,7 @@
         <category>zatan</category>
         <category>systemc</category>
         <category>novel</category>
+        <category>compile</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/14/cpplib/</guid>
             <title>C语言工程调用Cpp库解决方案</title>
