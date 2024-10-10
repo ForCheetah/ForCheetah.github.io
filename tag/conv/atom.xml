@@ -264,6 +264,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;[【推理引擎】Tengine 框架结构介绍]&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/10/tvm01/&#34;&gt;【TVM】通过代码学习编译流程【1】必要知识&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai编译优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai编译优化&#34;&gt;#&lt;/a&gt; AI 编译优化&lt;/h1&gt;
 &lt;ul&gt;
