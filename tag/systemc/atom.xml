@@ -21,6 +21,7 @@
     <category term="systemc" />
     <category term="novel" />
     <category term="compile" />
+    <category term="AI" />
     <entry>
         <id>https://forcheetah.github.io/2024/07/05/problem3/</id>
         <title>SystemC 等待异步事件解决方案</title>

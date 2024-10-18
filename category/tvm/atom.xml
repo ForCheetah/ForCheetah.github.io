@@ -21,6 +21,7 @@
     <category term="systemc" />
     <category term="novel" />
     <category term="compile" />
+    <category term="AI" />
     <entry>
         <id>https://forcheetah.github.io/2024/10/17/tvm03/</id>
         <title>【TVM】通过代码学习编译流程【3】模型编译</title>
