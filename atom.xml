@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2024-10-18T13:42:24.512Z</updated>
+    <updated>2024-10-18T13:44:56.351Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -24,7 +24,7 @@
     <category term="AI" />
     <entry>
         <id>https://forcheetah.github.io/2024/10/18/aicompile01/</id>
-        <title>【TVM】通过代码学习编译流程【3】模型编译</title>
+        <title>【AI编译】Tiling操作能优化什么时间</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/10/18/aicompile01/"/>
         <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇讲解 Tiling 操作为什么能够优化神经网络推理。&lt;/p&gt;
@@ -90,7 +90,7 @@
 </content>
         <category term="compile" />
         <category term="AI" />
-        <updated>2024-10-18T13:42:24.512Z</updated>
+        <updated>2024-10-18T13:44:56.351Z</updated>
     </entry>
     <entry>
         <id>https://forcheetah.github.io/2024/10/17/tvm03/</id>
@@ -983,6 +983,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/06/18/deployTVMPython/&#34;&gt;【TVM】Python 脚本实现模型编译和保存&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/18/aicompile01/&#34;&gt;【AI 编译】Tiling 操作能优化什么时间&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/24/tvm1/&#34;&gt;【TVM】根据例子走通代码库&lt;/a&gt;&lt;/p&gt;
