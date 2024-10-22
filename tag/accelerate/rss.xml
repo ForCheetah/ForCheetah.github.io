@@ -355,6 +355,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/17/tvm03/&#34;&gt;【TVM】通过代码学习编译流程【3】模型编译&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/22/tvm3.5/&#34;&gt;【TVM】通过代码学习类【3.5】Pass&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/21/tvm04/&#34;&gt;【TVM】通过代码学习编译流程【4】BuildRelay&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
