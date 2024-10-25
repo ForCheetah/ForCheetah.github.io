@@ -1124,6 +1124,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/21/tvm04/&#34;&gt;【TVM】通过代码学习编译流程【4】BuildRelay&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/10/25/tvm06/&#34;&gt;【TVM】通过代码学习编译流程【6】CodeGen&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;问题解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题解决&#34;&gt;#&lt;/a&gt; 问题解决&lt;/h1&gt;
 &lt;ul&gt;
