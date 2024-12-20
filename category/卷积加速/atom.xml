@@ -25,7 +25,7 @@
     <category term="gemm" />
     <entry>
         <id>https://forcheetah.github.io/2024/12/20/conv5/</id>
-        <title>Gemm计算加速</title>
+        <title>【gemm】Gemm计算加速</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/12/20/conv5/"/>
         <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章简单介绍矩阵乘的加速方法，以学习算子加速需要注意的方面。想要学习更多内容可以参考&lt;a href=&#34;https://zhuanlan.zhihu.com/p/65436463&#34;&gt;《OpenBLAS gemm 从零入门》&lt;/a&gt;，&lt;a href=&#34;https://github.com/flame/blislab&#34;&gt;《BLISlab: A Sandbox for Optimizing GEMM》&lt;/a&gt;，&lt;a href=&#34;https://mp.weixin.qq.com/s/w0YCm8TEPxFg0CR6g4A28w&#34;&gt;道阻且长_再探矩阵乘法优化&lt;/a&gt;，&lt;a href=&#34;https://github.com/BBuf/how-to-optimize-gemm&#34;&gt;《How To Optimize GEMM》&lt;/a&gt;等项目或文章。&lt;/p&gt;

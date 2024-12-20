@@ -28,7 +28,7 @@
         <category>gemm</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/12/20/conv5/</guid>
-            <title>Gemm计算加速</title>
+            <title>【gemm】Gemm计算加速</title>
             <link>https://forcheetah.github.io/2024/12/20/conv5/</link>
             <category>conv</category>
             <category>gemm</category>
@@ -301,6 +301,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/07/07/conv4/&#34;&gt;【Winograd】卷积加速算法原理及实现&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/20/conv5/&#34;&gt;【gemm】Gemm 计算加速&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;[【conv 加速】NVDLA 卷积加速算法]&lt;/p&gt;
