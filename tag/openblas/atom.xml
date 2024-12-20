@@ -22,6 +22,7 @@
     <category term="novel" />
     <category term="compile" />
     <category term="AI" />
+    <category term="gemm" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/27/conv3/</id>
         <title>【im2col】昇腾卷积加速算法</title>

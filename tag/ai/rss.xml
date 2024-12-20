@@ -25,6 +25,7 @@
         <category>novel</category>
         <category>compile</category>
         <category>AI</category>
+        <category>gemm</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/18/aicompile01/</guid>
             <title>【AI编译】Tiling操作能优化什么时间</title>

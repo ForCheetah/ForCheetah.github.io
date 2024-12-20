@@ -22,6 +22,7 @@
     <category term="novel" />
     <category term="compile" />
     <category term="AI" />
+    <category term="gemm" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/14/cpplib/</id>
         <title>C语言工程调用Cpp库解决方案</title>

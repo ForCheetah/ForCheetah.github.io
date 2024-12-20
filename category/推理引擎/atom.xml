@@ -22,6 +22,7 @@
     <category term="novel" />
     <category term="compile" />
     <category term="AI" />
+    <category term="gemm" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/16/engine2/</id>
         <title>【推理引擎】常见AI推理框架</title>

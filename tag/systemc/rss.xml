@@ -25,6 +25,7 @@
         <category>novel</category>
         <category>compile</category>
         <category>AI</category>
+        <category>gemm</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/07/05/problem3/</guid>
             <title>SystemC 等待异步事件解决方案</title>
