@@ -403,6 +403,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/20/conv5/&#34;&gt;【gemm】Gemm 计算加速&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/24/conv6/&#34;&gt;【gemm】内存对齐&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;[【conv 加速】NVDLA 卷积加速算法]&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
