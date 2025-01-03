@@ -26,6 +26,7 @@
         <category>compile</category>
         <category>AI</category>
         <category>gemm</category>
+        <category>quantize</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/05/12/test/</guid>
             <title>foo</title>

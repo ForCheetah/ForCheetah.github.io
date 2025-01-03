@@ -23,6 +23,7 @@
     <category term="compile" />
     <category term="AI" />
     <category term="gemm" />
+    <category term="quantize" />
     <entry>
         <id>https://forcheetah.github.io/2024/07/05/problem3/</id>
         <title>SystemC 等待异步事件解决方案</title>

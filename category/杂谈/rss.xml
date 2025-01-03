@@ -26,6 +26,7 @@
         <category>compile</category>
         <category>AI</category>
         <category>gemm</category>
+        <category>quantize</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/08/04/zatanNoval/</guid>
             <title>【感想】写作进度报告1</title>

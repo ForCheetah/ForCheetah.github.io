@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;解决问题&#34; category</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2024-12-24T12:46:55.584Z</updated>
+    <updated>2025-01-03T13:12:34.318Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -23,4 +23,5 @@
     <category term="compile" />
     <category term="AI" />
     <category term="gemm" />
+    <category term="quantize" />
 </feed>

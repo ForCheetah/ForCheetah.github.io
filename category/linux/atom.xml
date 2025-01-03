@@ -23,6 +23,7 @@
     <category term="compile" />
     <category term="AI" />
     <category term="gemm" />
+    <category term="quantize" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>
