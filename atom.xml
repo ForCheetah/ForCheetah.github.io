@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2025-01-14T12:09:18.353Z</updated>
+    <updated>2025-01-15T13:12:53.246Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -24,6 +24,54 @@
     <category term="AI" />
     <category term="gemm" />
     <category term="quantize" />
+    <entry>
+        <id>https://forcheetah.github.io/2025/01/15/aicompile03/</id>
+        <title>【AI编译】layer-group之后如何tiling</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2025/01/15/aicompile03/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇讲解笔者实现 tiling 算法的一些经验。&lt;br&gt;
+前述文章 &lt;a href=&#34;https://forcheetah.github.io/2025/01/14/aicompile02/&#34;&gt;《如何进行 layer-group》&lt;/a&gt;讲解了 layer group 的内容。&lt;a href=&#34;https://forcheetah.github.io/2024/10/18/aicompile01/&#34;&gt;《Tiling 操作能优化哪些时间》&lt;/a&gt;提到 Tiling 的概念和作用。感兴趣的话可以阅读。&lt;/p&gt;
+&lt;p&gt;本篇文章参考过 &lt;a href=&#34;https://baijiahao.baidu.com/s?id=1787593090401250411&amp;amp;wfr=spider&amp;amp;for=pc&#34;&gt;《超强干货！地平线编译器大牛的编译优化实践总结》&lt;/a&gt;，&lt;a href=&#34;https://github.com/Arm-China/Compass_Optimizer&#34;&gt;《Arm 周易编译器工程》&lt;/a&gt;，&lt;a href=&#34;https://tpumlir.org/docs/developer_manual/10_layergroup.html#group&#34;&gt;《算能 TPU layer group 讲解》&lt;/a&gt;，&lt;a href=&#34;https://www.bilibili.com/video/BV1wo4y1z7AG/&#34;&gt;《算能 TPU 视频讲解》&lt;/a&gt; 等文章和工程，欢迎大家参考。&lt;/p&gt;
+&lt;p&gt;作为初学者，错误在所难免，还望不吝赐教。&lt;/p&gt;
+&lt;h1 id=&#34;回顾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#回顾&#34;&gt;#&lt;/a&gt; 回顾&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1736946396882.jpg&#34; alt=&#34;回顾流程&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示，AI 编译优化的基本流程是 1. 图优化 (算子融合，常量折叠等) 2. 拆分 (layer group 和 tiling) 3. 并行和调度。最后得到当前编译的时间消耗。&lt;/p&gt;
+&lt;h1 id=&#34;分支结构tiling&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分支结构tiling&#34;&gt;#&lt;/a&gt; 分支结构 Tiling&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1736946520498.jpg&#34; alt=&#34;分支结构&#34;&gt;&lt;/p&gt;
+&lt;p&gt;假设现在对某个 layer group 做 tiling，需要对当前这个 layer group 按照 tiling 块数构建平行分支。&lt;/p&gt;
+&lt;p&gt;上图来自&lt;a href=&#34;https://tpumlir.org/docs/developer_manual/10_layergroup.html#group&#34;&gt;《算能 TPU layer group 讲解》&lt;/a&gt;。如图所示，含有三个卷积算子的 layer group ，将其 tiling 成四块，则 group 的图结构变成右边的形状，图上也表明了 tiling 之后 tensor 的大小。可以使用 crop 算子完成 tensor 的切分，使用 concat 算子实现 tensor 的合并。图中没有画出 crop 算子和 concat 算子。&lt;/p&gt;
+&lt;p&gt;神经网络结构复杂多样，分支结构、多前序节点、多后续节点等给 tiling 的实际操作带来很大困难。根据前述的 layer group 动态搜索划分，我们可能需要在各种各样的结构上进行 tiling 操作。下图是一种较为复杂的分支结构在 tiling 前后的对比图，可以给 tiling 结构的创建带来更直观的感受。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1736946566779.jpg&#34; alt=&#34;复杂分支结构tiling&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这是一个虚构的、较为复杂的分支结构。中间彩色的五个节点是当前要做 tiling 的 layer group，而上方和下方是当前 layer group 的前序节点和后续节点。&lt;br&gt;
+为方便，只 tiling 成两块。&lt;/p&gt;
+&lt;p&gt;tiling 后的结构如图右侧所示，原有彩色算子部分复制成两份；layer group 有几个输出端（当前 group 有两个输出端：Conv 和 Fc）就有几个 concat 节点。layer group 的输入端（Add 节点和 Relu 节点）前面要添加 crop 节点，当输入端有多个前序节点时（Add 有两个前序节点），每个都要添加 crop。&lt;/p&gt;
+&lt;p&gt;大致的结构重建就是这个样子。在实际操作中可能还有些不同，例如为保持所有节点都只能有一个输出 tensor 的原则，Crop 节点不能输出两个 tensor。&lt;/p&gt;
+&lt;h1 id=&#34;tiling维度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tiling维度&#34;&gt;#&lt;/a&gt; Tiling 维度&lt;/h1&gt;
+&lt;p&gt;现有方案基本都选择在 N H W，也就是批次、高度、宽度这三个维度上做 tiling。&lt;/p&gt;
+&lt;p&gt;N（批次）方向分块是最简单的方案，可以随意划分，对整个网络的运行没有影响。但是也许模型在推理的时候批次只有 1，无法 tiling。所以批次方向不是在所有情况下都适用。&lt;/p&gt;
+&lt;p&gt;高度和宽度方向 tiling，比批次方向稍复杂，需要重新 infer shape 和调整参数（下一节讲解），但好在原有的算子推理仍然适用。&lt;/p&gt;
+&lt;p&gt;基本上不考虑 C（通道）方向 tiling。通道方向分块，不仅要调整权重偏置 tensor，还需要在算子运算后加减 tensor，破坏了原有算子推理。&lt;br&gt;
+现有方案基本支持批次、高度、宽度这三个维度上做 tiling。&lt;/p&gt;
+&lt;h1 id=&#34;tiling逆向推理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tiling逆向推理&#34;&gt;#&lt;/a&gt; Tiling 逆向推理&lt;/h1&gt;
+&lt;p&gt;上面只完成了 layer group 在 tiling 之后的结构重建。想要实现模型的正确推理，还需要更新好多信息。&lt;/p&gt;
+&lt;h2 id=&#34;逆向shape-推理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#逆向shape-推理&#34;&gt;#&lt;/a&gt; 逆向 shape 推理&lt;/h2&gt;
+&lt;p&gt;推理 shape，在 tensor 分块后，维度大小自然需要更新。下图是一个简单的分支结构的 tensor shape 推理例子。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1736946730182.jpg&#34; alt=&#34;逆向推理&#34;&gt;&lt;/p&gt;
+&lt;p&gt;图①是推理之前的网络结构，仅包含两个卷积算子（均为 3*3，pad=1）。图上已经标明了每个算子的输入输出 tensor 的大小。现在将此 group 从 H（高）维度 tiling 成两份，也就是输出端（Add 节点）的输出 tensor 设置为 5*10。&lt;/p&gt;
+&lt;p&gt;从输出端（Add 节点）开始逆序推导各个算子的输入输出 shape。如图②，普通算子如 Add，输入 tensor 的 shape 于输出 tensor 相同。而 Conv 这样的算子，需要根据参数、所在位置、输出 shape 来计算输入 tensor 的 shape。例如图②中 Conv_2 的输入变成 [6,10]，参数中 pad 需要修改为 [1,0,1,1]。&lt;/p&gt;
+&lt;p&gt;现在出现一个问题：从 Add 节点直接往前推，Conv_1 的输出应该是 [5,10]，而走 Add-&amp;gt;Conv_2 路径，Conv_1 的输出应该是 [6,10]。Conv_1 不可能同时输出 [6,10] 和 [5,10] 两个 tensor。如何处理当前的歧义呢？&lt;/p&gt;
+&lt;p&gt;也许增加一个 crop 节点是个可选的方法。如图③所示，增加一个新的 Crop 节点，将 Conv_1 的输出 tensor 从 [6,10] 变成 [5,10]。&lt;/p&gt;
+&lt;h2 id=&#34;逆向深度优先搜索&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#逆向深度优先搜索&#34;&gt;#&lt;/a&gt; 逆向深度优先搜索&lt;/h2&gt;
+&lt;p&gt;从逆向 shape 推理过程的分析来看，更新 layer group 的 shape，需要从输出端开始，逆向深度优先搜索每个分支，更新 shape 信息，还得判断采用哪些信息（如上一节中 Conv_1 的输出是 [6,10] 还是 [5,10]）。&lt;/p&gt;
+&lt;p&gt;逆向深度优先搜索每个分支的意思如下图所示：从输出端搜索到输入端的每一条通路。下图结构中有四条通路。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1736946743244.jpg&#34; alt=&#34;深度优先搜索&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+</content>
+        <category term="compile" />
+        <category term="AI" />
+        <updated>2025-01-15T13:12:53.246Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2025/01/14/aicompile02/</id>
         <title>【AI编译】如何进行layer-group</title>
