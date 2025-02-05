@@ -1596,6 +1596,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/01/15/aicompile03/&#34;&gt;【AI 编译】layer-group 之后如何 tiling&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/02/05/aicompile04/&#34;&gt;【AI 编译】如何进行内存分配&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/24/tvm1/&#34;&gt;【TVM】根据例子走通代码库&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
