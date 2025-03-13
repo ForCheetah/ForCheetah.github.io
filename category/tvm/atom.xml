@@ -24,6 +24,7 @@
     <category term="AI" />
     <category term="gemm" />
     <category term="quantize" />
+    <category term="compiler" />
     <entry>
         <id>https://forcheetah.github.io/2024/10/31/tvm05/</id>
         <title>【TVM】通过代码学习编译流程【5】FuseOps</title>

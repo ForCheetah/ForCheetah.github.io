@@ -27,6 +27,7 @@
         <category>AI</category>
         <category>gemm</category>
         <category>quantize</category>
+        <category>compiler</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/12/24/conv6/</guid>
             <title>【Gemm】内存对齐</title>

@@ -27,6 +27,7 @@
         <category>AI</category>
         <category>gemm</category>
         <category>quantize</category>
+        <category>compiler</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/02/05/aicompile04/</guid>
             <title>【AI编译】如何进行内存分配</title>
