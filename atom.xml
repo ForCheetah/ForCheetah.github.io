@@ -80,7 +80,7 @@
     </entry>
     <entry>
         <id>https://forcheetah.github.io/2025/03/13/compile01/</id>
-        <title>【编译器】使用llvm编译自定义语言【1】</title>
+        <title>【编译器】使用llvm编译自定义语言【1】构建AST</title>
         <link rel="alternate" href="https://forcheetah.github.io/2025/03/13/compile01/"/>
         <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇介绍如何使用 LLVM 编译自定义语言。使用的是 LLVM 官方例子&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt; My First Language Frontend with LLVM Tutorial&lt;/a&gt;。官方例子采用自底向上的方式详细讲述了自定义万花筒语言通过 llvm 编译的过程，但是自底向上较难理解，过程较长。本篇将自上而下地、简要地介绍如何将自定义语言转换为 llvm IR，实现编译的。&lt;/p&gt;
@@ -1732,7 +1732,12 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/ul&gt;
 &lt;h1 id=&#34;编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器&#34;&gt;#&lt;/a&gt; 编译器&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/03/13/compile01/&#34;&gt;【编译器】使用 llvm 编译自定义语言【1】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/03/13/compile01/&#34;&gt;【编译器】使用 llvm 编译自定义语言【1】构建 AST&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/03/20/compile02/&#34;&gt;【编译器】使用 llvm 编译自定义语言【2】转 llvm IR&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;问题解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题解决&#34;&gt;#&lt;/a&gt; 问题解决&lt;/h1&gt;
 &lt;ul&gt;

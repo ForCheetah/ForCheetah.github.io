@@ -83,7 +83,7 @@
         </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/03/13/compile01/</guid>
-            <title>【编译器】使用llvm编译自定义语言【1】</title>
+            <title>【编译器】使用llvm编译自定义语言【1】构建AST</title>
             <link>https://forcheetah.github.io/2025/03/13/compile01/</link>
             <category>compiler</category>
             <pubDate>Thu, 13 Mar 2025 19:25:46 +0800</pubDate>
