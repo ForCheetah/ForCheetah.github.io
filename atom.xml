@@ -1778,6 +1778,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/03/20/compile02/&#34;&gt;【编译器】使用 llvm 编译自定义语言【2】转 llvm IR&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/03/28/compile03/&#34;&gt;【编译器】使用 llvm 编译自定义语言【3】编译 object&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;问题解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题解决&#34;&gt;#&lt;/a&gt; 问题解决&lt;/h1&gt;
 &lt;ul&gt;
