@@ -505,6 +505,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/01/03/quanti01/&#34;&gt;【量化】连续卷积层首尾量化的可行性&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/04/16/ncnn01/&#34;&gt;【NCNN】学习 ncnn 模型转换&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;[【推理引擎】Tengine 框架结构介绍]&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
