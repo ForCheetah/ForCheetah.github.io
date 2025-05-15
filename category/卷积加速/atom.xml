@@ -190,9 +190,9 @@ mat.channel(1).row(1) -&amp;gt; address of c1h1w0
         <updated>2024-07-07T12:57:48.314Z</updated>
     </entry>
     <entry>
-        <id>https://forcheetah.github.io/2024/06/27/conv3_/</id>
+        <id>https://forcheetah.github.io/2024/06/27/conv3/</id>
         <title>【im2col】AScend conv accelerate</title>
-        <link rel="alternate" href="https://forcheetah.github.io/2024/06/27/conv3_/"/>
+        <link rel="alternate" href="https://forcheetah.github.io/2024/06/27/conv3/"/>
         <content type="html">&lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;（1）本文讲解使用的例子&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;以如下的卷积为例，进行昇腾 Im2Col 卷积过程：&lt;/p&gt;
