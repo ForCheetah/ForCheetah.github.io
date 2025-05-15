@@ -193,9 +193,9 @@ mat.channel(1).row(1) -&amp;gt; address of c1h1w0
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://forcheetah.github.io/2024/06/27/conv3/</guid>
+            <guid isPermalink="true">https://forcheetah.github.io/2024/06/27/conv3_/</guid>
             <title>【im2col】AScend conv accelerate</title>
-            <link>https://forcheetah.github.io/2024/06/27/conv3/</link>
+            <link>https://forcheetah.github.io/2024/06/27/conv3_/</link>
             <category>Linux</category>
             <category>openBlas</category>
             <pubDate>Thu, 27 Jun 2024 23:21:34 +0800</pubDate>
