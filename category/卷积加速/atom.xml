@@ -191,7 +191,7 @@ mat.channel(1).row(1) -&amp;gt; address of c1h1w0
     </entry>
     <entry>
         <id>https://forcheetah.github.io/2024/06/27/conv3/</id>
-        <title>【im2col】昇腾卷积加速算法</title>
+        <title>【im2col】AScend conv accelerate</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/27/conv3/"/>
         <content type="html">&lt;h1 id=&#34;前置信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置信息&#34;&gt;#&lt;/a&gt; 前置信息&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;（1）本文讲解使用的例子&lt;/strong&gt;&lt;/p&gt;
@@ -257,7 +257,7 @@ mat.channel(1).row(1) -&amp;gt; address of c1h1w0
 &lt;li&gt;然后再遍历高的方向。变成 25*25*16&lt;/li&gt;
 &lt;li&gt;最后是遍历两组，得到昇腾的 5D 结构【2，25，25，16】&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;此处数据搬运较为简单，可以参考代码&lt;a href=&#34;https://github.com/ForCheetah/ConvAccelerate&#34;&gt;加速算法模拟&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;此处数据搬运较为简单，&amp;lt;!-- 可以参考代码&lt;a href=&#34;https://github.com/ForCheetah/ConvAccelerate&#34;&gt;加速算法模拟&lt;/a&gt; --&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;输入-从input-5d-直接搬到-大z小z&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#输入-从input-5d-直接搬到-大z小z&#34;&gt;#&lt;/a&gt; 输入 从 Input 5D 直接搬到 大 Z 小 Z&lt;/h2&gt;
 &lt;p&gt;昇腾通过专门设计的硬件，将 input 从 5D 格式直接搬到 大 Z 小 Z 排布。想要知道怎么搬以及为什么这么搬，还真不得不把其 2D 排布讲明白。  《昇腾 AI 处理器架构与编程》这本书中直接跳过了 2D 排布，导致晦涩难懂。&lt;/p&gt;
 &lt;h3 id=&#34;input-5d-到-input-2d&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#input-5d-到-input-2d&#34;&gt;#&lt;/a&gt; Input 5D 到 Input 2D&lt;/h3&gt;
@@ -304,10 +304,12 @@ mat.channel(1).row(1) -&amp;gt; address of c1h1w0
 &lt;li&gt;那么右图中的 1-16 这 16*16 个数据是连续的吗？它是！ 根据大 Z 小 Z 排布，这红色框中 16*16 的数据刚好被分到一个小 Cube 中！&lt;/li&gt;
 &lt;li&gt;昇腾能够从 Input5D 中一次性拷贝 256 个数据到大 Z 小 Z 排布！&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&amp;lt;!--&lt;/p&gt;
 &lt;h1 id=&#34;代码模拟&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码模拟&#34;&gt;#&lt;/a&gt; 代码模拟&lt;/h1&gt;
 &lt;p&gt;当然，我猜测昇腾应该是设计了 16 个 DMA 组成的 DAM 队列，来实现一次 256 个数据的搬运。真的是相当高效了！&lt;/p&gt;
 &lt;p&gt;我提供了 C 语言代码模拟整个昇腾的卷积运算流程。完整代码可以在 &lt;a href=&#34;https://github.com/ForCheetah/ConvAccelerate&#34;&gt;加速算法模拟&lt;/a&gt;下载，该工程提供了以下三个测试函数，它们的区别在于不同的输入排布方式。&lt;/p&gt;
 &lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//9.  测试 昇腾 卷积算法加速     NCHW 输入， NHWC 输出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// TestAscendConvLayer();&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//10.  测试 昇腾 卷积算法加速      NCHW 输入， NCHW 输出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// TestAscendConvLayerNCHW();&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//11. 测试 昇腾卷积算法加速 NHWC      NHWC 输入， NHWC 输出&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// TestAscendConvLayerNHWC();&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;还要再提一句，该工程中采用 C 语言函数 memcpy () 来模拟昇腾的批量数据拷贝功能。数据搬运中并不是所有的情况都是 256 个数据内存连续的，所以可以看到代码运行中分两次、三次才能拷贝完 256 个数据的情况。昇腾硬件中设计的 DMA 队列不会出现这种问题。此外，硬件肯定设计为边搬运边计算的工作模式，不会像我工程中完全得到 Input 大 Z 小 Z 排布再进行矩阵运算。&lt;/p&gt;
+&lt;p&gt;这是隐藏的注释，不会显示。 --&amp;gt;&lt;/p&gt;
 &lt;p&gt;文章好长啊！画了好多图！&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
