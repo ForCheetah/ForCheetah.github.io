@@ -478,7 +478,7 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/23/conv2/&#34;&gt;【Im2Col】卷积加速算法【2】NHWC&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/06/27/conv3/&#34;&gt;【im2col】AScend conv accelerate&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/08/10/conv3/&#34;&gt;【im2col】AScend conv accelerate&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/07/07/conv4/&#34;&gt;【Winograd】卷积加速算法原理及实现&lt;/a&gt;&lt;/p&gt;
@@ -490,7 +490,7 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/24/conv6/&#34;&gt;【gemm】内存对齐&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/08/10/conv3/&#34;&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai推理引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai推理引擎&#34;&gt;#&lt;/a&gt; AI 推理引擎&lt;/h1&gt;
