@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Fri, 28 Mar 2025 21:58:41 +0800</pubDate>
-        <lastBuildDate>Fri, 28 Mar 2025 21:58:41 +0800</lastBuildDate>
+        <pubDate>Sun, 10 Aug 2025 23:16:48 +0800</pubDate>
+        <lastBuildDate>Sun, 10 Aug 2025 23:16:48 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -28,6 +28,31 @@
         <category>gemm</category>
         <category>quantize</category>
         <category>compiler</category>
+        <item>
+            <guid isPermalink="true">https://forcheetah.github.io/2025/08/10/compile04/</guid>
+            <title>【脉动阵列】脉动阵列类型</title>
+            <link>https://forcheetah.github.io/2025/08/10/compile04/</link>
+            <category>compiler</category>
+            <pubDate>Sun, 10 Aug 2025 23:16:48 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇文章简单总结脉动阵列加速矩阵运算的类型。&lt;/p&gt;
+&lt;p&gt;网上相关资料较多，可以自行搜索。&lt;/p&gt;
+&lt;p&gt;作为初学者，错误在所难免，还望不吝赐教。&lt;/p&gt;
+&lt;h1 id=&#34;脉动阵列类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#脉动阵列类型&#34;&gt;#&lt;/a&gt; 脉动阵列类型&lt;/h1&gt;
+&lt;p&gt;使用脉动阵列实现卷积的数据流类型。&lt;/p&gt;
+&lt;p&gt;使用脉动阵列实现卷积时，往往先将卷积转化为矩阵预算，然后再补零和分块矩阵乘。&lt;br&gt;
+脉动阵列设计中有 3 种典型的数据流： 输出固定 （Output Stationary， OS） 数据流、 权重固定 （Weight Stationary， WS） 数据流和输入固定 （ Input Stationary， IS） 数据流。&lt;/p&gt;
+&lt;p&gt;以下面这个 5*5 的矩阵乘为例：假设 M 是输入、N 是权重，Z 是结果。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1754838893561.jpg&#34; alt=&#34;典型的矩阵乘示例&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下是 输出固定 的数据流动方式。提前将输入和权重按照图示进行数据排布，并依次输入到脉动阵列中。计算结束后，脉动阵列的对应位置刚好得到结果 Z。这种方式下，输出是固定在脉动阵列中的。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1754838965677.jpg&#34; alt=&#34;输出固定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下是 权重固定 的数据流动方式。需要提前将输入按照图示进行数据排布，权重提前加载至脉动阵列中。随着输入依次进入脉动阵列，下方会输出结果。这种方式下，权重是固定在脉动阵列中的。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1754838986110.jpg&#34; alt=&#34;权重固定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;至于输入固定的数据流动方式，其与权重固定类似，不过是两个矩阵调换位置。&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/03/28/compile03/</guid>
             <title>【编译器】使用llvm编译自定义语言【3】编译 object</title>

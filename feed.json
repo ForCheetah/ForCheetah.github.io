@@ -5,6 +5,16 @@
     "home_page_url": "https://forcheetah.github.io",
     "items": [
         {
+            "id": "https://forcheetah.github.io/2025/08/10/compile04/",
+            "url": "https://forcheetah.github.io/2025/08/10/compile04/",
+            "title": "【脉动阵列】脉动阵列类型",
+            "date_published": "2025-08-10T15:16:48.217Z",
+            "content_html": "<h1 id=\"前言\"><a class=\"anchor\" href=\"#前言\">#</a> 前言</h1>\n<p>本篇文章简单总结脉动阵列加速矩阵运算的类型。</p>\n<p>网上相关资料较多，可以自行搜索。</p>\n<p>作为初学者，错误在所难免，还望不吝赐教。</p>\n<h1 id=\"脉动阵列类型\"><a class=\"anchor\" href=\"#脉动阵列类型\">#</a> 脉动阵列类型</h1>\n<p>使用脉动阵列实现卷积的数据流类型。</p>\n<p>使用脉动阵列实现卷积时，往往先将卷积转化为矩阵预算，然后再补零和分块矩阵乘。<br>\n脉动阵列设计中有 3 种典型的数据流： 输出固定 （Output Stationary， OS） 数据流、 权重固定 （Weight Stationary， WS） 数据流和输入固定 （ Input Stationary， IS） 数据流。</p>\n<p>以下面这个 5*5 的矩阵乘为例：假设 M 是输入、N 是权重，Z 是结果。</p>\n<p><img loading=\"lazy\" data-src=\"1754838893561.jpg\" alt=\"典型的矩阵乘示例\"></p>\n<p>以下是 输出固定 的数据流动方式。提前将输入和权重按照图示进行数据排布，并依次输入到脉动阵列中。计算结束后，脉动阵列的对应位置刚好得到结果 Z。这种方式下，输出是固定在脉动阵列中的。</p>\n<p><img loading=\"lazy\" data-src=\"1754838965677.jpg\" alt=\"输出固定\"></p>\n<p>以下是 权重固定 的数据流动方式。需要提前将输入按照图示进行数据排布，权重提前加载至脉动阵列中。随着输入依次进入脉动阵列，下方会输出结果。这种方式下，权重是固定在脉动阵列中的。</p>\n<p><img loading=\"lazy\" data-src=\"1754838986110.jpg\" alt=\"权重固定\"></p>\n<p>至于输入固定的数据流动方式，其与权重固定类似，不过是两个矩阵调换位置。</p>\n<h1 id=\"后记\"><a class=\"anchor\" href=\"#后记\">#</a> 后记</h1>\n<p>本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 <a href=\"https://github.com/ForCheetah/ForCheetah.github.io\">github 项目</a> 或随便一个项目下提出 issue，或者<a href=\"https://www.zhihu.com/people/guai-dao-ji-de-3-50\">知乎</a> 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！</p>\n",
+            "tags": [
+                "compiler"
+            ]
+        },
+        {
             "id": "https://forcheetah.github.io/2025/08/10/conv3/",
             "url": "https://forcheetah.github.io/2025/08/10/conv3/",
             "title": "【im2col】AScend conv accelerate",
