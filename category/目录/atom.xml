@@ -25,6 +25,7 @@
     <category term="gemm" />
     <category term="quantize" />
     <category term="compiler" />
+    <category term="Article" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/24/category/</id>
         <title>博客汇总目录</title>

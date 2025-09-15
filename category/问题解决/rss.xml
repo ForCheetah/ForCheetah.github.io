@@ -28,6 +28,7 @@
         <category>gemm</category>
         <category>quantize</category>
         <category>compiler</category>
+        <category>Article</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/08/23/problem4/</guid>
             <title>SystemC 用寄存器同步建模方法</title>

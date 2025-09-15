@@ -25,6 +25,7 @@
     <category term="gemm" />
     <category term="quantize" />
     <category term="compiler" />
+    <category term="Article" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>

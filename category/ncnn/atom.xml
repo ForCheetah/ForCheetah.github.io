@@ -25,6 +25,7 @@
     <category term="gemm" />
     <category term="quantize" />
     <category term="compiler" />
+    <category term="Article" />
     <entry>
         <id>https://forcheetah.github.io/2025/04/16/ncnn01/</id>
         <title>【NCNN】学习ncnn模型转换</title>

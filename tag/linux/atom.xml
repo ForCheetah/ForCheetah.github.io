@@ -25,6 +25,7 @@
     <category term="gemm" />
     <category term="quantize" />
     <category term="compiler" />
+    <category term="Article" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/23/problem4/</id>
         <title>SystemC 用寄存器同步建模方法</title>

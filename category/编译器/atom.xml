@@ -25,6 +25,7 @@
     <category term="gemm" />
     <category term="quantize" />
     <category term="compiler" />
+    <category term="Article" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/10/compile04/</id>
         <title>【脉动阵列】脉动阵列类型</title>

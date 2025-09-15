@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Sun, 31 Aug 2025 10:23:34 +0800</pubDate>
-        <lastBuildDate>Sun, 31 Aug 2025 10:23:34 +0800</lastBuildDate>
+        <pubDate>Mon, 15 Sep 2025 22:47:34 +0800</pubDate>
+        <lastBuildDate>Mon, 15 Sep 2025 22:47:34 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -28,5 +28,6 @@
         <category>gemm</category>
         <category>quantize</category>
         <category>compiler</category>
+        <category>Article</category>
     </channel>
 </rss>
