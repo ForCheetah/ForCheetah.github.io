@@ -2266,6 +2266,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/05/11/tvmByoc01/&#34;&gt;【BYOC】TVM 添加自定义编译器 ccompiler&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/10/06/tvmByoc02/&#34;&gt;【BYOC】TVM 切分子图&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器&#34;&gt;#&lt;/a&gt; 编译器&lt;/h1&gt;
 &lt;ul&gt;
