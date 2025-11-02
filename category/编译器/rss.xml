@@ -51,7 +51,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1754838986110.jpg&#34; alt=&#34;权重固定&#34;&gt;&lt;/p&gt;
 &lt;p&gt;至于输入固定的数据流动方式，其与权重固定类似，不过是两个矩阵调换位置。&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
-&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -91,7 +91,7 @@
 &lt;p&gt;实际上不是。 &lt;code&gt;llvm::Function&lt;/code&gt;  是主要的存在形式，但是还有全局变量（Global Variable）、常量（Constant）、基本块（Basic Block）、指令（Instruction）、元数据（Metadata）等。&lt;/p&gt;
 &lt;p&gt;想要真正了解 llvm IR 还得全面地学习。&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
-&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，我看到一定及时回复！&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -144,7 +144,7 @@
 &lt;p&gt;原因是在将 表达式转为 llvm IR 的过程中，没有任何新的变量需要创建，所需的变量在转换 Prototype 的时候就已经完成了。&lt;/p&gt;
 &lt;p&gt;例如 &lt;code&gt;foo(x) x+2;&lt;/code&gt;  这样一个函数，变量 &lt;code&gt;x&lt;/code&gt;  在转换 &lt;code&gt;foo(x)&lt;/code&gt;  这个原型的时候就已经创建好了，所以在转换 &lt;code&gt;x+2&lt;/code&gt;  表达式的时候，只需要在已经创建好的  &lt;code&gt;NamedValues&lt;/code&gt;  Map 中把它取出来。&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
-&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -201,7 +201,7 @@
 &lt;p&gt;为了更好理解深度递归创建 AST 的过程，图 4 展示了 &lt;code&gt;4*(2+1)-cos(1);&lt;/code&gt;  表达式的调用过程。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1741865107343.jpg&#34; alt=&#34;调用过程实例&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
-&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，或者&lt;a href=&#34;https://www.zhihu.com/people/guai-dao-ji-de-3-50&#34;&gt;知乎&lt;/a&gt; 私信，并指明哪一篇博客，我看到一定及时回复，感激不尽！&lt;/p&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
