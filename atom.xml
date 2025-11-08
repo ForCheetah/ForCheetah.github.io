@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2025-11-06T13:52:47.745Z</updated>
+    <updated>2025-11-08T06:58:55.163Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -26,6 +26,35 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <entry>
+        <id>https://forcheetah.github.io/2025/11/08/zatanNoval5/</id>
+        <title>【感想】写作进度报告5</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2025/11/08/zatanNoval5/"/>
+        <content type="html">&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
+&lt;p&gt;小说字数已经超过 24 万了！&lt;/p&gt;
+&lt;p&gt;情节确定之后，现在的进度要比以前快的多。&lt;/p&gt;
+&lt;p&gt;完成之后大概有 27 或 28 万吧，那时候会将其放在各种平台。&lt;/p&gt;
+&lt;p&gt;不过最后小说没有人看的话，还是会非常失望。&lt;/p&gt;
+&lt;p&gt;还是得说，没人看的概率比较大，这不是一篇适合作为网文的小说，也未用来迎合任何大众化的喜好。&lt;/p&gt;
+&lt;p&gt;她只是一个我构思了很久，条理逻辑还算严谨的故事。&lt;/p&gt;
+&lt;p&gt;唯一能确定的是，我喜欢这个故事。&lt;/p&gt;
+&lt;p&gt;整个系列规划了三部，但实际上后续的两部连骨架都不完善，更不用说躯干和血肉。小说写作是个漫长沉闷的过程，如果第一部没人看的话，我不确定后续还会继续写下去。&lt;/p&gt;
+&lt;p&gt;值得高兴的是，本部作品已经构思完所有细节，只等完成了……&lt;/p&gt;
+&lt;p&gt;支撑我完成这部小说的因素可能有：打发无聊的时间、做些有意义的事情、当做一个爱好、和对留下些什么让人看到的期许。&lt;/p&gt;
+&lt;p&gt;如果最后一个因素失去意义，前面几个因素都可以由其他事情替代。用来打发无聊时间的事情很多，有意义的事情很多，爱好也很多…… 小说并没有她的唯一性。&lt;/p&gt;
+&lt;h1 id=&#34;dota2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dota2&#34;&gt;#&lt;/a&gt; DOTA2&lt;/h1&gt;
+&lt;p&gt;写到这里，忍不住聊一聊最近的 DOTA2 比赛。&lt;/p&gt;
+&lt;p&gt;写这部分小说时，正值 DOTA2 TI14 比赛如火如荼进行当中。尽管是个一局 DOTA 都没打过的纯云玩家，却总是在 TI 开始的时候点开直播，听着解说享受激烈的战况，为中国战队加油。&lt;/p&gt;
+&lt;p&gt;最令人伤心莫过于功败垂成。Ti8 的中国队拥有摧枯拉朽的统治力，2:3 输在决赛，像是曹操输了赤壁，大家相信明天就能卷土重来；Ti10 的中国队仍怒视豪强，无人敢轻，但 2:3 输了决赛就像是关羽失荆州，此后便一路崩盘；Ti14 的中国队本已是冢中枯骨，以却以近乎完美的战绩率先冲出小组赛。刀友们一边调侃 “计划有变，准备夺冠”，一边提醒自己，能进八强就是胜利。然而就是这样一只中国队，从所有人赛前 0-4 的预测中，一路杀进决赛。&lt;br&gt;
+残忍莫过于心生邪念和妄想，然后被狠狠地摔碎在地上，又是 2:3，就差那么一点儿。&lt;/p&gt;
+&lt;p&gt;人生不如意者十有八九，失败总是贯穿人生始终。好多人感到难过，无非是把自己的人生经历投射到三次亚军、奇货郎 119 级的老将 AME 身上。“如今奖杯就在眼前，我必须考虑这会不会是我此生仅有的机会”。如果他能赢了，就仿佛这个世界还在告诉你：天道酬勤，努力还会有回报。&lt;/p&gt;
+&lt;p&gt;Ti14 之后，不再有以前失利后的谩骂、嘲讽，有的只是意难平。&lt;/p&gt;
+&lt;p&gt;亚军已经很好了，但还是想要冠军。&lt;/p&gt;
+&lt;p&gt;再次鼓起丧失的勇气 —— 镇魂石&lt;/p&gt;
+</content>
+        <category term="novel" />
+        <updated>2025-11-08T06:58:55.163Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2025/11/06/halide/</id>
         <title>【Halide】调度优化【1】</title>
@@ -2323,7 +2352,7 @@ Compute definitions and backend schedules for standard neural network operators.
         <title>博客汇总目录</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/05/24/category/"/>
         <content type="html">&lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
-&lt;h1 id=&#34;卷积加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#卷积加速算法&#34;&gt;#&lt;/a&gt; 卷积加速算法&lt;/h1&gt;
+&lt;h1 id=&#34;加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#加速算法&#34;&gt;#&lt;/a&gt; 加速算法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/23/conv1/&#34;&gt;【Im2Col】卷积加速算法【1】 NCHW&lt;/a&gt;&lt;/p&gt;
@@ -2342,6 +2371,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/24/conv6/&#34;&gt;【gemm】内存对齐&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/06/halide/&#34;&gt;【Halide】调度优化【1】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;

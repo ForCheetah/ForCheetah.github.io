@@ -305,7 +305,7 @@ Compute definitions and backend schedules for standard neural network operators.
             <category>conv</category>
             <pubDate>Fri, 24 May 2024 21:25:53 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
-&lt;h1 id=&#34;卷积加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#卷积加速算法&#34;&gt;#&lt;/a&gt; 卷积加速算法&lt;/h1&gt;
+&lt;h1 id=&#34;加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#加速算法&#34;&gt;#&lt;/a&gt; 加速算法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/05/23/conv1/&#34;&gt;【Im2Col】卷积加速算法【1】 NCHW&lt;/a&gt;&lt;/p&gt;
@@ -324,6 +324,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2024/12/24/conv6/&#34;&gt;【gemm】内存对齐&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/06/halide/&#34;&gt;【Halide】调度优化【1】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
