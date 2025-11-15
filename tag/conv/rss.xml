@@ -494,6 +494,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/06/halide/&#34;&gt;【Halide】调度优化【1】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/15/halide2/&#34;&gt;【Halide】调度优化【2】&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
