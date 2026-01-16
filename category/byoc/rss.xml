@@ -29,6 +29,7 @@
         <category>quantize</category>
         <category>compiler</category>
         <category>Article</category>
+        <category>CUDA</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/10/06/tvmByoc02/</guid>
             <title>【BYOC】TVM切分子图</title>

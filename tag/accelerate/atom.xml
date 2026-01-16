@@ -26,6 +26,7 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <category term="CUDA" />
     <entry>
         <id>https://forcheetah.github.io/2024/07/07/conv4/</id>
         <title>【Winograd】卷积加速算法原理及实现</title>

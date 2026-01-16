@@ -29,6 +29,7 @@
         <category>quantize</category>
         <category>compiler</category>
         <category>Article</category>
+        <category>CUDA</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/08/31/aicompile05/</guid>
             <title>【AI编译】张量生命周期管理</title>

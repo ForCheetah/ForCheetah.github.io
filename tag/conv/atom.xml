@@ -26,6 +26,7 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <category term="CUDA" />
     <entry>
         <id>https://forcheetah.github.io/2025/01/03/quanti01/</id>
         <title>【量化】连续卷积层首尾量化的可行性</title>

@@ -26,6 +26,7 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <category term="CUDA" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/16/engine2/</id>
         <title>【推理引擎】常见AI推理框架</title>

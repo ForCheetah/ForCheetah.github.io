@@ -26,6 +26,7 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <category term="CUDA" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/18/deployTVMPython/</id>
         <title>【TVM】Python脚本实现模型编译和保存</title>

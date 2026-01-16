@@ -26,6 +26,7 @@
     <category term="quantize" />
     <category term="compiler" />
     <category term="Article" />
+    <category term="CUDA" />
     <entry>
         <id>https://forcheetah.github.io/2025/11/15/halide2/</id>
         <title>【Halide】调度优化【2】</title>

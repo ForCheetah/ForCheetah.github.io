@@ -29,6 +29,7 @@
         <category>quantize</category>
         <category>compiler</category>
         <category>Article</category>
+        <category>CUDA</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/08/10/conv3/</guid>
             <title>【im2col】AScend conv accelerate</title>
