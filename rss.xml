@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Fri, 16 Jan 2026 22:14:58 +0800</pubDate>
-        <lastBuildDate>Fri, 16 Jan 2026 22:14:58 +0800</lastBuildDate>
+        <pubDate>Fri, 16 Jan 2026 22:19:44 +0800</pubDate>
+        <lastBuildDate>Fri, 16 Jan 2026 22:19:44 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -30,6 +30,103 @@
         <category>compiler</category>
         <category>Article</category>
         <category>CUDA</category>
+        <item>
+            <guid isPermalink="true">https://forcheetah.github.io/2026/01/16/CUDA02/</guid>
+            <title>【CUDA C++】GPU存储【2】</title>
+            <link>https://forcheetah.github.io/2026/01/16/CUDA02/</link>
+            <category>AI</category>
+            <category>CUDA</category>
+            <pubDate>Fri, 16 Jan 2026 22:19:44 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇是介绍 GPU 的存储硬件。资料来源于 &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html&#34;&gt;官网 CUDA Programming Guide&lt;/a&gt;。本文会比官网教程简洁一些，去掉一些我不太感兴趣的内容（任性）。&lt;/p&gt;
+&lt;p&gt;参考  &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html&#34;&gt;官网 CUDA Programming Guide&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;作为初学者，错误在所难免，还望不吝赐教。&lt;/p&gt;
+&lt;h1 id=&#34;gpu-memory&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gpu-memory&#34;&gt;#&lt;/a&gt; GPU Memory&lt;/h1&gt;
+&lt;p&gt;在现代计算系统中，有效利用内存与最大限度地利用执行计算的逻辑单元同样重要。异构系统拥有多个内存空间，而图形处理器（GPU）除了缓存之外，还包含多种类型的可编程片上内存。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1768573069898.jpg&#34; alt=&#34;CPU 存储&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;global-memory全局内存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#global-memory全局内存&#34;&gt;#&lt;/a&gt; Global Memory（全局内存）&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;物理本质：GPU 芯片外的 DRAM 芯片（即显存，VRAM）&lt;/li&gt;
+&lt;li&gt;别名：GPU DRAM、Device Memory&lt;/li&gt;
+&lt;li&gt;访问范围：所有 SM（Streaming Multiprocessors）均可访问&lt;/li&gt;
+&lt;li&gt;特点：&lt;/li&gt;
+&lt;li&gt;容量大（如 8GB–24GB）&lt;/li&gt;
+&lt;li&gt;延迟高，但带宽极高（通过宽总线）&lt;/li&gt;
+&lt;li&gt;在 CUDA 编程中通过 cudaMalloc () 分配&lt;/li&gt;
+&lt;li&gt;在架构图中的位置&lt;/li&gt;
+&lt;li&gt;位于 GPU 芯片外部，通过 Memory Controller 连接到 GPU 核心，通常标注为 &amp;quot;GPU DRAM&amp;quot; 或 &amp;quot;Global Memory&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;system-memory-host-memory系统内存-主机内存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#system-memory-host-memory系统内存-主机内存&#34;&gt;#&lt;/a&gt; System Memory / Host Memory（系统内存 / 主机内存）&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;物理本质：CPU 旁边的 DDR4/DDR5 内存条&lt;/li&gt;
+&lt;li&gt;访问者：CPU 可直接访问；GPU 需通过 PCIe 或 NVLink 访问（速度慢）&lt;/li&gt;
+&lt;li&gt;在统一虚拟地址空间下：与 GPU 全局内存共用一个地址空间，但物理分离&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+位于 CPU 一侧，通过 PCIe/NVLink 总线连接到 GPU，通常标注为 &amp;quot;SYSTEM DRAM&amp;quot; 或 &amp;quot;Host Memory&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;on-chip-memory片上内存属于每个-sm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#on-chip-memory片上内存属于每个-sm&#34;&gt;#&lt;/a&gt; On-Chip Memory（片上内存）—— 属于每个 SM&lt;/h1&gt;
+&lt;h2 id=&#34;a-register-file寄存器文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#a-register-file寄存器文件&#34;&gt;#&lt;/a&gt; (a) Register File（寄存器文件）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;归属：每个 SM 独有&lt;/li&gt;
+&lt;li&gt;分配单位：每个线程（thread）&lt;/li&gt;
+&lt;li&gt;用途：存储线程的局部变量（由编译器自动分配）&lt;/li&gt;
+&lt;li&gt;特点：&lt;/li&gt;
+&lt;li&gt;速度最快（零延迟访问）&lt;/li&gt;
+&lt;li&gt;容量有限（如每个 SM 有 65536 个 32-bit 寄存器）&lt;/li&gt;
+&lt;li&gt;线程块能否被调度到 SM，取决于寄存器是否够用&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+位于 每个 SM 内部，紧邻 CUDA Core / FP32 ALU，通常标为 &amp;quot;Register File&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;b-shared-memory共享内存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b-shared-memory共享内存&#34;&gt;#&lt;/a&gt; (b) Shared Memory（共享内存）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;归属：每个 SM 独有&lt;/li&gt;
+&lt;li&gt;分配单位：每个线程块（thread block）&lt;/li&gt;
+&lt;li&gt;用途：线程块内线程间通信、数据重用（如矩阵分块）&lt;/li&gt;
+&lt;li&gt;特点：&lt;/li&gt;
+&lt;li&gt;速度极快（接近寄存器）&lt;/li&gt;
+&lt;li&gt;容量小（通常 64KB–164KB per SM），可与 L1 缓存动态划分&lt;/li&gt;
+&lt;li&gt;程序员显式管理（ &lt;code&gt;__shared__&lt;/code&gt;  关键字）&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+位于 SM 内部，与 Register File 并列，常标为 &amp;quot;Shared Memory&amp;quot; 或包含在 &amp;quot;Unified Data Cache&amp;quot; 模块中（因与 L1 共享物理存储）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;caches缓存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#caches缓存&#34;&gt;#&lt;/a&gt; Caches（缓存）&lt;/h1&gt;
+&lt;h2 id=&#34;a-l1-cache一级缓存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#a-l1-cache一级缓存&#34;&gt;#&lt;/a&gt; (a) L1 Cache（一级缓存）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;归属：每个 SM 独有&lt;/li&gt;
+&lt;li&gt;物理实现：与 Shared Memory 共享同一块 SRAM（称为 Unified Data Cache）&lt;/li&gt;
+&lt;li&gt;用途：缓存 global memory 的数据（可配置为更多 L1 或更多 Shared Memory）&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+通常与 Shared Memory 合并表示为 &amp;quot;Unified Data Cache&amp;quot; 或 &amp;quot;L1/Shared Memory&amp;quot; 模块，位于 SM 内部。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;b-l2-cache二级缓存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b-l2-cache二级缓存&#34;&gt;#&lt;/a&gt; (b) L2 Cache（二级缓存）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;归属：整个 GPU 共享&lt;/li&gt;
+&lt;li&gt;用途：缓存所有 SM 对 global memory 的访问，减少 DRAM 访问次数&lt;/li&gt;
+&lt;li&gt;容量：几 MB 到几十 MB（如 RTX 4090 有 72MB L2）&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+位于 所有 SM 之外、GPU DRAM 之前，通常画成一个大的 &amp;quot;L2 Cache&amp;quot; 模块，连接所有 SM 和 Memory Controller。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;c-constant-cache常量缓存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-constant-cache常量缓存&#34;&gt;#&lt;/a&gt; (c) Constant Cache（常量缓存）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;归属：每个 SM 独有&lt;/li&gt;
+&lt;li&gt;用途：缓存标记为  &lt;code&gt;__constant__&lt;/code&gt;  的只读数据（如 kernel 参数）&lt;/li&gt;
+&lt;li&gt;特点：小容量、广播式访问、低延迟&lt;/li&gt;
+&lt;li&gt;在架构图中的位置：&lt;br&gt;
+通常在 SM 内部单独标出，或作为 L1 之外的一个小模块，标为 &amp;quot;Constant Cache&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;unified-memory统一内存&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unified-memory统一内存&#34;&gt;#&lt;/a&gt; Unified Memory（统一内存）&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;注意：这不是一种 “物理内存”，而是一种编程模型 + 硬件 / 运行时支持机制&lt;/li&gt;
+&lt;li&gt;作用：让 CPU 和 GPU 使用同一个指针访问数据，系统自动迁移数据&lt;/li&gt;
+&lt;li&gt;底层仍使用：System Memory + Global Memory（物理上仍是两块）&lt;/li&gt;
+&lt;li&gt;在架构图中：不对应具体硬件模块，但依赖 统一虚拟地址空间（Unified Virtual Addressing, UVA） 和 页迁移引擎（Page Migration Engine），这些通常由 MMU（内存管理单元） 和 IOMMU 支持，在高级架构图中可能不显式画出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结：&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1768573153283.jpg&#34; alt=&#34;总结图&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2026/01/16/CUDA01/</guid>
             <title>【CUDA C++】GPU基本介绍【1】</title>
@@ -2666,6 +2763,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/04/27/Tengine02/&#34;&gt;【Tengine】推理流程脑图【2】&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/04/27/Tengine02/&#34;&gt;【CUDA C++】GPU 基本介绍【1】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai编译器&#34;&gt;#&lt;/a&gt; AI 编译器&lt;/h1&gt;

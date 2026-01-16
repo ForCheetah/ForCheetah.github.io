@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="alternate" href="/rss.xml" title="Пусть этот камень будет более крепким, чем человек" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="Пусть этот камень будет более крепким, чем человек" type="application/atom+xml"><link rel="alternate" type="application/json" title="Пусть этот камень будет более крепким, чем человек" href="https://forcheetah.github.io/feed.json"><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"><link rel="preconnect" href="https://at.alicdn.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext" media="none" onload="this.media='all'"><link rel="stylesheet" href="/css/app.css?v=0.4.2"><link rel="modulepreload" href="/js/chunk-FJ7AJ5BW.js"><link rel="modulepreload" href="/js/chunk-MQTNP6EI.js"><link rel="modulepreload" href="/js/chunk-QAWHJ5B3.js"><link rel="modulepreload" href="/js/index.esm-SU253EAQ.js"><link rel="modulepreload" href="/js/post-SZ2V6ERD.js"><link rel="modulepreload" href="/js/quicklink-GO25OZIT.js"><link rel="modulepreload" href="/js/siteInit.js"><link rel="preload" href="https://forcheetah.github.io/assets/lunbo4.webp" as="image" fetchpriority="high"><link rel="preload" href="https://forcheetah.github.io/assets/lunbo6.webp" as="image" fetchpriority="high"><link rel="preload" href="https://forcheetah.github.io/assets/danger.webp" as="image" fetchpriority="high"><link rel="preload" href="https://forcheetah.github.io/assets/lunbo7.webp" as="image" fetchpriority="high"><link rel="preload" href="https://forcheetah.github.io/assets/lunbo5.webp" as="image" fetchpriority="high"><link rel="preload" href="https://forcheetah.github.io/assets/lunbo8.webp" as="image" fetchpriority="high"><meta name="keywords" content="AI,"><meta name="description" content="有自己的博客很帅，但是我很懒，要命！！！"><link rel="canonical" href="https://forcheetah.github.io/2026/01/16/CUDA02/"><title>【CUDA C++】GPU存储【2】</title><meta name="generator" content="Hexo 7.0.0"></head><body itemscope="" itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">【CUDA C++】GPU存储【2】</h1><div class="meta"><span class="item" title="Created: 2026-01-16 22:19:44"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">Posted on</span><time itemprop="dateCreated datePublished" datetime="2026-01-16T22:19:44+08:00">2026-01-16</time></span><span class="item" title="Symbols count in article"><span class="icon"><i class="ic i-pen"></i></span><span class="text">Symbols count in article</span><span>2.6k</span><span class="text">words</span></span><span class="item" title="Reading time"><span class="icon"><i class="ic i-clock"></i></span><span class="text">Reading time</span><span>2 mins.</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="Toggle navigation bar"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">暮冬Z羡慕的博客</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/lunbo4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/lunbo6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/danger.webp&quot;);"></li><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/lunbo7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/lunbo5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;https://forcheetah.github.io/assets/lunbo8.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemlistelement="" itemscope="" itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">Home</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/CUDA/" itemprop="item" rel="index" title="InCUDA"><span itemprop="name">CUDA<meta itemprop="position" content="0"></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="en"><link itemprop="mainEntityOfPage" href="https://forcheetah.github.io/2026/01/16/CUDA02/"><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.webp"><meta itemprop="name" content="XianMu"><meta itemprop="description" content="神经网络推理、加速、AI编译。 我必须立刻开始挣扎！, 有自己的博客很帅，但是我很懒，要命！！！"></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="Пусть этот камень будет более крепким, чем человек"></span><div class="body md" itemprop="articleBody"><h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
+<p>本篇是介绍 GPU 的存储硬件。资料来源于 <a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html">官网 CUDA Programming Guide</a>。本文会比官网教程简洁一些，去掉一些我不太感兴趣的内容（任性）。</p>
+<p>参考  <a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html">官网 CUDA Programming Guide</a>。</p>
+<p>作为初学者，错误在所难免，还望不吝赐教。</p>
+<h1 id="gpu-memory"><a class="anchor" href="#gpu-memory">#</a> GPU Memory</h1>
+<p>在现代计算系统中，有效利用内存与最大限度地利用执行计算的逻辑单元同样重要。异构系统拥有多个内存空间，而图形处理器（GPU）除了缓存之外，还包含多种类型的可编程片上内存。</p>
+<p><img loading="lazy" data-src="1768573069898.webp" alt="CPU 存储"></p>
+<h1 id="global-memory全局内存"><a class="anchor" href="#global-memory全局内存">#</a> Global Memory（全局内存）</h1>
+<ul>
+<li>物理本质：GPU 芯片外的 DRAM 芯片（即显存，VRAM）</li>
+<li>别名：GPU DRAM、Device Memory</li>
+<li>访问范围：所有 SM（Streaming Multiprocessors）均可访问</li>
+<li>特点：</li>
+<li>容量大（如 8GB–24GB）</li>
+<li>延迟高，但带宽极高（通过宽总线）</li>
+<li>在 CUDA 编程中通过 cudaMalloc () 分配</li>
+<li>在架构图中的位置</li>
+<li>位于 GPU 芯片外部，通过 Memory Controller 连接到 GPU 核心，通常标注为 "GPU DRAM" 或 "Global Memory"。</li>
+</ul>
+<h1 id="system-memory-host-memory系统内存-主机内存"><a class="anchor" href="#system-memory-host-memory系统内存-主机内存">#</a> System Memory / Host Memory（系统内存 / 主机内存）</h1>
+<ul>
+<li>物理本质：CPU 旁边的 DDR4/DDR5 内存条</li>
+<li>访问者：CPU 可直接访问；GPU 需通过 PCIe 或 NVLink 访问（速度慢）</li>
+<li>在统一虚拟地址空间下：与 GPU 全局内存共用一个地址空间，但物理分离</li>
+<li>在架构图中的位置：<br>
+位于 CPU 一侧，通过 PCIe/NVLink 总线连接到 GPU，通常标注为 "SYSTEM DRAM" 或 "Host Memory"。</li>
+</ul>
+<h1 id="on-chip-memory片上内存属于每个-sm"><a class="anchor" href="#on-chip-memory片上内存属于每个-sm">#</a> On-Chip Memory（片上内存）—— 属于每个 SM</h1>
+<h2 id="a-register-file寄存器文件"><a class="anchor" href="#a-register-file寄存器文件">#</a> (a) Register File（寄存器文件）</h2>
+<ul>
+<li>归属：每个 SM 独有</li>
+<li>分配单位：每个线程（thread）</li>
+<li>用途：存储线程的局部变量（由编译器自动分配）</li>
+<li>特点：</li>
+<li>速度最快（零延迟访问）</li>
+<li>容量有限（如每个 SM 有 65536 个 32-bit 寄存器）</li>
+<li>线程块能否被调度到 SM，取决于寄存器是否够用</li>
+<li>在架构图中的位置：<br>
+位于 每个 SM 内部，紧邻 CUDA Core / FP32 ALU，通常标为 "Register File"。</li>
+</ul>
+<h2 id="b-shared-memory共享内存"><a class="anchor" href="#b-shared-memory共享内存">#</a> (b) Shared Memory（共享内存）</h2>
+<ul>
+<li>归属：每个 SM 独有</li>
+<li>分配单位：每个线程块（thread block）</li>
+<li>用途：线程块内线程间通信、数据重用（如矩阵分块）</li>
+<li>特点：</li>
+<li>速度极快（接近寄存器）</li>
+<li>容量小（通常 64KB–164KB per SM），可与 L1 缓存动态划分</li>
+<li>程序员显式管理（ <code>__shared__</code>  关键字）</li>
+<li>在架构图中的位置：<br>
+位于 SM 内部，与 Register File 并列，常标为 "Shared Memory" 或包含在 "Unified Data Cache" 模块中（因与 L1 共享物理存储）。</li>
+</ul>
+<h1 id="caches缓存"><a class="anchor" href="#caches缓存">#</a> Caches（缓存）</h1>
+<h2 id="a-l1-cache一级缓存"><a class="anchor" href="#a-l1-cache一级缓存">#</a> (a) L1 Cache（一级缓存）</h2>
+<ul>
+<li>归属：每个 SM 独有</li>
+<li>物理实现：与 Shared Memory 共享同一块 SRAM（称为 Unified Data Cache）</li>
+<li>用途：缓存 global memory 的数据（可配置为更多 L1 或更多 Shared Memory）</li>
+<li>在架构图中的位置：<br>
+通常与 Shared Memory 合并表示为 "Unified Data Cache" 或 "L1/Shared Memory" 模块，位于 SM 内部。</li>
+</ul>
+<h2 id="b-l2-cache二级缓存"><a class="anchor" href="#b-l2-cache二级缓存">#</a> (b) L2 Cache（二级缓存）</h2>
+<ul>
+<li>归属：整个 GPU 共享</li>
+<li>用途：缓存所有 SM 对 global memory 的访问，减少 DRAM 访问次数</li>
+<li>容量：几 MB 到几十 MB（如 RTX 4090 有 72MB L2）</li>
+<li>在架构图中的位置：<br>
+位于 所有 SM 之外、GPU DRAM 之前，通常画成一个大的 "L2 Cache" 模块，连接所有 SM 和 Memory Controller。</li>
+</ul>
+<h2 id="c-constant-cache常量缓存"><a class="anchor" href="#c-constant-cache常量缓存">#</a> (c) Constant Cache（常量缓存）</h2>
+<ul>
+<li>归属：每个 SM 独有</li>
+<li>用途：缓存标记为  <code>__constant__</code>  的只读数据（如 kernel 参数）</li>
+<li>特点：小容量、广播式访问、低延迟</li>
+<li>在架构图中的位置：<br>
+通常在 SM 内部单独标出，或作为 L1 之外的一个小模块，标为 "Constant Cache"。</li>
+</ul>
+<h1 id="unified-memory统一内存"><a class="anchor" href="#unified-memory统一内存">#</a> Unified Memory（统一内存）</h1>
+<ul>
+<li>注意：这不是一种 “物理内存”，而是一种编程模型 + 硬件 / 运行时支持机制</li>
+<li>作用：让 CPU 和 GPU 使用同一个指针访问数据，系统自动迁移数据</li>
+<li>底层仍使用：System Memory + Global Memory（物理上仍是两块）</li>
+<li>在架构图中：不对应具体硬件模块，但依赖 统一虚拟地址空间（Unified Virtual Addressing, UVA） 和 页迁移引擎（Page Migration Engine），这些通常由 MMU（内存管理单元） 和 IOMMU 支持，在高级架构图中可能不显式画出。</li>
+</ul>
+<h1 id="总结"><a class="anchor" href="#总结">#</a> 总结：</h1>
+<p><img loading="lazy" data-src="1768573153283.webp" alt="总结图"></p>
+<h1 id="后记"><a class="anchor" href="#后记">#</a> 后记</h1>
+<p>本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 <a target="_blank" rel="noopener" href="https://github.com/ForCheetah/ForCheetah.github.io">github 项目</a> 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！</p>
+<div class="tags"><a href="/tags/AI/" rel="tag"><i class="ic i-tag"></i>AI</a><a href="/tags/CUDA/" rel="tag"><i class="ic i-tag"></i>CUDA</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">Edited on</span><time title="Modified: 2026-01-16 22:20:01" itemprop="dateModified" datetime="2026-01-16T22:20:01+08:00">2026-01-16</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>Donate</button><p>Give me a cup of [coffee]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.webp" alt="XianMu WeChat Pay"><p>WeChat Pay</p></div><div><img loading="lazy" data-src="/assets/alipay.webp" alt="XianMu Alipay"><p>Alipay</p></div></div></div><div id="copyright"><ul><li class="author"><strong>Post author: </strong>XianMu<i class="ic i-at"><em>@</em></i>Пусть этот камень будет более крепким, чем человек</li><li class="link"><strong>Post link: </strong><a href="https://forcheetah.github.io/2026/01/16/CUDA02/" title="【CUDA C++】GPU存储【2】">https://forcheetah.github.io/2026/01/16/CUDA02/</a></li><li class="license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> unless stating additionally.</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2026/01/16/CUDA01/" rel="prev" itemprop="url" data-background-image="https://forcheetah.github.io/assets/lunbo6.webp" title="【CUDA C++】GPU基本介绍【1】"><span class="type">Previous Post</span><span class="category"><i class="ic i-flag"></i>CUDA</span><h3>【CUDA C++】GPU基本介绍【1】</h3></a></div><div class="item right"></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="Contents"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gpu-memory"><span class="toc-number">2.</span> <span class="toc-text"> GPU Memory</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#global-memory%E5%85%A8%E5%B1%80%E5%86%85%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text"> Global Memory（全局内存）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#system-memory-host-memory%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98-%E4%B8%BB%E6%9C%BA%E5%86%85%E5%AD%98"><span class="toc-number">4.</span> <span class="toc-text"> System Memory / Host Memory（系统内存 / 主机内存）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#on-chip-memory%E7%89%87%E4%B8%8A%E5%86%85%E5%AD%98%E5%B1%9E%E4%BA%8E%E6%AF%8F%E4%B8%AA-sm"><span class="toc-number">5.</span> <span class="toc-text"> On-Chip Memory（片上内存）—— 属于每个 SM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#a-register-file%E5%AF%84%E5%AD%98%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text"> (a) Register File（寄存器文件）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b-shared-memory%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text"> (b) Shared Memory（共享内存）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#caches%E7%BC%93%E5%AD%98"><span class="toc-number">6.</span> <span class="toc-text"> Caches（缓存）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#a-l1-cache%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">6.1.</span> <span class="toc-text"> (a) L1 Cache（一级缓存）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b-l2-cache%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">6.2.</span> <span class="toc-text"> (b) L2 Cache（二级缓存）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-constant-cache%E5%B8%B8%E9%87%8F%E7%BC%93%E5%AD%98"><span class="toc-number">6.3.</span> <span class="toc-text"> (c) Constant Cache（常量缓存）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#unified-memory%E7%BB%9F%E4%B8%80%E5%86%85%E5%AD%98"><span class="toc-number">7.</span> <span class="toc-text"> Unified Memory（统一内存）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text"> 总结：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">9.</span> <span class="toc-text"> 后记</span></a></li></ol></div><div class="related panel pjax" data-title="Related"><ul><li><a href="/2026/01/16/CUDA01/" rel="bookmark" title="【CUDA C++】GPU基本介绍【1】">【CUDA C++】GPU基本介绍【1】</a></li><li class="active"><a href="/2026/01/16/CUDA02/" rel="bookmark" title="【CUDA C++】GPU存储【2】">【CUDA C++】GPU存储【2】</a></li></ul></div><div class="overview panel" data-title="Overview"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="XianMu" src="/assets/avatar.webp"><p class="name" itemprop="name">XianMu</p><div class="description" itemprop="description">有自己的博客很帅，但是我很懒，要命！！！</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">55</span><span class="name">posts</span></a></div><div class="item categories"><a href="/categories/"><span class="count">21</span><span class="name">categories</span></a></div><div class="item tags"><a href="/tags/"><span class="count">23</span><span class="name">tags</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/ForCheetah" class="item github" title="https://github.com/ForCheetah"><i class="ic i-github"></i></a><a href="/huasen.w@foxmail.com" class="item email" title="huasen.w@foxmail.com"><i class="ic i-envelope"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>Home</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2026/01/16/CUDA01/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>Random Posts</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="In计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Linux/" title="InLinux">Linux</a></div><span><a href="/2024/05/12/test/">foo</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/tvm/" title="Intvm">tvm</a></div><span><a href="/2024/10/21/tvm04/">【TVM】通过代码学习编译流程【4】BuildRelay</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%8D%B7%E7%A7%AF%E5%8A%A0%E9%80%9F/" title="In卷积加速">卷积加速</a></div><span><a href="/2024/05/23/conv1/">【Im2Col】卷积加速算法【1】 NCHW</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="In问题解决">问题解决</a></div><span><a href="/2024/05/15/openBlas/">openBlas库的安装与简单使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%9D%82%E8%B0%88/" title="In杂谈">杂谈</a></div><span><a href="/2024/05/26/zatan3D/">【3D建模】IS-7攻城锤流纹岩皮肤展示</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E7%BC%96%E8%AF%91%E5%99%A8/" title="In编译器">编译器</a></div><span><a href="/2025/03/28/compile03/">【编译器】使用llvm编译自定义语言【3】编译 object</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E/" title="In推理引擎">推理引擎</a></div><span><a href="/2024/05/30/engine1/">【推理引擎】NCNN和Tengine量化推理逻辑对比</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%8D%B7%E7%A7%AF%E5%8A%A0%E9%80%9F/" title="In卷积加速">卷积加速</a></div><span><a href="/2024/07/07/conv4/">【Winograd】卷积加速算法原理及实现</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%8D%B7%E7%A7%AF%E5%8A%A0%E9%80%9F/" title="In卷积加速">卷积加速</a></div><span><a href="/2024/12/20/conv5/">【gemm】Gemm计算加速</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E7%BC%96%E8%AF%91%E5%99%A8/" title="In编译器">编译器</a></div><span><a href="/2025/03/13/compile01/">【编译器】使用llvm编译自定义语言【1】构建AST</a></span></li></ul></div><div class="rpost pjax"><h2>Recent Comments</h2></div></div><div class="status"><div class="copyright">© 2010 -<span itemprop="copyrightYear">2026</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">XianMu @ 暮冬Z羡慕的博客</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="Symbols count total">346k words</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="Reading time total">5:14</span></div><div class="powered-by">Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &amp; Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config="" type="text/javascript">var LOCAL = {
+    ispost: true,
+        path: `2026/01/16/CUDA02/`,
+        favicon: {
+        show: `(●´3｀●) Here we go again.`,
+        hide: `(´Д｀) It's a disaster!`
+    },
+    search: {
+        placeholder: "Search for Posts",
+        empty: "We didn't find any results for the search: ${query}",
+        stats: "${hits} results found in ${time} ms"
+    },
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: {},
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">Article Timeliness Alert</span><br>This is an article published {{publish}} days ago and last updated {{updated}} days ago. Some information may have changed, so please be careful to screen it.</p></div>`,
+    quiz: {
+        choice: `Multiple Choice`,
+        multiple: `Multiple Answer`,
+        true_false: `True/False`,
+        essay: `Questions`,
+        gap_fill: `Gap Filling`,
+        mistake: `Wrong Answer`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-6-M/pace/1.2.4/pace.min.js" async=""></script><script src="/js/siteInit.js?v=0.4.2" type="module" fetchpriority="high" defer=""></script></body></html>
