@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2026-03-10T14:58:38.823Z</updated>
+    <updated>2026-03-15T09:59:23.409Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -27,6 +27,36 @@
     <category term="compiler" />
     <category term="Article" />
     <category term="CUDA" />
+    <entry>
+        <id>https://forcheetah.github.io/2026/03/15/aicompile07/</id>
+        <title>【AI编译】深度优先的Tile调度，万事大吉？</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2026/03/15/aicompile07/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本篇文章发现了单纯的 “深度优先的 Tile 调度” 存在的问题。先简单介绍一下单纯的深度优先调度，再指出其可能出现的问题。&lt;/p&gt;
+&lt;p&gt;错误在所难免，还望不吝赐教。&lt;/p&gt;
+&lt;h1 id=&#34;深度优先调度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深度优先调度&#34;&gt;#&lt;/a&gt; 深度优先调度&lt;/h1&gt;
+&lt;p&gt;请允许叫他深度优先调度。本人研究论文不多，我也不知道这种调度方式到底有没有一个官方的、或者大家默认的名称。但是从调度逻辑上，我把他叫做 ——“深度优先调度”。一来是为了指代简单，二来可以方便交流。&lt;/p&gt;
+&lt;p&gt;以下面这个两层卷积网络为例：&lt;br&gt;
+图中详细展示了输入输出 tensor，和两个卷积层的参数。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1773568616581.jpg&#34; alt=&#34;两层卷积例子示例&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下图是这个例子的深度优先调度顺序。假设三个 Tensor 是这样切分的：第一个切成 20,20,20,4；第二个切成 10,10,10,2；第三个切成 10,10,10,2。同时第一个 Tensor 需要通过 DMA 引擎从外部搬运到 NPU 片上 SRAM。则调度顺序如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1773568674006.jpg&#34; alt=&#34;深度优先调度示意图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;图中的带中括号 “【】” 的数字代表执行顺序，实际上也就是宏指令的排布顺序。&lt;br&gt;
+简单介绍一下：【1】DMA IN 指令将一块 Data Block （20 行）从 DDR 搬运到 SRAM。【2】经检查已经搬运的数据足够计算 Conv1 的第一个 Data Block 结果，则执行它。【3】经检查，计算 Conv2 的第一个 Data Block 的数据不足够，因此回退，回退至 DAM IN 指令，搬运第二块 Data Block。&lt;br&gt;
+【4】经检查已经搬运的数据足够计算 Conv1 的第二个 Data Block 结果，则执行它。 ……&lt;/p&gt;
+&lt;h1 id=&#34;单纯深度优先调度存在问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#单纯深度优先调度存在问题&#34;&gt;#&lt;/a&gt; 单纯深度优先调度存在问题&lt;/h1&gt;
+&lt;p&gt;以上是存粹的深度优先调度规则，但这种方式很多情况下不能带来良好的并行性。&lt;br&gt;
+例如下面这个例子：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1773568734777.jpg&#34; alt=&#34;存在的问题&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如上图所示，图中是个卷积和池化交错的例子，下方左边是单纯的深度优先调度，其中 “Ci” 代表 “Conv i”，“Pi” 代表 “Pool i”，“Ti” 代表第 i 个 Tile。可以看到单纯的深度优先调度，很可能会导致连续这几个 Tile 都需要等待数据，并行度不高。&lt;/p&gt;
+&lt;p&gt;右图则选择适时地生成同一算子的两条指令，这种情况下并行性就要好得多。这个生成两条，或者多条指令的条件，需要根据经验来设计，或者就是简单的在 “非首块 block” 的情况下，尝试生成两条指令，效果就不错。&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
+</content>
+        <category term="compile" />
+        <category term="AI" />
+        <updated>2026-03-15T09:59:23.409Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2026/03/10/aicompile06/</id>
         <title>【AI编译】多级流水线Tile调度策略</title>
