@@ -3167,6 +3167,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/03/15/aicompile07/&#34;&gt;【AI 编译】深度优先的 Tile 调度，万事大吉？&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/03/15/aicompile08/&#34;&gt;【AI 编译】LayerGroup Tiling Tile 的疑惑和思考&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/03/10/aicompile06/&#34;&gt;【AI 编译】多级流水线 Tile 调度策略&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
