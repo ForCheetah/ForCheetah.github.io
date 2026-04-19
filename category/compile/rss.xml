@@ -30,6 +30,7 @@
         <category>compiler</category>
         <category>Article</category>
         <category>CUDA</category>
+        <category>llm</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2026/03/15/aicompile08/</guid>
             <title>【AI编译】LayerGroup Tiling Tile的疑惑和思考</title>
