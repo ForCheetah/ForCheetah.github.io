@@ -444,7 +444,12 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;/ul&gt;
 &lt;h1 id=&#34;大语言模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大语言模型&#34;&gt;#&lt;/a&gt; 大语言模型&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/04/19/llm01/&#34;&gt;Transformer 模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/04/19/llm01/&#34;&gt;Transformer 模型&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href&gt;LLM 基础知识【1】&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;问题解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题解决&#34;&gt;#&lt;/a&gt; 问题解决&lt;/h1&gt;
 &lt;ul&gt;
