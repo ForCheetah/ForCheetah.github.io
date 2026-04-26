@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2026-04-19T10:28:09.528Z</updated>
+    <updated>2026-04-26T02:47:25.472Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -28,6 +28,121 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <entry>
+        <id>https://forcheetah.github.io/2026/04/26/llm02/</id>
+        <title>LLM基础知识【1】</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2026/04/26/llm02/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本文罗列一些大模型、Transformer 相关的基础知识。&lt;/p&gt;
+&lt;p&gt;可能会有误解和疏漏，谨慎参考。&lt;/p&gt;
+&lt;h1 id=&#34;什么是动态图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是动态图&#34;&gt;#&lt;/a&gt; 什么是动态图&lt;/h1&gt;
+&lt;p&gt;什么是计算图 ：由「算子节点 + 张量边」组成的 DAG 有向无环图，记录：数据怎么走、谁加谁、谁乘谁、谁做归一化&lt;/p&gt;
+&lt;p&gt;什么是静态图 ：我们通常把 onnx、TensorRT network IR 等看作静态图。先把整个网络结构完整定义、固化、序列化成一张固定的图，图是永久存在的文件 / 结构体（ONNX 文件、TRT Network IR），图一旦生成，运行中不能随便改分支、不能改循环次数，我们拿这张固定的图跑数据。&lt;/p&gt;
+&lt;p&gt;什么是动态图 ：每次前向推理之前，才临时构建计算图；推理结束之后，计算图即销毁，不保存；下次推理形成的计算图，可能和上一次不一样。例如 pytorch 就是动态图，以下面 pytorch 图为例：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;MLP&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;nn&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Module&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;fc1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; nn&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Linear&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;4096&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4096&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;act &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; nn&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Silu&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        h &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;fc1&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;act&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;h&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;__init__&lt;/code&gt;  阶段：只初始化权重参数，完全没有计算图。&lt;br&gt;
+只有调用 &lt;code&gt;out = model(x)&lt;/code&gt;  时，PyTorch 才会追踪张量运算  &lt;code&gt;x@W + b&lt;/code&gt; ，临时创建算子节点、绑定张量依赖，在显存 / 内存临时上下文里拼出一张瞬时计算图。&lt;/p&gt;
+&lt;p&gt;Pytorch 模型可以导出 onnx 静态图。例如上面的 pytorch 模型可以通过 &lt;code&gt;torch.onnx.export &lt;/code&gt; 输出 onnx 静态模型。&lt;br&gt;
+那 pytorch 为什么不做成静态图呢？动态图每次都需要重新构建计算图，费时费力。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.if 条件，动态控制，如下面模型，根据不同条件，选择不同分支&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; threshold&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;mean&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; threshold&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;# 每次 run 值都不同&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;layer1&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;layer2&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; x&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;2. 动态循环次数（while/for）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;norm&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;layer&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; x&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;3. 大模型常用的动态张量形状。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; self&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;attention&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Token 数量不同，Profille 阶段每次输入的张量形状也不同，attention 内部 mask 形状，KV cache 也不同。&lt;/p&gt;
+&lt;p&gt;在以上情况下，无法固定地形成一张静态图。所以 pytorch 构建的是动态图，在每次 forward 的时候，现场建图。图用完即销毁。&lt;/p&gt;
+&lt;p&gt;在导出 onnx 时，PyTorch 会 “假装” 跑一次 forward，把当时那一刻的图抓下来，固化成静态图。如果计算图中含有 if /while/for 动态循环等，pytorch 导出静态图大概会报错，或者导出错误。&lt;/p&gt;
+&lt;p&gt;当然，onnx 自带了 if、loop、scan 静态控制流算子，但它不是 PyTorch 那种自由的 Python if/while，且不适合现在工程上的使用，几乎没人使用。&lt;/p&gt;
+&lt;h1 id=&#34;为什么transformer能够生成静态图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么transformer能够生成静态图&#34;&gt;#&lt;/a&gt; 为什么 Transformer 能够生成静态图&lt;/h1&gt;
+&lt;p&gt;标准的 Transformer 能够输出 onnx，但 Transformer 包含自循环过程，我们前面说过其无法导出为静态图才对，为什么它又能导出静态图呢？&lt;/p&gt;
+&lt;p&gt;Transformer 整个模型就是纯 DAG 链式算子堆叠：Embedding → TransformerBlock × N → LayerNorm → Output&lt;br&gt;
+ 其 Decoder 导出的 onnx，只记录了一次输入 token 输出 token 的过程，实现自循环，需要外部业务代码 / CPU 来实现。输出的 onnx 中并不包含自循环过程。&lt;/p&gt;
+&lt;p&gt;这样一来，Transformer 能够导出为静态图。&lt;/p&gt;
+&lt;p&gt;那为啥现代大模型不按照 Transformer 类似的方式生成静态图呢？&lt;/p&gt;
+&lt;p&gt;LLM 不是不能导出静态图，而是导出出来的 ONNX 要么不可用、要么性能爆炸差、要么只能固定长度、无法正常对话生成。相比 Transformer，它有更多不能导出静态图的原因：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.Decode 是天然的 while 动态循环，循环次数 = 回答长度，由用户输出内容决定，运行时才知道。&lt;/li&gt;
+&lt;li&gt;2.KV Cache 动态追加，张量形状每时每刻都在变长。&lt;/li&gt;
+&lt;li&gt;3.Prefill 与 Decode 计算逻辑完全不一样，在同一个 forward 中，有大量  &lt;code&gt;if seq_len == 1 &lt;/code&gt; 张量条件判断，来区分两个不同的过程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;强行导出静态图，会导致模型浪费大量算力和显存，工业届基本放弃大模型 onnx 全图方案。&lt;/p&gt;
+&lt;h1 id=&#34;大模型基本架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大模型基本架构&#34;&gt;#&lt;/a&gt; 大模型基本架构&lt;/h1&gt;
+&lt;p&gt;传统 Transformer = Encoder + Decoder 两个独立的子网络（计算图不同）。&lt;br&gt;
+现代大语言模型（如 GPT、LLaMA、Qwen） = Decoder-only 架构，只有一套类 Transformer 的 Decoder 模块。&lt;/p&gt;
+&lt;h2 id=&#34;传统-transformer&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#传统-transformer&#34;&gt;#&lt;/a&gt; 传统 Transformer&lt;/h2&gt;
+&lt;p&gt;1.Encoder：独立的结构，自注意力是双向的（看到整个句子）。&lt;/p&gt;
+&lt;p&gt;2.Decoder：不同的结构，包含 Masked Self-Attention（单向）和 Cross-Attention（查询 Encoder 的输出）。&lt;br&gt;
+两个计算图完全不同，参数也不共享。&lt;/p&gt;
+&lt;h2 id=&#34;现代大语言模型gptllama&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#现代大语言模型gptllama&#34;&gt;#&lt;/a&gt; 现代大语言模型（GPT/LLaMA）&lt;/h2&gt;
+&lt;p&gt;1. 只有一个模块：Decoder-only，没有 Encoder。&lt;/p&gt;
+&lt;p&gt;2. 每一层只有 Masked Self-Attention + FFN，没有 Cross-Attention。&lt;/p&gt;
+&lt;p&gt;3.Prefill 和 Decode：只是同一个模型在不同输入形状下的两次执行，而非两个不同的子网络。&lt;/p&gt;
+&lt;h2 id=&#34;大模型推理流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大模型推理流程&#34;&gt;#&lt;/a&gt; 大模型推理流程&lt;/h2&gt;
+&lt;p&gt;大模型推理（LLM Inference）本质是一个自回归生成过程：模型根据已生成的所有 token，预测下一个 token，不断重复直到遇到停止符或达到最大长度。&lt;/p&gt;
+&lt;p&gt;整个过程分为两个截然不同的阶段：Prefill（预填充）和 Decode（解码）。Prefill 和 Decode 使用的是完全相同的神经网络结构和模型权重。&lt;/p&gt;
+&lt;h2 id=&#34;prefill-阶段预填充&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#prefill-阶段预填充&#34;&gt;#&lt;/a&gt; Prefill 阶段（预填充）&lt;/h2&gt;
+&lt;p&gt;将用户的输入 Prompt（例如 “请帮我写一首关于春天的诗”）一次性喂给模型，计算所有输入 token 之间的注意力关系，并生成第一个输出 token。&lt;br&gt;
+此阶段的输入形状为 &lt;code&gt;[batch_size, prompt_len, hidden_dim]&lt;/code&gt; ，其中：&lt;br&gt;
+ &lt;code&gt;batch_size&lt;/code&gt; : 指一次同时处理的问题数量（即多个独立的 prompt）。并行处理可以提升吞吐量。&lt;br&gt;
+ &lt;code&gt;prompt_len&lt;/code&gt; : 指的是 Token 数量，不是原始字符数。比如 “Hello world” 可能被分词为两个 token。&lt;br&gt;
+ &lt;code&gt;hidden_dim&lt;/code&gt; : 就是词嵌入向量的长度（也叫 d_model），例如 LLaMA-7B 中为 4096。&lt;br&gt;
+现在有个新的问题：不同的 promt 的 promt_len 不同，甚至差异很大，如何将其组合到同一个 batch 中呢？这里暂时不做解释。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;br&gt;
+1. 计算密集型：需要并行处理输入中的所有 token，计算量巨大（大致与输入长度的平方成正比）。&lt;/p&gt;
+&lt;p&gt;2. 生成首个 token：这个阶段结束后，我们就得到了第一个回答 token（比如 “春”）。&lt;/p&gt;
+&lt;p&gt;3. 建立 KV Cache：此时会计算并缓存所有输入 token 的 Key-Value 对，供后续 Decode 阶段复用。&lt;/p&gt;
+&lt;p&gt;4. 影响 “首字延迟”（Time to First Token, TTFT）&lt;/p&gt;
+&lt;p&gt;例子：用户输入 100 个 token，Prefill 会一次性处理这 100 个 token 的注意力矩阵，输出第 101 个 token。&lt;/p&gt;
+&lt;h2 id=&#34;decode-阶段解码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#decode-阶段解码&#34;&gt;#&lt;/a&gt; Decode 阶段（解码）&lt;/h2&gt;
+&lt;p&gt;拿到 Prefill 生成的第一个 token 后，进入循环：每步输入当前最新的一个 token，结合之前缓存的所有 KV Cache，计算出下一个 token。重复这一步，直到生成完整回复。&lt;br&gt;
+此阶段的输入形状为 &lt;code&gt;[batch_size, 1, hidden_dim]&lt;/code&gt; 。因为自循环过程，计算第 i 个 token，只需要将第 i-1 结果作为输入，其余的 KV 已经在缓存当中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;br&gt;
+1. 内存带宽密集型：每步只处理一个 token，但需要读取全部历史 token 的 KV Cache（存在 GPU 显存中）。因此瓶颈在于从显存读取数据的速度，而非计算。&lt;/p&gt;
+&lt;p&gt;2. 串行生成：无法并行，每生成一个新 token 都需要完整走一遍模型的前向传播（虽然只算新 token 的注意力，但需要读旧 KV Cache）。&lt;/p&gt;
+&lt;p&gt;3.KV Cache 持续增长：每生成一个 token，就要将其 KV 对追加到缓存中。&lt;br&gt;
+4. 影响 “每字间隔”（Time Per Output Token, TPOT）&lt;/p&gt;
+&lt;h1 id=&#34;大模型请求调度流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大模型请求调度流程&#34;&gt;#&lt;/a&gt; 大模型请求调度流程&lt;/h1&gt;
+&lt;p&gt;现在已经知道了大模型的推理流程，紧接着下一个问题是，vllm 是如何对请求进行调度的？&lt;/p&gt;
+&lt;p&gt;用户请求是随机到来的，他们关心的是 “首字延迟”（Profille）和 “每字间隔”（Decode），vllm 如何对这些请求进行批处理，来满足用户关心的问题呢？&lt;/p&gt;
+&lt;p&gt;调度策略是：&lt;strong&gt;连续批处理 (Scheduling) = 请求队列 (Request Queue) + 迭代级调度 (Iteration-level Scheduling)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;请求队列request-queue&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#请求队列request-queue&#34;&gt;#&lt;/a&gt; 请求队列 (Request Queue)&lt;/h2&gt;
+&lt;p&gt;简单来说，在线推理服务的核心在于一个机制：不等待。引擎处理器不会为了凑满一个固定大小的批次而等待新请求，而是利用一个请求队列，在每个计算步骤的间隔，都动态地将所有已在队列中等待的请求组成一个批次进行处理。&lt;/p&gt;
+&lt;p&gt;这样，新请求在到达后只需在队列中短暂排队，就能在下一轮计算中被处理，既保证了吞吐量，又最大限度地控制了延迟。&lt;/p&gt;
+&lt;p&gt;以高速收费站举例，所有车（请求）先进入等待通道（队列），管理员（调度器）在通行间隙，根据通道状况和车流量，挑选合适的车辆组成车队，一次性放行。&lt;/p&gt;
+&lt;h2 id=&#34;迭代级调度iteration-level-scheduling&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#迭代级调度iteration-level-scheduling&#34;&gt;#&lt;/a&gt; 迭代级调度 (Iteration-level Scheduling)&lt;/h2&gt;
+&lt;p&gt;我们先假设以下两种情况：&lt;/p&gt;
+&lt;p&gt;1. 假设现在请求队列中有 10 个请求，调度器选择其中的 6 个组成 batch A，按照 Prefill 优先 (Prefill-First)，A 进行 Prefill，花费了 2 秒钟，那么 2 秒钟后 A 中的 6 个用户得到了第一个字的回复。然后调度器将剩下 4 个请求组成 B，进行 Prefill，经过 2 秒钟。那岂不是 A 中 6 个用户 2 秒钟时间都没有得到第二个字？&lt;/p&gt;
+&lt;p&gt;2. 换一种情况，Decode 优先 (Decode-First)，A 进行 Prefill 完成之后，优先继续执行 A 中的 6 个请求的 Decode，Decode 执行完毕，耗时 5 秒钟。那么 B 中 4 个用户的请求在这 7 秒钟的时间，都未做任何处理，这显然也是不合理的。并且，A 组 6 个请求的 Decode 耗时不同，最短的 Decode 是否需要等待最长的 Decode 呢？&lt;/p&gt;
+&lt;p&gt;以上两种情况显然不可接受，这时候就要用到 “迭代” 级调度。我们先来理解 “迭代” 这个词的含义。&lt;/p&gt;
+&lt;p&gt;我们之所以会产生上面的假设，是因为传统的 batch 处理，往往是组成 batch 之后，一直运行结束，才会构建下一个 batch。这是一种较传统的 “静态批处理” (Static Batching) 策略。&lt;/p&gt;
+&lt;p&gt;vLLM 不再以 “批次” 为单位，而是以 “迭代” (Iteration) 为单位。&lt;strong&gt;每次模型的前向传播（forward pass）就是一次迭代&lt;/strong&gt;。在每一次迭代的间隙，调度器都会进行一次动态调度.&lt;/p&gt;
+&lt;p&gt;更具体一点：一个请求 20 个 promt Token 进行 prefill 得到第 21 个 token 是一次迭代；第 i-1 个 Token 进行 decode 得到第 i 个 token 也是一次迭代。每次迭代完成之后，当前的 batch 组合已经完成它的使命，而此时这些请求并没有完成，调度器会在下一轮次，构建新的 batch。&lt;/p&gt;
+&lt;h2 id=&#34;prefill和decode可以组成一个batch吗&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#prefill和decode可以组成一个batch吗&#34;&gt;#&lt;/a&gt; prefill 和 decode 可以组成一个 batch 吗？&lt;/h2&gt;
+&lt;p&gt;现在思考，为了满足多个用户请求的 “首字延迟”（Profille）和 “每字间隔”（Decode）需求，显然只有当 prefill 和 decode 组成一个 batch 时才可以满足，prefill 和 decode 可以组成一个 batch 吗？&lt;/p&gt;
+&lt;p&gt;可以！&lt;/p&gt;
+&lt;p&gt;调度器不关心请求处于什么阶段，只关心本轮迭代每个请求需要处理多少个 token。&lt;/p&gt;
+&lt;p&gt;假设某一轮迭代开始时，系统中有：请求 A：正在 Decode，已生成 100 个 token，本轮只需处理 1 个 token（最新生成的 token）；请求 B：刚到达，prompt 长度 50 token，本轮需要处理全部 50 个 token（Prefill）。&lt;br&gt;
+调度器算出本轮总 token 数 = 1 + 50 = 51，若未超过  &lt;code&gt;max_num_batched_tokens&lt;/code&gt; （比如 512），就会将 A 和 B 放入同一个 batch。&lt;/p&gt;
+&lt;p&gt;那么问题又来了：请求 A 的维度为 [1,1,4096]，请求 B 的维度为 [1,50,4096]，如何堆叠排放呢？&lt;/p&gt;
+&lt;p&gt;1.padding：将 A 的输入填充到 50 个 token（补 0 或特殊 token），并用注意力掩码屏蔽掉填充位置。这样 A 相当于处理一个长度为 50 的序列，但其中 49 个是无效的，浪费计算。这样显然不行。&lt;/p&gt;
+&lt;p&gt;2.vLLM/FlashAttention 的做法：不强制形状对齐，而是为每个请求独立存储其 KV Cache 和当前输入 token。在 attention 内核中，通过分页索引和动态循环，对不同请求使用不同的序列长度。例如，FlashAttention 支持 varlen（可变长度） 输入，只需传入每个请求的起始偏移量，就可以在一个 batch 中高效计算。&lt;/p&gt;
+&lt;p&gt;FlashAttention 做法，这里不详细展开。&lt;/p&gt;
+&lt;h1 id=&#34;分块预填充-chunked-prefill&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分块预填充-chunked-prefill&#34;&gt;#&lt;/a&gt; 分块预填充 (Chunked Prefill)&lt;/h1&gt;
+&lt;p&gt;前述例子为例：一个处理 50 个 token 的 Prefill 和另一个处理 1 个 token 的 Decode 放在一起，一次前向迭代的完成时间会存在巨大差异。Prefill (处理 50 个 token)：这是一次性的密集型计算，耗时可能几百毫秒以上；Decode (处理 1 个 token)：内存访问延迟低，单步耗时很短，耗时通常在 10-30 毫秒之间，甚至更短。&lt;/p&gt;
+&lt;p&gt;难道要被迫等待吗？&lt;/p&gt;
+&lt;p&gt;为了不让上述情况发生，vLLM 引入了 分块预填充 (Chunked Prefill) 机制&lt;br&gt;
+ Chunked Prefill 允许将一个超长的 Prefill 请求，按照 max_num_batched_tokens 的值切分成多个小块 (chunks)。系统会在每一次迭代（iteration）中，将 Prefill 的 “一个块” 和所有 Decode 请求的 “一个 token” 打包在一起，进行混合批处理。&lt;/p&gt;
+&lt;p&gt;详细解释，这里不展开。&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
+</content>
+        <category term="AI" />
+        <category term="llm" />
+        <updated>2026-04-26T02:47:25.472Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2026/04/19/llm01/</id>
         <title>Transformer模型</title>
