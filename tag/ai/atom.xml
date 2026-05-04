@@ -3,7 +3,7 @@
     <id>https://forcheetah.github.io</id>
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;ai&#34; tag</title>
     <link href="https://forcheetah.github.io" />
-    <updated>2026-05-01T07:59:13.914Z</updated>
+    <updated>2026-05-04T09:39:00.755Z</updated>
     <category term="bar" />
     <category term="baz" />
     <category term="Linux" />
@@ -28,6 +28,61 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <entry>
+        <id>https://forcheetah.github.io/2026/05/04/llm05/</id>
+        <title>【LLM推理加速】FlashAttention</title>
+        <link rel="alternate" href="https://forcheetah.github.io/2026/05/04/llm05/"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;本文介绍 FlashAttention。本文只关注 FlashAttention 前向推理部分的应用。&lt;/p&gt;
+&lt;p&gt;参考链接：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/338817680&#34;&gt;Transformer 模型详解（图解最完整版）&lt;/a&gt; ， &lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;Attention is All You Need&lt;/a&gt;，&lt;a href=&#34;https://github.com/hyunwoongko/transformer&#34;&gt;Pytorch 版本的 Transformer 实现&lt;/a&gt;、&lt;a href=&#34;https://www.zhihu.com/tardis/zm/art/600773858&#34;&gt;一文了解 Transformer 全貌（图解 Transformer）&lt;/a&gt;、&lt;a href=&#34;https://zhuanlan.zhihu.com/p/662498827&#34;&gt;大模型推理加速：看图学 KV Cache&lt;/a&gt;、&lt;a href=&#34;https://segmentfault.com/a/1190000047263593&#34;&gt;手撕大模型｜KVCache 原理及代码解析&lt;/a&gt;、&lt;a href=&#34;https://www.guoyaohua.com/flash-attention-explained.html&#34;&gt;FlashAttention 详解：为什么它能让大模型注意力计算又快又省显存？&lt;/a&gt;、&lt;a href=&#34;https://zhuanlan.zhihu.com/p/676655352&#34;&gt;Flash Attention 原理详解 (含代码讲解)&lt;/a&gt;、&lt;a href=&#34;https://zhuanlan.zhihu.com/p/663932651&#34;&gt;【手撕 LLM-Flash Attention】从 softmax 说起，保姆级超长文！！&lt;/a&gt;、&lt;a href=&#34;https://arxiv.org/pdf/2001.04438&#34;&gt;《The Two-Pass Softmax Algorithm》&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;动机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#动机&#34;&gt;#&lt;/a&gt; 动机&lt;/h1&gt;
+&lt;p&gt;Online Softmax 是 flash attention 的基础，可以提前学习了解下 Online Softmax ：&lt;a href=&#34;https://forcheetah.github.io/2026/05/01/llm03/&#34;&gt;【LLM 推理加速】Online Softmax&lt;/a&gt;。&lt;br&gt;
+Flash Attention 的核心思想： 分块 Tiling。&lt;/p&gt;
+&lt;p&gt;LLM 的 Attention 计算过程包含巨大的矩阵运算和 softmax，需要存储巨大的注意力矩阵，必然会导致 GPU 显存和 SRAM 之间的频繁数据交换。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887240873.jpg&#34; alt=&#34;存储差异性&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上图左边，GPU 中存储是分层的，越往上层速度越快。GPU 显存以 GB 为单位，如 A100 显存 40GB，其速度只有 1.5T/s。而 SRAM 读写速度为 19TB/s，比 HBM 高一个数量级，但是空间只有 20M。GPU 需要将数据拷贝到 SRAM 才能进行运算，因此 HBM 和 SRAM 之间的数据传输成为吞吐量瓶颈。&lt;/p&gt;
+&lt;p&gt;在没 flash attention 算法的情况下，标准 Attention 会强制生成完整 N×N 注意力分数矩阵，中间张量反复「HBM 写入→再从 HBM 读出」。比如从 HBM 读取整块 Q、整块 K 到 SRAM，计算得到结果 S，需要写回 HBM；再读取 S，计算缩放和掩码 Smask，再写回到 HBM；再之后还需要计算 softmax。&lt;/p&gt;
+&lt;p&gt;上图右边，pytorch 实现的传统 attention，每一步都需要读写 HBM，效果要比 flash 差的多。&lt;/p&gt;
+&lt;p&gt;怎么解决呢，就是切块 Tiling。&lt;/p&gt;
+&lt;p&gt;但 attention 计算中，softmax 涉及到全局求和，为什么能切块呢？&lt;/p&gt;
+&lt;p&gt;flash attention 算法就是解决这个问题的。&lt;/p&gt;
+&lt;p&gt;总之，FlashAttention 是一种 IO-aware 的精确注意力计算算法，它通过分块计算和 online Softmax，避免显式存储巨大的注意力矩阵，从而大幅减少 GPU 显存读写。&lt;/p&gt;
+&lt;h1 id=&#34;flash-attention&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#flash-attention&#34;&gt;#&lt;/a&gt; Flash Attention&lt;/h1&gt;
+&lt;p&gt;Attention 注意力公式：&lt;br&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887322260.jpg&#34; alt=&#34;Attention注意力公式&#34;&gt;&lt;/p&gt;
+&lt;p&gt;online softmax 解决了分块计算 softmax 的问题，可以再回顾一下 online softmax。online softmax 更新公式：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887340325.jpg&#34; alt=&#34;online softmax更新公式&#34;&gt;&lt;/p&gt;
+&lt;p&gt;它解决了两个问题：&lt;br&gt;
+数值稳定：始终减去最大值，避免指数爆炸。&lt;br&gt;
+分块等价：虽然一块一块算，但最后结果和一次性 softmax 完全一致。&lt;/p&gt;
+&lt;p&gt;以下是 flash attention 算法：&lt;/p&gt;
+&lt;h2 id=&#34;2-pass-online-softmax&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-pass-online-softmax&#34;&gt;#&lt;/a&gt; 2-Pass Online Softmax&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887369403.jpg&#34; alt=&#34;2-Pass Online Softmax&#34;&gt;&lt;/p&gt;
+&lt;p&gt;左边是计算 三次 迭代计算 softmax 的过程，第一次计算最大值，第二次分母求和，第三次计算注意力得分  &lt;code&gt;a_i&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;右边根据 online softmax 算法，将计算过程变成两次迭代。第一次迭代同时计算最大值和分母，第二次计算注意力得分  &lt;code&gt;a_i&lt;/code&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;2-pass-self-attention&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-pass-self-attention&#34;&gt;#&lt;/a&gt; 2-pass Self-Attention&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887392028.jpg&#34; alt=&#34;2-Pass Self-Attention&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以 2-Pass Online Softmax 为基础，增加 QK^T 计算，得到 2-Pass Self-Attention。&lt;br&gt;
+计算过程如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887424266.jpg&#34; alt=&#34;计算过程&#34;&gt;&lt;/p&gt;
+&lt;p&gt;值得注意的是 &lt;code&gt;O_i&lt;/code&gt;  的计算也是个累加的过程，直到计算出 &lt;code&gt;O_N&lt;/code&gt; ，才算出一个最终值。&lt;/p&gt;
+&lt;h2 id=&#34;1-pass-self-attention&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-pass-self-attention&#34;&gt;#&lt;/a&gt; 1-pass Self-Attention&lt;/h2&gt;
+&lt;p&gt;下面需要思考的一个问题是，能不能让 &lt;code&gt;O_i&lt;/code&gt;  也在第一次迭代中计算出来？&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887451058.jpg&#34; alt=&#34;OI迭代&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上方第一行 &lt;code&gt;O_i&lt;/code&gt;  公式是二次迭代中的表达形式，第二行是它的定义形式。第三行 &lt;code&gt;O^&#39;_i&lt;/code&gt;  局部注意力输出的表达形式，当 &lt;code&gt;i=N&lt;/code&gt;  时， &lt;code&gt;o_i = o^&#39;_i&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;接下来就是推导 &lt;code&gt;O^&#39;_i&lt;/code&gt; ：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887468388.jpg&#34; alt=&#34;推导&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887484560.jpg&#34; alt=&#34;1-pass Self-Attention&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;flash-attentiontiling&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#flash-attentiontiling&#34;&gt;#&lt;/a&gt; Flash-Attention(Tiling)&lt;/h2&gt;
+&lt;p&gt;Flash Attention 分块形式：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1777887529753.jpg&#34; alt=&#34;Flash Attention分块形式&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
+</content>
+        <category term="AI" />
+        <category term="llm" />
+        <updated>2026-05-04T09:39:00.755Z</updated>
+    </entry>
     <entry>
         <id>https://forcheetah.github.io/2026/05/01/llm04/</id>
         <title>【LLM推理加速】PagedAttention</title>
