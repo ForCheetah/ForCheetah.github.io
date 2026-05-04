@@ -3592,6 +3592,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/05/01/llm04/&#34;&gt;【LLM 推理加速】PagedAttention&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/05/04/llm05/&#34;&gt;【LLM 推理加速】FlashAttention&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;问题解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题解决&#34;&gt;#&lt;/a&gt; 问题解决&lt;/h1&gt;
 &lt;ul&gt;
