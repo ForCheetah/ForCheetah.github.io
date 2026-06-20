@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2025/04/27/Tengine02/</id>
         <title>【Tengine】推理流程脑图【2】</title>

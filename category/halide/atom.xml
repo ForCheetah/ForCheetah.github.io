@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2025/11/15/halide2/</id>
         <title>【Halide】调度优化【2】</title>

@@ -5,8 +5,8 @@
         <link>https://forcheetah.github.io</link>
         <description>有自己的博客很帅，但是我很懒，要命！！！</description>
         <language>en</language>
-        <pubDate>Mon, 04 May 2026 17:42:01 +0800</pubDate>
-        <lastBuildDate>Mon, 04 May 2026 17:42:01 +0800</lastBuildDate>
+        <pubDate>Sun, 21 Jun 2026 01:07:19 +0800</pubDate>
+        <lastBuildDate>Sun, 21 Jun 2026 01:07:19 +0800</lastBuildDate>
         <category>bar</category>
         <category>baz</category>
         <category>Linux</category>
@@ -31,5 +31,6 @@
         <category>Article</category>
         <category>CUDA</category>
         <category>llm</category>
+        <category>triton</category>
     </channel>
 </rss>

@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/10/compile04/</id>
         <title>【脉动阵列】脉动阵列类型</title>

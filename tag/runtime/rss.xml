@@ -31,6 +31,7 @@
         <category>Article</category>
         <category>CUDA</category>
         <category>llm</category>
+        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/06/18/deployTVMPython/</guid>
             <title>【TVM】Python脚本实现模型编译和保存</title>

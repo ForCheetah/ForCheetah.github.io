@@ -31,6 +31,7 @@
         <category>Article</category>
         <category>CUDA</category>
         <category>llm</category>
+        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2026/02/01/CUDA03/</guid>
             <title>【CUDA C++】GPU内存使用【3】</title>

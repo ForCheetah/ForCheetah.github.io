@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>

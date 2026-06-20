@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2026/05/04/llm05/</id>
         <title>【LLM推理加速】FlashAttention</title>

@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2026/03/15/aicompile08/</id>
         <title>【AI编译】LayerGroup Tiling Tile的疑惑和思考</title>

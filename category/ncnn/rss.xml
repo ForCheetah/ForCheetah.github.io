@@ -31,6 +31,7 @@
         <category>Article</category>
         <category>CUDA</category>
         <category>llm</category>
+        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/04/16/ncnn01/</guid>
             <title>【NCNN】学习ncnn模型转换</title>

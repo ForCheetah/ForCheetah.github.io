@@ -31,6 +31,7 @@
         <category>Article</category>
         <category>CUDA</category>
         <category>llm</category>
+        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/10/06/tvmByoc02/</guid>
             <title>【BYOC】TVM切分子图</title>

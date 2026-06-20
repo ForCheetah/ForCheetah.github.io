@@ -28,6 +28,7 @@
     <category term="Article" />
     <category term="CUDA" />
     <category term="llm" />
+    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/23/problem4/</id>
         <title>SystemC 用寄存器同步建模方法</title>
