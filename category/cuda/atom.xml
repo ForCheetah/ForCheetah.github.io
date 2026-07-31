@@ -4,31 +4,31 @@
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;cuda&#34; category</title>
     <link href="https://forcheetah.github.io" />
     <updated>2026-02-01T13:47:17.043Z</updated>
-    <category term="bar" />
-    <category term="baz" />
-    <category term="Linux" />
-    <category term="openBlas" />
-    <category term="lib" />
+    <category term="Article" />
+    <category term="CUDA" />
+    <category term="AI" />
+    <category term="novel" />
+    <category term="compiler" />
+    <category term="compile" />
     <category term="accelerate" />
     <category term="conv" />
+    <category term="Linux" />
+    <category term="openBlas" />
+    <category term="gemm" />
+    <category term="cmake" />
+    <category term="runtime" />
     <category term="tvm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="cmake" />
-    <category term="runtime" />
+    <category term="lib" />
+    <category term="llm" />
+    <category term="systemc" />
+    <category term="quantize" />
+    <category term="bar" />
+    <category term="baz" />
+    <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
-    <category term="systemc" />
-    <category term="novel" />
-    <category term="compile" />
-    <category term="AI" />
-    <category term="gemm" />
-    <category term="quantize" />
-    <category term="compiler" />
-    <category term="Article" />
-    <category term="CUDA" />
-    <category term="llm" />
-    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2026/02/01/CUDA03/</id>
         <title>【CUDA C++】GPU内存使用【3】</title>
@@ -98,8 +98,8 @@ GPU 的 share memory 有 32 个 bank，每个 bank 的 cache line 长度为 4 �
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
 </content>
-        <category term="AI" />
         <category term="CUDA" />
+        <category term="AI" />
         <updated>2026-02-01T13:47:17.043Z</updated>
     </entry>
     <entry>
@@ -195,8 +195,8 @@ GPU 的 share memory 有 32 个 bank，每个 bank 的 cache line 长度为 4 �
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
 </content>
-        <category term="AI" />
         <category term="CUDA" />
+        <category term="AI" />
         <updated>2026-01-16T14:19:44.696Z</updated>
     </entry>
     <entry>
@@ -247,8 +247,8 @@ GPU 的 share memory 有 32 个 bank，每个 bank 的 cache line 长度为 4 �
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，看到一定及时回复！&lt;/p&gt;
 </content>
-        <category term="AI" />
         <category term="CUDA" />
+        <category term="AI" />
         <updated>2026-01-16T14:14:58.167Z</updated>
     </entry>
 </feed>

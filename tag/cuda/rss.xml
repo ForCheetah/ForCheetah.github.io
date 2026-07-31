@@ -7,37 +7,37 @@
         <language>en</language>
         <pubDate>Sun, 01 Feb 2026 21:47:17 +0800</pubDate>
         <lastBuildDate>Sun, 01 Feb 2026 21:47:17 +0800</lastBuildDate>
-        <category>bar</category>
-        <category>baz</category>
-        <category>Linux</category>
-        <category>openBlas</category>
-        <category>lib</category>
+        <category>Article</category>
+        <category>CUDA</category>
+        <category>AI</category>
+        <category>novel</category>
+        <category>compiler</category>
+        <category>compile</category>
         <category>accelerate</category>
         <category>conv</category>
+        <category>Linux</category>
+        <category>openBlas</category>
+        <category>gemm</category>
+        <category>cmake</category>
+        <category>runtime</category>
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>cmake</category>
-        <category>runtime</category>
+        <category>lib</category>
+        <category>llm</category>
+        <category>systemc</category>
+        <category>quantize</category>
+        <category>bar</category>
+        <category>baz</category>
+        <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
-        <category>systemc</category>
-        <category>novel</category>
-        <category>compile</category>
-        <category>AI</category>
-        <category>gemm</category>
-        <category>quantize</category>
-        <category>compiler</category>
-        <category>Article</category>
-        <category>CUDA</category>
-        <category>llm</category>
-        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2026/02/01/CUDA03/</guid>
             <title>【CUDA C++】GPU内存使用【3】</title>
             <link>https://forcheetah.github.io/2026/02/01/CUDA03/</link>
-            <category>AI</category>
             <category>CUDA</category>
+            <category>AI</category>
             <pubDate>Sun, 01 Feb 2026 21:47:17 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇介绍 GPU 的内存使用，主要是全局内存的合并内存访问，和共享内存的 bank 冲突。资料来源于 &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html&#34;&gt;官网 CUDA Programming Guide&lt;/a&gt;。本文会比官网教程简洁一些，去掉一些我不太感兴趣的内容（任性）。&lt;/p&gt;
@@ -109,8 +109,8 @@ GPU 的 share memory 有 32 个 bank，每个 bank 的 cache line 长度为 4 �
             <guid isPermalink="true">https://forcheetah.github.io/2026/01/16/CUDA02/</guid>
             <title>【CUDA C++】GPU存储【2】</title>
             <link>https://forcheetah.github.io/2026/01/16/CUDA02/</link>
-            <category>AI</category>
             <category>CUDA</category>
+            <category>AI</category>
             <pubDate>Fri, 16 Jan 2026 22:19:44 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇是介绍 GPU 的存储硬件。资料来源于 &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html&#34;&gt;官网 CUDA Programming Guide&lt;/a&gt;。本文会比官网教程简洁一些，去掉一些我不太感兴趣的内容（任性）。&lt;/p&gt;
@@ -206,8 +206,8 @@ GPU 的 share memory 有 32 个 bank，每个 bank 的 cache line 长度为 4 �
             <guid isPermalink="true">https://forcheetah.github.io/2026/01/16/CUDA01/</guid>
             <title>【CUDA C++】GPU基本介绍【1】</title>
             <link>https://forcheetah.github.io/2026/01/16/CUDA01/</link>
-            <category>AI</category>
             <category>CUDA</category>
+            <category>AI</category>
             <pubDate>Fri, 16 Jan 2026 22:14:58 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇是介绍 CUDA C++ 的第一篇。资料来源于 &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-programming-guide/contents.html&#34;&gt;官网 CUDA Programming Guide&lt;/a&gt;。本文会比官网教程简洁一些，去掉一些我不太感兴趣的内容（任性）。&lt;/p&gt;

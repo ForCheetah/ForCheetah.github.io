@@ -4,31 +4,31 @@
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;baz&#34; tag</title>
     <link href="https://forcheetah.github.io" />
     <updated>2024-05-12T13:14:18.428Z</updated>
-    <category term="bar" />
-    <category term="baz" />
-    <category term="Linux" />
-    <category term="openBlas" />
-    <category term="lib" />
+    <category term="Article" />
+    <category term="CUDA" />
+    <category term="AI" />
+    <category term="novel" />
+    <category term="compiler" />
+    <category term="compile" />
     <category term="accelerate" />
     <category term="conv" />
+    <category term="Linux" />
+    <category term="openBlas" />
+    <category term="gemm" />
+    <category term="cmake" />
+    <category term="runtime" />
     <category term="tvm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="cmake" />
-    <category term="runtime" />
+    <category term="lib" />
+    <category term="llm" />
+    <category term="systemc" />
+    <category term="quantize" />
+    <category term="bar" />
+    <category term="baz" />
+    <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
-    <category term="systemc" />
-    <category term="novel" />
-    <category term="compile" />
-    <category term="AI" />
-    <category term="gemm" />
-    <category term="quantize" />
-    <category term="compiler" />
-    <category term="Article" />
-    <category term="CUDA" />
-    <category term="llm" />
-    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>

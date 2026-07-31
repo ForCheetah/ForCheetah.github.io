@@ -7,37 +7,37 @@
         <language>en</language>
         <pubDate>Sat, 15 Nov 2025 12:00:44 +0800</pubDate>
         <lastBuildDate>Sat, 15 Nov 2025 12:00:44 +0800</lastBuildDate>
-        <category>bar</category>
-        <category>baz</category>
-        <category>Linux</category>
-        <category>openBlas</category>
-        <category>lib</category>
+        <category>Article</category>
+        <category>CUDA</category>
+        <category>AI</category>
+        <category>novel</category>
+        <category>compiler</category>
+        <category>compile</category>
         <category>accelerate</category>
         <category>conv</category>
+        <category>Linux</category>
+        <category>openBlas</category>
+        <category>gemm</category>
+        <category>cmake</category>
+        <category>runtime</category>
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>cmake</category>
-        <category>runtime</category>
+        <category>lib</category>
+        <category>llm</category>
+        <category>systemc</category>
+        <category>quantize</category>
+        <category>bar</category>
+        <category>baz</category>
+        <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
-        <category>systemc</category>
-        <category>novel</category>
-        <category>compile</category>
-        <category>AI</category>
-        <category>gemm</category>
-        <category>quantize</category>
-        <category>compiler</category>
-        <category>Article</category>
-        <category>CUDA</category>
-        <category>llm</category>
-        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/11/15/halide2/</guid>
             <title>【Halide】调度优化【2】</title>
             <link>https://forcheetah.github.io/2025/11/15/halide2/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sat, 15 Nov 2025 12:00:44 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章介绍 Halide 多级流水线调度优化策略。&lt;/p&gt;
@@ -119,8 +119,8 @@
             <guid isPermalink="true">https://forcheetah.github.io/2025/11/06/halide/</guid>
             <title>【Halide】调度优化【1】</title>
             <link>https://forcheetah.github.io/2025/11/06/halide/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Thu, 06 Nov 2025 21:52:47 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章介绍 Halide 的 Vectorize, parallelize, unroll , tile 等优化策略。&lt;/p&gt;

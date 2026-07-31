@@ -7,37 +7,37 @@
         <language>en</language>
         <pubDate>Sun, 15 Mar 2026 23:02:13 +0800</pubDate>
         <lastBuildDate>Sun, 15 Mar 2026 23:02:13 +0800</lastBuildDate>
-        <category>bar</category>
-        <category>baz</category>
-        <category>Linux</category>
-        <category>openBlas</category>
-        <category>lib</category>
+        <category>Article</category>
+        <category>CUDA</category>
+        <category>AI</category>
+        <category>novel</category>
+        <category>compiler</category>
+        <category>compile</category>
         <category>accelerate</category>
         <category>conv</category>
+        <category>Linux</category>
+        <category>openBlas</category>
+        <category>gemm</category>
+        <category>cmake</category>
+        <category>runtime</category>
         <category>tvm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>cmake</category>
-        <category>runtime</category>
+        <category>lib</category>
+        <category>llm</category>
+        <category>systemc</category>
+        <category>quantize</category>
+        <category>bar</category>
+        <category>baz</category>
+        <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
-        <category>systemc</category>
-        <category>novel</category>
-        <category>compile</category>
-        <category>AI</category>
-        <category>gemm</category>
-        <category>quantize</category>
-        <category>compiler</category>
-        <category>Article</category>
-        <category>CUDA</category>
-        <category>llm</category>
-        <category>triton</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2026/03/15/aicompile08/</guid>
             <title>【AI编译】LayerGroup Tiling Tile的疑惑和思考</title>
             <link>https://forcheetah.github.io/2026/03/15/aicompile08/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sun, 15 Mar 2026 23:02:13 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;NPU 的设计相对封闭，从市面上先进的 NPU 芯片和其工具链，乃至开发文档中，我只能学习到大方向的设计思路。这远远不够：1. 资料有限，有可能在大方向理解上出现偏差，这导致整个流程相当多的地方走不通或难度过大； 2. 细节上需要经验来自行领悟，细节不通也无法下手。&lt;/p&gt;
@@ -109,8 +109,8 @@ Tiling 和 Tile 是两种不同的操作：Tiling 切分成的分支是独立的
             <guid isPermalink="true">https://forcheetah.github.io/2026/03/15/aicompile07/</guid>
             <title>【AI编译】深度优先的Tile调度，万事大吉？</title>
             <link>https://forcheetah.github.io/2026/03/15/aicompile07/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sun, 15 Mar 2026 17:59:23 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章发现了单纯的 “深度优先的 Tile 调度” 存在的问题。先简单介绍一下单纯的深度优先调度，再指出其可能出现的问题。&lt;/p&gt;
@@ -139,8 +139,8 @@ Tiling 和 Tile 是两种不同的操作：Tiling 切分成的分支是独立的
             <guid isPermalink="true">https://forcheetah.github.io/2026/03/10/aicompile06/</guid>
             <title>【AI编译】多级流水线Tile调度策略</title>
             <link>https://forcheetah.github.io/2026/03/10/aicompile06/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Tue, 10 Mar 2026 22:58:38 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章介绍多级流水线 Tile 调度算法&lt;/p&gt;
@@ -230,8 +230,8 @@ Tiling 和 Tile 是两种不同的操作：Tiling 切分成的分支是独立的
             <guid isPermalink="true">https://forcheetah.github.io/2026/01/25/Cache01/</guid>
             <title>【AI编译】Cache缓存地址映射</title>
             <link>https://forcheetah.github.io/2026/01/25/Cache01/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sun, 25 Jan 2026 19:36:40 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;软件离不开硬件，硬件也离不开软件啊。作为 “根本不了解硬件” 的我，也不得不去了解和学习硬件的基本概念。本篇文章 Cache 缓存设计的相关内容。&lt;/p&gt;
@@ -332,8 +332,8 @@ NVIDIA CUDA、Google TensorFlow 等框架开发者更倾向于透明管理的方
             <guid isPermalink="true">https://forcheetah.github.io/2025/11/15/halide2/</guid>
             <title>【Halide】调度优化【2】</title>
             <link>https://forcheetah.github.io/2025/11/15/halide2/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sat, 15 Nov 2025 12:00:44 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章介绍 Halide 多级流水线调度优化策略。&lt;/p&gt;
@@ -415,8 +415,8 @@ NVIDIA CUDA、Google TensorFlow 等框架开发者更倾向于透明管理的方
             <guid isPermalink="true">https://forcheetah.github.io/2025/11/06/halide/</guid>
             <title>【Halide】调度优化【1】</title>
             <link>https://forcheetah.github.io/2025/11/06/halide/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Thu, 06 Nov 2025 21:52:47 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章介绍 Halide 的 Vectorize, parallelize, unroll , tile 等优化策略。&lt;/p&gt;
@@ -492,8 +492,8 @@ Halide 编译器会将 Halide 代码（算法 + 调度）编译成高效的 C++ 
             <guid isPermalink="true">https://forcheetah.github.io/2025/10/06/tvmByoc02/</guid>
             <title>【BYOC】TVM切分子图</title>
             <link>https://forcheetah.github.io/2025/10/06/tvmByoc02/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Mon, 06 Oct 2025 16:19:48 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇通过举例说明 TVM 切分子图的方法。&lt;/p&gt;
@@ -525,8 +525,8 @@ ccompiler 只支持   &lt;code&gt;+ - *&lt;/code&gt;  三个算子，目标是�
             <guid isPermalink="true">https://forcheetah.github.io/2025/08/31/aicompile05/</guid>
             <title>【AI编译】张量生命周期管理</title>
             <link>https://forcheetah.github.io/2025/08/31/aicompile05/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sun, 31 Aug 2025 10:20:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇文章总结【张量生命周期优化】算法。&lt;/p&gt;
@@ -608,8 +608,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2025/05/11/tvmByoc01/</guid>
             <title>【BYOC】TVM添加自定义编译器 ccompiler</title>
             <link>https://forcheetah.github.io/2025/05/11/tvmByoc01/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Sun, 11 May 2025 20:40:38 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇介绍外部编译器：C 语言编译器 ccompiler 是什么。&lt;/p&gt;
@@ -650,8 +650,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2025/02/05/aicompile04/</guid>
             <title>【AI编译】如何进行内存分配</title>
             <link>https://forcheetah.github.io/2025/02/05/aicompile04/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Wed, 05 Feb 2025 19:34:55 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本文讲解神经网络推理过程中的内存分配相关内容。&lt;/p&gt;
@@ -703,8 +703,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2025/01/15/aicompile03/</guid>
             <title>【AI编译】layer-group之后如何tiling</title>
             <link>https://forcheetah.github.io/2025/01/15/aicompile03/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Wed, 15 Jan 2025 21:12:53 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇讲解笔者实现 tiling 算法的一些经验。&lt;br&gt;
@@ -751,8 +751,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2025/01/14/aicompile02/</guid>
             <title>【AI编译】如何进行layer-group</title>
             <link>https://forcheetah.github.io/2025/01/14/aicompile02/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Tue, 14 Jan 2025 20:09:18 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇介绍 AI 编译领域 layer-group 算法。&lt;/p&gt;
@@ -788,8 +788,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/31/tvm05/</guid>
             <title>【TVM】通过代码学习编译流程【5】FuseOps</title>
             <link>https://forcheetah.github.io/2024/10/31/tvm05/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Thu, 31 Oct 2024 21:11:09 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第五篇，对应的 TVM 版本为当前最新版本 1.7。&lt;/p&gt;
@@ -847,8 +847,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/25/tvm06/</guid>
             <title>【TVM】通过代码学习编译流程【6】CodeGen</title>
             <link>https://forcheetah.github.io/2024/10/25/tvm06/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Fri, 25 Oct 2024 22:11:43 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第六篇，对应的 TVM 版本为当前最新版本 1.7。&lt;/p&gt;
@@ -895,8 +895,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/22/tvm3.5/</guid>
             <title>【TVM】通过代码学习类【3.5】Pass</title>
             <link>https://forcheetah.github.io/2024/10/22/tvm3.5/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Tue, 22 Oct 2024 19:48:24 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;文章 &lt;a href=&#34;https://forcheetah.github.io/&#34;&gt;《【TVM】通过代码学习编译流程》&lt;/a&gt;系列 主要介绍 TVM 在模型编译过程的流程，有时候感觉缺少了对类及其属性和方法的介绍。所以决定在系列文章的中间插入一些 “类的结构及其属性方法” 的介绍。&lt;/p&gt;
@@ -947,8 +947,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/21/tvm04/</guid>
             <title>【TVM】通过代码学习编译流程【4】BuildRelay</title>
             <link>https://forcheetah.github.io/2024/10/21/tvm04/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Mon, 21 Oct 2024 22:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第四篇，对应的 TVM 版本为当前最新版本 1.7。&lt;/p&gt;
@@ -988,8 +988,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/18/aicompile01/</guid>
             <title>【AI编译】Tiling操作能优化什么时间</title>
             <link>https://forcheetah.github.io/2024/10/18/aicompile01/</link>
-            <category>compile</category>
             <category>AI</category>
+            <category>compile</category>
             <pubDate>Fri, 18 Oct 2024 21:44:56 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇讲解 Tiling 操作为什么能够优化神经网络推理。&lt;/p&gt;
@@ -1057,8 +1057,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/17/tvm03/</guid>
             <title>【TVM】通过代码学习编译流程【3】模型编译</title>
             <link>https://forcheetah.github.io/2024/10/17/tvm03/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Thu, 17 Oct 2024 20:03:36 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第三篇，对应的 TVM 版本为当前最新版本 1.7。&lt;/p&gt;
@@ -1117,8 +1117,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/13/tvm02/</guid>
             <title>【TVM】通过代码学习编译流程【2】模型转换</title>
             <link>https://forcheetah.github.io/2024/10/13/tvm02/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Sun, 13 Oct 2024 20:29:30 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第二篇，对应的 TVM 版本为当前最新版本 1.7。&lt;/p&gt;
@@ -1171,8 +1171,8 @@ c. 前进：处理下一个张量 T (i+1)。&lt;br&gt;
             <guid isPermalink="true">https://forcheetah.github.io/2024/10/10/tvm01/</guid>
             <title>【TVM】通过代码学习编译流程【1】必要知识</title>
             <link>https://forcheetah.github.io/2024/10/10/tvm01/</link>
-            <category>tvm</category>
             <category>compile</category>
+            <category>tvm</category>
             <pubDate>Thu, 10 Oct 2024 20:12:43 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本系列文章将从代码和流程图入手，详细介绍 TVM AI 编译器的编译流程。本文章为第一篇，取名为 “必要知识”，约等于 “大杂烩”。食之无味，弃之可惜。但基于我个人的主观喜好和偏见，这些知识值得在整个代码讲解之前声明。&lt;/p&gt;

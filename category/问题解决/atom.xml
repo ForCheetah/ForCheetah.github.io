@@ -4,31 +4,31 @@
     <title>Пусть этот камень будет более крепким, чем человек • Posts by &#34;问题解决&#34; category</title>
     <link href="https://forcheetah.github.io" />
     <updated>2025-08-23T08:15:08.027Z</updated>
-    <category term="bar" />
-    <category term="baz" />
-    <category term="Linux" />
-    <category term="openBlas" />
-    <category term="lib" />
+    <category term="Article" />
+    <category term="CUDA" />
+    <category term="AI" />
+    <category term="novel" />
+    <category term="compiler" />
+    <category term="compile" />
     <category term="accelerate" />
     <category term="conv" />
+    <category term="Linux" />
+    <category term="openBlas" />
+    <category term="gemm" />
+    <category term="cmake" />
+    <category term="runtime" />
     <category term="tvm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="cmake" />
-    <category term="runtime" />
+    <category term="lib" />
+    <category term="llm" />
+    <category term="systemc" />
+    <category term="quantize" />
+    <category term="bar" />
+    <category term="baz" />
+    <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
-    <category term="systemc" />
-    <category term="novel" />
-    <category term="compile" />
-    <category term="AI" />
-    <category term="gemm" />
-    <category term="quantize" />
-    <category term="compiler" />
-    <category term="Article" />
-    <category term="CUDA" />
-    <category term="llm" />
-    <category term="triton" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/23/problem4/</id>
         <title>SystemC 用寄存器同步建模方法</title>
