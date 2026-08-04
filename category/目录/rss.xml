@@ -11,24 +11,24 @@
         <category>CUDA</category>
         <category>AI</category>
         <category>novel</category>
-        <category>compiler</category>
         <category>compile</category>
+        <category>compiler</category>
         <category>accelerate</category>
         <category>conv</category>
         <category>Linux</category>
         <category>openBlas</category>
-        <category>gemm</category>
+        <category>lib</category>
         <category>cmake</category>
         <category>runtime</category>
         <category>tvm</category>
+        <category>gemm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>lib</category>
         <category>llm</category>
-        <category>systemc</category>
-        <category>quantize</category>
         <category>bar</category>
         <category>baz</category>
+        <category>systemc</category>
+        <category>quantize</category>
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
@@ -39,7 +39,7 @@
             <category>accelerate</category>
             <category>conv</category>
             <pubDate>Fri, 24 May 2024 21:25:53 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
 &lt;h1 id=&#34;加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#加速算法&#34;&gt;#&lt;/a&gt; 加速算法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -67,7 +67,7 @@
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/15/halide2/&#34;&gt;【Halide】调度优化【2】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai推理引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai推理引擎&#34;&gt;#&lt;/a&gt; AI 推理引擎&lt;/h1&gt;
@@ -265,7 +265,7 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
- ]]></description>
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
     </channel>
 </rss>

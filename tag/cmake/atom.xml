@@ -8,24 +8,24 @@
     <category term="CUDA" />
     <category term="AI" />
     <category term="novel" />
-    <category term="compiler" />
     <category term="compile" />
+    <category term="compiler" />
     <category term="accelerate" />
     <category term="conv" />
     <category term="Linux" />
     <category term="openBlas" />
-    <category term="gemm" />
+    <category term="lib" />
     <category term="cmake" />
     <category term="runtime" />
     <category term="tvm" />
+    <category term="gemm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="lib" />
     <category term="llm" />
-    <category term="systemc" />
-    <category term="quantize" />
     <category term="bar" />
     <category term="baz" />
+    <category term="systemc" />
+    <category term="quantize" />
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
@@ -33,7 +33,7 @@
         <id>https://forcheetah.github.io/2024/06/18/deployTVMPython/</id>
         <title>【TVM】Python脚本实现模型编译和保存</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/18/deployTVMPython/"/>
-        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇博客提供简单的 Python 脚本代码，实现 onnx 模型转换编译，保存为 TVM 的  &lt;code&gt;.so .params .json&lt;/code&gt;  文件 。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;望长城内外，惟余莽莽；大河上下，顿失滔滔。&lt;br&gt;
@@ -53,13 +53,13 @@ from tvm.contrib import graph_executor
 
 
 # 图片
-img_path = &amp;quot;../image/imagenet_cat.png&amp;quot;
-# img_url = &amp;quot;https://s3.amazonaws.com/model-server/inputs/kitten.jpg&amp;quot;
-# img_path = download_testdata(img_url, &amp;quot;../image/imagenet_cat.png&amp;quot;, module=&amp;quot;data&amp;quot;)
+img_path = &#34;../image/imagenet_cat.png&#34;
+# img_url = &#34;https://s3.amazonaws.com/model-server/inputs/kitten.jpg&#34;
+# img_path = download_testdata(img_url, &#34;../image/imagenet_cat.png&#34;, module=&#34;data&#34;)
 
 # 重设大小为 224x224
 resized_image = Image.open(img_path).resize((224, 224))
-img_data = np.array(resized_image).astype(&amp;quot;float32&amp;quot;)
+img_data = np.array(resized_image).astype(&#34;float32&#34;)
 
 # 输入图像是 HWC 布局，而 ONNX 需要 CHW 输入，所以转换数组
 img_data = np.transpose(img_data, (2, 0, 1))
@@ -73,16 +73,16 @@ norm_img_data = (img_data / 255 - imagenet_mean) / imagenet_stddev
 # 添加 batch 维度，期望 4 维输入：NCHW。
 img_data = np.expand_dims(norm_img_data, axis=0)
 # 保存为 bin 文件  
-norm_img_data.astype(&amp;quot;float32&amp;quot;).tofile(&amp;quot;../image/imagenet_cat.bin&amp;quot;)
+norm_img_data.astype(&#34;float32&#34;).tofile(&#34;../image/imagenet_cat.bin&#34;)
 
 
 # 目标设备配置
 target = &#39;llvm&#39;  # 以CPU为例
 
-input_name = &amp;quot;data&amp;quot;
-shape_dict = &amp;#123;input_name: img_data.shape&amp;#125;
+input_name = &#34;data&#34;
+shape_dict = {input_name: img_data.shape}
 
-onnx_model = onnx.load(&amp;quot;../model/simple.onnx&amp;quot;)
+onnx_model = onnx.load(&#34;../model/simple.onnx&#34;)
 
 mod, params = relay.frontend.from_onnx(onnx_model, shape_dict)
 
@@ -92,23 +92,23 @@ with tvm.transform.PassContext(opt_level=3):
 
 # 运行相关
 dev = tvm.device(str(target), 0)
-module = graph_executor.GraphModule(lib[&amp;quot;default&amp;quot;](dev))
+module = graph_executor.GraphModule(lib[&#34;default&#34;](dev))
 
 # 保存库文件
-lib_fname = &amp;quot;../lib/mod.so&amp;quot;
+lib_fname = &#34;../lib/mod.so&#34;
 lib.export_library(lib_fname)
 
 # 保存模型参数
-params_fname = &amp;quot;../lib/mod.params&amp;quot;
-with open(params_fname, &amp;quot;wb&amp;quot;) as param_file:
+params_fname = &#34;../lib/mod.params&#34;
+with open(params_fname, &#34;wb&#34;) as param_file:
     param_file.write(relay.save_param_dict(lib.get_params()))
 
 # 保存JSON格式的计算图
-json_fname = &amp;quot;../lib/mod.json&amp;quot;
-with open(json_fname, &amp;quot;w&amp;quot;) as json_file:
+json_fname = &#34;../lib/mod.json&#34;
+with open(json_fname, &#34;w&#34;) as json_file:
     json_file.write(lib.get_executor_config())
 
-dtype = &amp;quot;float32&amp;quot;
+dtype = &#34;float32&#34;
 module.set_input(input_name, img_data)
 module.run()
 output_shape = (1, 10)
@@ -117,10 +117,10 @@ tvm_output = module.get_output(0, tvm.nd.empty(output_shape)).numpy()
 from scipy.special import softmax
 
 # 下载标签列表
-labels_url = &amp;quot;https://s3.amazonaws.com/onnx-model-zoo/synset.txt&amp;quot;
-labels_path = download_testdata(labels_url, &amp;quot;synset.txt&amp;quot;, module=&amp;quot;data&amp;quot;)
+labels_url = &#34;https://s3.amazonaws.com/onnx-model-zoo/synset.txt&#34;
+labels_path = download_testdata(labels_url, &#34;synset.txt&#34;, module=&#34;data&#34;)
 
-with open(labels_path, &amp;quot;r&amp;quot;) as f:
+with open(labels_path, &#34;r&#34;) as f:
     labels = [l.rstrip() for l in f]
 
 # 打开输出文件并读取输出张量
@@ -128,12 +128,12 @@ scores = softmax(tvm_output)    #   直接输出模型结果
 scores = np.squeeze(tvm_output)
 ranks = np.argsort(scores)[::-1]
 for rank in ranks[0:5]:
-    print(&amp;quot;class=&#39;%s&#39; with probability=%f&amp;quot; % (labels[rank], scores[rank]))
+    print(&#34;class=&#39;%s&#39; with probability=%f&#34; % (labels[rank], scores[rank]))
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="cmake" />
         <category term="runtime" />
         <category term="tvm" />
@@ -143,7 +143,7 @@ for rank in ranks[0:5]:
         <id>https://forcheetah.github.io/2024/06/10/deployTVM/</id>
         <title>【TVM】C++部署运行TVM</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/10/deployTVM/"/>
-        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
 &lt;p&gt;本篇博客主要介绍如何通过 G++ 编译器编译 C++ 代码，部署 TVM。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;总感觉，属于我们的时代还没开始，就要结束了呢。&lt;br&gt;
@@ -156,30 +156,30 @@ for rank in ranks[0:5]:
 &lt;p&gt;该项目没有使用 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;TVM 项目 howto_deploy&lt;/a&gt; 中的 Makefile，而是重写了 CMakeLists.txt 文件，更方便读懂和修改。&lt;/p&gt;
 &lt;h1 id=&#34;使用方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方式&#34;&gt;#&lt;/a&gt; 使用方式&lt;/h1&gt;
 &lt;p&gt;下载 &lt;a href=&#34;https://github.com/ForCheetah/TvmCppDeploy&#34;&gt;TvmCppDeploy 项目&lt;/a&gt; 到你的本地，可以通过下载 zip 文件后解压缩，也可以直接 git：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/ForCheetah/TvmCppDeploy.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;进入项目根目录，进行必要的路径修改。和 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;TVM 项目 howto_deploy&lt;/a&gt; 一样，本项目也提供了两种部署方式，所需要修改的内容也有些不同。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/ForCheetah/TvmCppDeploy.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;进入项目根目录，进行必要的路径修改。和 &lt;a href=&#34;https://github.com/apache/tvm/tree/main/apps/howto_deploy&#34;&gt;TVM 项目 howto_deploy&lt;/a&gt; 一样，本项目也提供了两种部署方式，所需要修改的内容也有些不同。&lt;/p&gt;
 &lt;h1 id=&#34;重新编译-tvm_runtime&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重新编译-tvm_runtime&#34;&gt;#&lt;/a&gt; 重新编译 tvm_runtime&lt;/h1&gt;
 &lt;p&gt;重新编译 tvm_runtime，和个人的 C++ 文件编译在一起，编译好的可执行文件可独立执行。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&amp;quot;/home/xiamu/whs/temp/resnet50-tvm/&amp;quot;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&#34;/home/xiamu/whs/temp/resnet50-tvm/&#34;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
 &lt;li&gt;第 2 步：还是 &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件， 找到 132 行，将其中的图片路径 &lt;code&gt;/home/xiamu/whs/python/remote_tvm/imagenet_cat.bin&lt;/code&gt;  改为自己的图片路径，该 bin 文件应当是已经转换好的 float 格式文件。&lt;/li&gt;
 &lt;li&gt;第 3 步：打开   &lt;code&gt;src/tvm\_runtime\_pack.cc&lt;/code&gt; ， 将文件中所有的路径中的  &lt;code&gt;/home/xiamu/tvm&lt;/code&gt;   修改为你本地 TVM 工程的根目录路径。 修改完一定要检查一下对应的目录中是否有相应的文件。&lt;/li&gt;
 &lt;li&gt;第 4 步：打开  &lt;code&gt;CMakeLists.txt&lt;/code&gt; , 找到第 10 行  &lt;code&gt;set(TVM_ROOT /home/xianmu/tvm)&lt;/code&gt; ，将其中的 &lt;code&gt;/home/xianmu/tvm&lt;/code&gt;  改成你本地 TVM 工程的根目录路径。&lt;/li&gt;
 &lt;li&gt;为防止编译报错，可以将 &lt;code&gt;部署方式二： tvm_runtime.so 作为动态链接库编译&lt;/code&gt; 对应的代码（43 至 63 行） 注释掉（当前可能还没有对其进行修改）。&lt;/li&gt;
 &lt;li&gt;第 5 步：编译和执行，在根目录下：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyRunnable&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;tvm_runtimeso-作为动态链接库编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tvm_runtimeso-作为动态链接库编译&#34;&gt;#&lt;/a&gt; tvm_runtime.so 作为动态链接库编译&lt;/h1&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyRunnable&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;tvm_runtimeso-作为动态链接库编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tvm_runtimeso-作为动态链接库编译&#34;&gt;#&lt;/a&gt; tvm_runtime.so 作为动态链接库编译&lt;/h1&gt;
 &lt;p&gt;tvm_runtime.so 作为动态链接库，仅编译个人的 C++ 文件，运行时需要链接 libtvm_runtime.so&lt;/p&gt;
 &lt;p&gt;这种方式的修改与第一种方式略有不同，修改如下：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&amp;quot;/home/xiamu/whs/temp/resnet50-tvm/&amp;quot;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;第 1 步：打开  &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件，找到 81 行  &lt;code&gt;const std::string artifacts_folder(&#34;/home/xiamu/whs/temp/resnet50-tvm/&#34;);&lt;/code&gt;  ，将其中的 &lt;code&gt;/home/xiamu/whs/temp/resnet50-tvm/&lt;/code&gt;  修改为自己的已经编译好的模型路径，该路径下应该存在有  &lt;code&gt;mod.so, mod.params, mod.json&lt;/code&gt; 。&lt;/li&gt;
 &lt;li&gt;第 2 步：还是 &lt;code&gt;src/Resnet50_deploy.cc &lt;/code&gt; 文件， 找到 132 行，将其中的图片路径 &lt;code&gt;/home/xiamu/whs/python/remote_tvm/imagenet_cat.bin&lt;/code&gt;  改为自己的图片路径，该 bin 文件应当是已经转换好的 float 格式文件。&lt;/li&gt;
-&lt;li&gt;第 3 步：打开  &lt;code&gt;CMakeLists.txt&lt;/code&gt; , 找到第 10 行  &lt;code&gt;set(TVM_ROOT /home/xianmu/tvm)&lt;/code&gt; ，将其中的 &lt;code&gt;/home/xianmu/tvm&lt;/code&gt;  改成你本地 TVM 工程的根目录路径。将 62 行的 &lt;code&gt;$&amp;#123;TVM_ROOT&amp;#125;/build&lt;/code&gt;  libtvm_runtime.so 路径修改为你存放 libtvm_runtime.so 库的路径。&lt;/li&gt;
+&lt;li&gt;第 3 步：打开  &lt;code&gt;CMakeLists.txt&lt;/code&gt; , 找到第 10 行  &lt;code&gt;set(TVM_ROOT /home/xianmu/tvm)&lt;/code&gt; ，将其中的 &lt;code&gt;/home/xianmu/tvm&lt;/code&gt;  改成你本地 TVM 工程的根目录路径。将 62 行的 &lt;code&gt;${TVM_ROOT}/build&lt;/code&gt;  libtvm_runtime.so 路径修改为你存放 libtvm_runtime.so 库的路径。&lt;/li&gt;
 &lt;li&gt;为防止编译报错，可以将 &lt;code&gt;部署方式一： 重新编译 tvm_runtime&lt;/code&gt;  对应的代码（17 至 38 行）注释掉（当前可能还没有对其进行修改）。&lt;/li&gt;
 &lt;li&gt;第 5 步：编译和执行，在根目录下：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyExcute&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-j4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./MyExcute&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="cmake" />
         <category term="runtime" />
         <category term="tvm" />

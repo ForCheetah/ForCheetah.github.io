@@ -8,24 +8,24 @@
     <category term="CUDA" />
     <category term="AI" />
     <category term="novel" />
-    <category term="compiler" />
     <category term="compile" />
+    <category term="compiler" />
     <category term="accelerate" />
     <category term="conv" />
     <category term="Linux" />
     <category term="openBlas" />
-    <category term="gemm" />
+    <category term="lib" />
     <category term="cmake" />
     <category term="runtime" />
     <category term="tvm" />
+    <category term="gemm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="lib" />
     <category term="llm" />
-    <category term="systemc" />
-    <category term="quantize" />
     <category term="bar" />
     <category term="baz" />
+    <category term="systemc" />
+    <category term="quantize" />
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
@@ -33,7 +33,7 @@
         <id>https://forcheetah.github.io/2024/06/16/engine2/</id>
         <title>【推理引擎】常见AI推理框架</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/16/engine2/"/>
-        <content type="html">&lt;h1 id=&#34;昇腾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#昇腾&#34;&gt;#&lt;/a&gt; 昇腾&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;昇腾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#昇腾&#34;&gt;#&lt;/a&gt; 昇腾&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1718540428003.jpg&#34; alt=&#34;shengteng&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.hiascend.com/zh/document&#34;&gt;昇腾官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;华为昇腾（HUAWEI Ascend）是华为公司推出的一系列人工智能处理器，标志着华为在自主设计人工智能（AI）芯片领域的重要进展。昇腾芯片基于华为自主研发的达芬奇架构，这一架构设计旨在优化 AI 计算的效率和性能，特别是针对深度学习任务进行了专门优化。&lt;/p&gt;
@@ -82,7 +82,7 @@
 &lt;p&gt;爱芯元智 AX620A 视觉芯片  使用的编译工具链是 Pulsar2&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="accelerate" />
         <category term="tengine" />
         <category term="ncnn" />
@@ -92,7 +92,7 @@
         <id>https://forcheetah.github.io/2024/05/30/engine1/</id>
         <title>【推理引擎】NCNN和Tengine量化推理逻辑对比</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/05/30/engine1/"/>
-        <content type="html">&lt;p&gt;本文讨论了 ncnn 和 tengine 两个框架在量化推理上的逻辑，并比较了它们之间的区别与联系，以及一点自己的思考。&lt;/p&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;本文讨论了 ncnn 和 tengine 两个框架在量化推理上的逻辑，并比较了它们之间的区别与联系，以及一点自己的思考。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;风雨送春归，飞雪迎春到。&lt;br&gt;
 已是悬崖百丈冰，犹有花枝俏。  ---- 教员&lt;br&gt;
@@ -157,7 +157,7 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
 &lt;/ul&gt;
 &lt;p&gt;这种情况下减少了量化 和反量化的操作，一定程度上提高了运行效率。但是在实际测试中似乎效果不好，原因在于，现在的神经网络在卷积层和卷积层之间，基本上会有偏置、BN、激活等操作，很难会有两个卷积层相连的情况。&lt;/p&gt;
 &lt;p&gt;下面是 ncnn 卷积算子的量化推理的简单抽象：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;// f: float  I:int8   Scale:量化因子  in: input  w:weight  out:output   bias:偏置&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_in &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_in * Scale_in    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_w  &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_w  * Scale_w      &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_in * f_w + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_in * I_w  * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Scale_in * Scale_w&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第一行对符号进行了注释。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;// f: float  I:int8   Scale:量化因子  in: input  w:weight  out:output   bias:偏置&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_in &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_in * Scale_in    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_w  &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_w  * Scale_w      &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_in * f_w + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; I_in * I_w  * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Scale_in * Scale_w&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第一行对符号进行了注释。&lt;/p&gt;
 &lt;p&gt;第二行和第三行是量化的基本等式&lt;/p&gt;
 &lt;p&gt;最后 输出的是  &lt;code&gt;f_out&lt;/code&gt; ，反量化因子是  &lt;code&gt;(Scale_in * Scale_w)&lt;/code&gt;   ，还要加上 float 类型的 偏置  &lt;code&gt;f_bias&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;tengine量化推理逻辑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tengine量化推理逻辑&#34;&gt;#&lt;/a&gt; Tengine 量化推理逻辑&lt;/h1&gt;
@@ -167,7 +167,7 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
 &lt;p&gt;Tengine 由 OPEN AI LAB 主导开发，该项目实现了深度学习神经网络模型在嵌入式设备上的快速、高效部署需求。为实现在众多 AIoT 应用中的跨平台部署，本项目使用 C 语言进行核心模块开发，针对嵌入式设备资源有限的特点进行了深度框架裁剪。同时采用了完全分离的前后端设计，有利于 CPU、GPU、NPU 等异构计算单元的快速移植和部署，降低评估、迁移成本。&lt;/p&gt;
 &lt;p&gt;尽管 Tengine 已经挺久不再维护了，但是作为一个完全使用 C 语言承担推理部分工作的框架，tengine 还是有轻量、框架结构清晰、易于拓展、容易学习、部署简单等优势，还是非常值得学习的。&lt;/p&gt;
 &lt;h2 id=&#34;量化逻辑-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#量化逻辑-2&#34;&gt;#&lt;/a&gt; 量化逻辑&lt;/h2&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;// f: float  int8:int8  int32:int32  Scale:量化因子  in: input  w:weight  out:output   bias:偏置&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 一般性等价关系&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_w &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * scale_w    f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_out * scale_out    f_in &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_in * scale_in&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_w * f_in + int32_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# tengine 等一些推理引擎  直接将 bias 的量化因子定为：&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_bias &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int32_bias * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# float 类型输出等式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out     &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_w * f_in + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * scale_w  *  int8_in * scale_in   + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * int8_in * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  + int32_bias * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;int8_out * scale_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;    &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;                                     &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;int8_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in / scale_out&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;为了能讲清楚 Tengine 的量化推理逻辑，需要先看懂上面的等式推理。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;// f: float  int8:int8  int32:int32  Scale:量化因子  in: input  w:weight  out:output   bias:偏置&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 一般性等价关系&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_w &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * scale_w    f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_out * scale_out    f_in &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_in * scale_in&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_w * f_in + int32_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# tengine 等一些推理引擎  直接将 bias 的量化因子定为：&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_bias &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int32_bias * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# float 类型输出等式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;f_out     &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; f_w * f_in + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * scale_w  *  int8_in * scale_in   + f_bias&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; int8_w * int8_in * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  + int32_bias * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;int8_out * scale_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;    &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;                                     &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;int8_out &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;int8_w * int8_in + int32_bias&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; * &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;scale_w  * scale_in / scale_out&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;为了能讲清楚 Tengine 的量化推理逻辑，需要先看懂上面的等式推理。&lt;/p&gt;
 &lt;p&gt;尽管行数较多，但实际上很简单，只有最基本的多项式推导。首先记一下第一行符号代表的意思，挺直观就不过多介绍了。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1.tengine 每个算子都是严格的 int8 输入 int8 输出&lt;/li&gt;
@@ -203,7 +203,7 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
 &lt;p&gt;本博客将在不久后，通过公式、仿真的形式探讨一下其可能性及条件。&lt;/p&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="accelerate" />
         <category term="conv" />
         <category term="tengine" />

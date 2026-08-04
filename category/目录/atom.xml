@@ -8,24 +8,24 @@
     <category term="CUDA" />
     <category term="AI" />
     <category term="novel" />
-    <category term="compiler" />
     <category term="compile" />
+    <category term="compiler" />
     <category term="accelerate" />
     <category term="conv" />
     <category term="Linux" />
     <category term="openBlas" />
-    <category term="gemm" />
+    <category term="lib" />
     <category term="cmake" />
     <category term="runtime" />
     <category term="tvm" />
+    <category term="gemm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="lib" />
     <category term="llm" />
-    <category term="systemc" />
-    <category term="quantize" />
     <category term="bar" />
     <category term="baz" />
+    <category term="systemc" />
+    <category term="quantize" />
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
@@ -33,7 +33,7 @@
         <id>https://forcheetah.github.io/2024/05/24/category/</id>
         <title>博客汇总目录</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/05/24/category/"/>
-        <content type="html">&lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;暮冬z羡慕-的博客-文章汇总&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暮冬z羡慕-的博客-文章汇总&#34;&gt;#&lt;/a&gt; 暮冬 Z 羡慕 的博客  文章汇总&lt;/h1&gt;
 &lt;h1 id=&#34;加速算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#加速算法&#34;&gt;#&lt;/a&gt; 加速算法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -61,7 +61,7 @@
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2025/11/15/halide2/&#34;&gt;【Halide】调度优化【2】&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;【conv 加速】NVDLA 卷积加速算法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;ai推理引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai推理引擎&#34;&gt;#&lt;/a&gt; AI 推理引擎&lt;/h1&gt;
@@ -259,7 +259,7 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;#&lt;/a&gt; 后记&lt;/h1&gt;
 &lt;p&gt;本博客目前以及可预期的将来都不会支持评论功能。各位大侠如若有指教和问题，可以在我的 &lt;a href=&#34;https://github.com/ForCheetah/ForCheetah.github.io&#34;&gt;github 项目&lt;/a&gt; 或随便一个项目下提出 issue，并指明哪一篇博客，我看到一定及时回复！&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="accelerate" />
         <category term="conv" />
         <updated>2024-05-24T13:25:53.973Z</updated>

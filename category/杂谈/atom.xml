@@ -8,24 +8,24 @@
     <category term="CUDA" />
     <category term="AI" />
     <category term="novel" />
-    <category term="compiler" />
     <category term="compile" />
+    <category term="compiler" />
     <category term="accelerate" />
     <category term="conv" />
     <category term="Linux" />
     <category term="openBlas" />
-    <category term="gemm" />
+    <category term="lib" />
     <category term="cmake" />
     <category term="runtime" />
     <category term="tvm" />
+    <category term="gemm" />
     <category term="tengine" />
     <category term="ncnn" />
-    <category term="lib" />
     <category term="llm" />
-    <category term="systemc" />
-    <category term="quantize" />
     <category term="bar" />
     <category term="baz" />
+    <category term="systemc" />
+    <category term="quantize" />
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
@@ -33,10 +33,10 @@
         <id>https://forcheetah.github.io/2026/07/31/Suoji02/</id>
         <title>【琐记】你的爱好能坚持多少年</title>
         <link rel="alternate" href="https://forcheetah.github.io/2026/07/31/Suoji02/"/>
-        <content type="html">&lt;h1 id=&#34;its-a-rain-day-足球&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#its-a-rain-day-足球&#34;&gt;#&lt;/a&gt; It&#39;s A Rain Day 足球&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;its-a-rain-day-足球&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#its-a-rain-day-足球&#34;&gt;#&lt;/a&gt; It&#39;s A Rain Day 足球&lt;/h1&gt;
 &lt;p&gt;雨天 足球&lt;/p&gt;
 &lt;div style=&#34;position: relative; width: 100%; height: 0; padding-bottom: 75%;&#34;&gt;
-  &lt;iframe src=&#34;//player.bilibili.com/player.html?isOutside=true&amp;aid=117004186945727&amp;bvid=BV17P3n6nEHh&amp;cid=40418543725&amp;p=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; style=&#34;position:absolute; height: 100%; width: 100%;&#34;&gt;
+  &lt;iframe src=&#34;//player.bilibili.com/player.html?isOutside=true&amp;amp;aid=117004186945727&amp;amp;bvid=BV17P3n6nEHh&amp;amp;cid=40418543725&amp;amp;p=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; style=&#34;position:absolute; height: 100%; width: 100%;&#34;&gt;
   &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;p&gt;踢足球，开始于高中入学...&lt;/p&gt;
@@ -47,7 +47,7 @@
 &lt;p&gt;更偏向于严肃小说。写小说，开始于研究生时代。&lt;/p&gt;
 &lt;h1 id=&#34;另外&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#另外&#34;&gt;#&lt;/a&gt; 另外&lt;/h1&gt;
 &lt;p&gt;还有博客和 3D 建模。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2026-07-31T15:23:33.635Z</updated>
     </entry>
@@ -55,59 +55,59 @@
         <id>https://forcheetah.github.io/2026/07/05/Suoji01/</id>
         <title>【琐记】烟火与尘埃</title>
         <link rel="alternate" href="https://forcheetah.github.io/2026/07/05/Suoji01/"/>
-        <content type="html">&lt;h1 id=&#34;凌乱&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#凌乱&#34;&gt;#&lt;/a&gt; 凌乱&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;凌乱&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#凌乱&#34;&gt;#&lt;/a&gt; 凌乱&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221440682.jpg&#34; alt=&#34;海上日出&#34;&gt;&lt;/p&gt;
 &lt;p&gt;专门定好闹钟，在日出的时候爬到甲板上，拍一张海上日出的样子。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[我他妈去看海了，我他妈是一个人，海他妈也是一片海。]&amp;quot;&lt;/p&gt;
+&lt;p&gt;💬 &#34;[我他妈去看海了，我他妈是一个人，海他妈也是一片海。]&#34;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221514093.jpg&#34; alt=&#34;踢一场足球吧&#34;&gt;&lt;/p&gt;
 &lt;p&gt;本科时足球课老师对我的评价是，速度快，真快！但现在是真跑不动了。毛毛雨的天气适合做各种事情，比如踢场足球，我的双色足球鞋很个性！&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783222803833.jpg&#34; alt=&#34;可能是最后一次机会&#34;&gt;&lt;/p&gt;
 &lt;p&gt;谁能明白倒在黎明前的痛苦。明明只差那么一点点，但结果是一样的。它带来的影响，远比一次又一次的失败要多得多。 失败模拟器不好玩。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[只有赢，才能治好我所有的阴郁和病痛。]&amp;quot;&lt;br&gt;
+&lt;p&gt;💬 &#34;[只有赢，才能治好我所有的阴郁和病痛。]&#34;&lt;br&gt;
 ————&lt;em&gt;《百米。》&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221620640.jpg&#34; alt=&#34;烟火&#34;&gt;&lt;/p&gt;
 &lt;p&gt;烟火，灿烂但短暂。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[失败总是贯穿人生始终。]&amp;quot;&lt;br&gt;
-💬&amp;quot;[如今奖杯就在眼前，我必须考虑这会不会是我此生仅有的机会。]&amp;quot;&lt;br&gt;
+&lt;p&gt;💬 &#34;[失败总是贯穿人生始终。]&#34;&lt;br&gt;
+💬&#34;[如今奖杯就在眼前，我必须考虑这会不会是我此生仅有的机会。]&#34;&lt;br&gt;
 ————&lt;em&gt;ShowMaker&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221652841.jpg&#34; alt=&#34;云层里的太阳&#34;&gt;&lt;/p&gt;
 &lt;p&gt;云层之上的太阳。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[好结局：旅途仍在继续，你仍然未寻找到那个终局性的、有关幸福的答案，然而，偶然间，你在路边发现了一道夕阳。]&amp;quot;&lt;br&gt;
+&lt;p&gt;💬 &#34;[好结局：旅途仍在继续，你仍然未寻找到那个终局性的、有关幸福的答案，然而，偶然间，你在路边发现了一道夕阳。]&#34;&lt;br&gt;
 ————&lt;em&gt;《meme》&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221700642.jpg&#34; alt=&#34;甲板海风&#34;&gt;&lt;/p&gt;
 &lt;p&gt;东北冬季海上的甲板，海风凛冽腥咸。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[I know someone in the world is waiting for me, although I&#39;ve no idea of who he is. But I feel I happy every day for this.]&amp;quot;&lt;br&gt;
+&lt;p&gt;💬 &#34;[I know someone in the world is waiting for me, although I&#39;ve no idea of who he is. But I feel I happy every day for this.]&#34;&lt;br&gt;
 ————&lt;em&gt;《返老还童》&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221779387.jpg&#34; alt=&#34;丢掉脑子&#34;&gt;&lt;/p&gt;
 &lt;p&gt;有时候就该丢掉脑子。因为本来就是个装饰品。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[我刚向三体世界发送坐标了，对不起，我知道这很自私，但是我实在不想……]&amp;quot;&lt;br&gt;
-💬&amp;quot;[你最好是发了，他们再不来我找一车面包人弄你。]&amp;quot;&lt;br&gt;
-💬&amp;quot;[两天了，有进展了吗，这件事是谁在跟？]&amp;quot;&lt;br&gt;
-💬&amp;quot;[群发！群发！]&amp;quot;&lt;/p&gt;
+&lt;p&gt;💬 &#34;[我刚向三体世界发送坐标了，对不起，我知道这很自私，但是我实在不想……]&#34;&lt;br&gt;
+💬&#34;[你最好是发了，他们再不来我找一车面包人弄你。]&#34;&lt;br&gt;
+💬&#34;[两天了，有进展了吗，这件事是谁在跟？]&#34;&lt;br&gt;
+💬&#34;[群发！群发！]&#34;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221806610.jpg&#34; alt=&#34;烟火晚会&#34;&gt;&lt;/p&gt;
 &lt;p&gt;大连跨年烟花晚会。  欲买桂花同载酒，终不似，少年游。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[这是一场赌注，输了，我会大哭一场。]&amp;quot;&lt;br&gt;
+&lt;p&gt;💬 &#34;[这是一场赌注，输了，我会大哭一场。]&#34;&lt;br&gt;
 ————&lt;em&gt;《大哭一场》&lt;/em&gt; &lt;a href=&#34;https://www.bilibili.com/video/BV1jhV16dEYM/&#34;&gt;《大哭一场》&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1783221825264.jpg&#34; alt=&#34;冲破黑暗&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1hX4y1g7pp/&#34;&gt;《冲破黑暗 Out of Darkness》&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💬 &amp;quot;[恐惧是生命的本能，勇气是人类的赞歌。]&amp;quot;&lt;/p&gt;
+&lt;p&gt;💬 &#34;[恐惧是生命的本能，勇气是人类的赞歌。]&#34;&lt;/p&gt;
 &lt;/blockquote&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2026-07-05T03:25:06.944Z</updated>
     </entry>
@@ -115,7 +115,7 @@
         <id>https://forcheetah.github.io/2025/11/08/zatanNoval5/</id>
         <title>【感想】写作进度报告5</title>
         <link rel="alternate" href="https://forcheetah.github.io/2025/11/08/zatanNoval5/"/>
-        <content type="html">&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
 &lt;p&gt;小说字数已经超过 24 万了！&lt;/p&gt;
 &lt;p&gt;情节确定之后，现在的进度要比以前快的多。&lt;/p&gt;
 &lt;p&gt;完成之后大概有 27 或 28 万吧，那时候会将其放在各种平台。&lt;/p&gt;
@@ -136,7 +136,7 @@
 &lt;p&gt;Ti14 之后，不再有以前失利后的谩骂、嘲讽，有的只是意难平。&lt;/p&gt;
 &lt;p&gt;亚军已经很好了，但还是想要冠军。&lt;/p&gt;
 &lt;p&gt;再次鼓起丧失的勇气 —— 镇魂石&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2025-11-08T06:58:55.163Z</updated>
     </entry>
@@ -144,7 +144,7 @@
         <id>https://forcheetah.github.io/2025/08/10/zatanNoval4/</id>
         <title>【感想】写作进度报告4</title>
         <link rel="alternate" href="https://forcheetah.github.io/2025/08/10/zatanNoval4/"/>
-        <content type="html">&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
 &lt;p&gt;小说字数已经超过 16 万！&lt;/p&gt;
 &lt;p&gt;不知不觉已经超过预期中一半内容了。&lt;/p&gt;
 &lt;p&gt;我感觉故事情节大概能够写到 22 万字，之后回头修改、增补情节、增加描述、查缺补漏，总计内容能够达到 26 万。&lt;/p&gt;
@@ -162,7 +162,7 @@
 但是碰到 “这写了个什么玩意儿！” 的时候，就意味着这一段要删掉重写了。&lt;br&gt;
 当然，写作过程中也不尽然是上述情况。有很多情况是：构思的时候一段很平常的情节，真正写的时候灵机一动，让其变成一段自觉很有意思，一字也不想修改的情节。&lt;br&gt;
 有一点儿 “神之一笔” 的感觉。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2025-08-10T14:55:07.761Z</updated>
     </entry>
@@ -170,7 +170,7 @@
         <id>https://forcheetah.github.io/2025/05/04/zatanNoval3/</id>
         <title>【感想】写作进度报告3</title>
         <link rel="alternate" href="https://forcheetah.github.io/2025/05/04/zatanNoval3/"/>
-        <content type="html">&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
 &lt;p&gt;小说字数已经超过 12 万。&lt;/p&gt;
 &lt;p&gt;预计第一部写到 30 万，但是第一部规划的内容，仅主线内容大概率没法写这么多字。不过不要紧，写完主线内容，我会回来补充一些描写和细节，丰富整个故事。&lt;/p&gt;
 &lt;p&gt;随着故事情节的推进，当前世界观体系基本完善。第一部中的主线也清晰明了。需要考虑的是如何将主线中的节点一步步有节奏地展示出来，这些东西是需要在实际写到那一步的时候才确定的。&lt;/p&gt;
@@ -184,7 +184,7 @@
 &lt;p&gt;现在写得慢当然还是因为，它仍然是一个较为长期的爱好，不影响生活的一个调味剂。我不为其规划时间和设定目标。&lt;/p&gt;
 &lt;p&gt;所以这样也不错，如果设计硬性指标，它可能就不再是我的爱好。&lt;/p&gt;
 &lt;p&gt;越长大越觉得教员的伟大，但是毛选读不下去，以后再说吧。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2025-05-04T05:42:30.441Z</updated>
     </entry>
@@ -192,7 +192,7 @@
         <id>https://forcheetah.github.io/2025/01/21/zatanNoval2/</id>
         <title>【感想】写作进度报告2</title>
         <link rel="alternate" href="https://forcheetah.github.io/2025/01/21/zatanNoval2/"/>
-        <content type="html">&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;进度&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#进度&#34;&gt;#&lt;/a&gt; 进度&lt;/h1&gt;
 &lt;p&gt;小说文字数量已经超过 8 万，如果第一部的目标是 40 万字的话，那么现在已经完成了 1/5，可喜可贺。&lt;/p&gt;
 &lt;p&gt;当世界观一点点建立完成之后，书里的人物就活了，他该如何行动，产生怎样的情况与冲突，都是自然而然的。这时候写故事发展，不是写他应该怎么去做，而是在那种情景中他会怎么去做。这么想想，作者仿佛变成一个观察这个微缩世界的旁观者。&lt;/p&gt;
 &lt;h1 id=&#34;需要改进&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#需要改进&#34;&gt;#&lt;/a&gt; 需要改进&lt;/h1&gt;
@@ -211,7 +211,7 @@
 &lt;p&gt;还有一个重要的原因不得不说：《T110E3 卡迪夫蓝调》坦克模型的所有零件都已经打印完，剩下的就是上色组装过程。中间经历了一次搬家，打印机已经清洗打包装箱了，寻思着近期也不会再使用。后来我数了数轮子的数量，当时打印了 11 个，当时想的是，多出来的一个用作备件，万一哪个打印的不好或者损坏了可以备用。结果拿出坦克底盘，发现需要 12 个轮子。12 个轮子！！！&lt;/p&gt;
 &lt;p&gt;物料管理的严重失误。这导致我继续完成它的意愿骤降。但也不急于将缺失的轮子打印出来，因为可能还会发现其他缺失或者需要更换的零件，还得等我哪天愿意把打印机装好，离型膜也该换了。&lt;/p&gt;
 &lt;p&gt;生活就像一盒巧克力，你永远不知道下一颗是什么味道。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2025-01-21T13:21:26.955Z</updated>
     </entry>
@@ -219,14 +219,14 @@
         <id>https://forcheetah.github.io/2024/08/04/zatanNoval/</id>
         <title>【感想】写作进度报告1</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/08/04/zatanNoval/"/>
-        <content type="html">&lt;h1 id=&#34;介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#介绍&#34;&gt;#&lt;/a&gt; 介绍&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#介绍&#34;&gt;#&lt;/a&gt; 介绍&lt;/h1&gt;
 &lt;p&gt;四五年前就开始构思一部小说。那时起就不断地撰写纲要，描述关键节点剧情，甚至开始跳着写中间的一些章节。不过总感到不妥，小说的立意太低了，剧情太老套了，可能和 XX 很像，我才不愿意仿写，等等很多原因，我又不得不停下来重新思考整个小说的立意、构思。&lt;/p&gt;
 &lt;p&gt;小说经过了多次彻头彻尾的改造，重新设计了关键节点，调整了新的纲要。不得不说，尽管写作是一个漫长的过程，但是小说的立意构思阶段不见得工作量更小。&lt;/p&gt;
 &lt;p&gt;在几个月前，终于调整好构思之后，重新开始写作。现在写的很慢，之前在学校里会抽时间写一点，现在上班了，只能是下班玩够了之后，写一个小时左右。不知不觉，到今天正文已经有 3 万余字了。特意查了一下，《三体》三部曲最初版每本大概在 35 万到 45 万左右。所以现在已经有一部书的将近十分之一了，而我还觉得小说只写了个开头，哈哈。&lt;/p&gt;
 &lt;p&gt;随便记录一下，等到有其他进展后还会记录在博客里。&lt;/p&gt;
 &lt;h1 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h1&gt;
 &lt;p&gt;每个人都渴望成为天选之子，拥有传奇的人生。但是不得不承认，大部分人都是普通人而已，包括你我。没办法，只能让自己的灵魂寄托在小说的虚拟世界里，体验丰富而壮丽的人生。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="novel" />
         <updated>2024-08-04T03:36:35.532Z</updated>
     </entry>
@@ -234,7 +234,7 @@
         <id>https://forcheetah.github.io/2024/06/15/zatanE3/</id>
         <title>【3D建模】T110E3卡迪夫蓝调皮肤模型</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/06/15/zatanE3/"/>
-        <content type="html">&lt;p&gt;新的坦克模型，T110E3 卡迪夫蓝调皮肤模型，快要问世了。这里展示制作过程。&lt;/p&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;新的坦克模型，T110E3 卡迪夫蓝调皮肤模型，快要问世了。这里展示制作过程。&lt;/p&gt;
 &lt;h1 id=&#34;卡迪夫蓝调皮肤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#卡迪夫蓝调皮肤&#34;&gt;#&lt;/a&gt; 卡迪夫蓝调皮肤&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615204753.jpg&#34; alt=&#34;111&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615204855.jpg&#34; alt=&#34;222&#34;&gt;&lt;/p&gt;
@@ -248,7 +248,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;20240615205210.jpg&#34; alt=&#34;上色&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h1&gt;
 &lt;p&gt;此模型是摆件，没有行动能力。还是很期待啊。&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="tank" />
         <category term="zatan" />
         <updated>2024-06-15T12:42:27.991Z</updated>
@@ -257,12 +257,12 @@
         <id>https://forcheetah.github.io/2024/05/26/zatan3D/</id>
         <title>【3D建模】IS-7攻城锤流纹岩皮肤展示</title>
         <link rel="alternate" href="https://forcheetah.github.io/2024/05/26/zatan3D/"/>
-        <content type="html">&lt;h1 id=&#34;坦克世界皮肤图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坦克世界皮肤图片&#34;&gt;#&lt;/a&gt; 坦克世界皮肤图片&lt;/h1&gt;
+        <content type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;坦克世界皮肤图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坦克世界皮肤图片&#34;&gt;#&lt;/a&gt; 坦克世界皮肤图片&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1024x.jpg&#34; alt=&#34;洪水猛兽&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;24x.jpg&#34; alt=&#34;突击重坦&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;2x.jpg&#34; alt=&#34;钢铁之盾&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;2024x.jpg&#34; alt=&#34;胜利之师&#34;&gt;&lt;/p&gt;
-&lt;p&gt;IS-7 皮肤台词：&amp;quot; 原来是这样的： 如果有人回到基地，至少一辆坦克，那就算是一次营救任务。如果无人返回，那就是一次侦察任务。那就是他们在总部报告中对我们的分类方式，而我就是参加了一次营救任务。事情是这样的：我们整个小队一起移动，一些奇怪的大雾导致能见度为 0，坦克只能摸索着前行，就好像在牛奶中前进一样。然后坦克出现了。D 系的坦克。我记得它们的外形，也知道如何应对它们。你也知道，我以前经历过一些战事。接下来又遇到了没有沙子的沙尘暴… 我也不知道该怎么解释。我经历了持续的耳鸣，一些嗡嗡的声音。眼睛仿佛沾满了焦油。奇怪的低语。黑暗… 如同活物一般。我们摔得东倒西歪，被分散了。我害怕吗？当然不怕。起初我们都很困惑，但后来就适应了。没有什么区别，我们来都来了，还有什么好怕的？什么都改变不了。服从命令，祈祷可以回家。所以我就回来了… 一个人回来了。上尉，你的问题很奇怪。当小队重新集结时，我会回去吗？你已经知道答案，我们发过同样的誓言。而这只会发生一次。发了誓，就要遵守它。现在不是犹豫不决的时候了。我不希望加入一次... 侦察任务。当我们抵达那里的时候... 我们会挺过去的。&lt;/p&gt;
+&lt;p&gt;IS-7 皮肤台词：&#34; 原来是这样的： 如果有人回到基地，至少一辆坦克，那就算是一次营救任务。如果无人返回，那就是一次侦察任务。那就是他们在总部报告中对我们的分类方式，而我就是参加了一次营救任务。事情是这样的：我们整个小队一起移动，一些奇怪的大雾导致能见度为 0，坦克只能摸索着前行，就好像在牛奶中前进一样。然后坦克出现了。D 系的坦克。我记得它们的外形，也知道如何应对它们。你也知道，我以前经历过一些战事。接下来又遇到了没有沙子的沙尘暴… 我也不知道该怎么解释。我经历了持续的耳鸣，一些嗡嗡的声音。眼睛仿佛沾满了焦油。奇怪的低语。黑暗… 如同活物一般。我们摔得东倒西歪，被分散了。我害怕吗？当然不怕。起初我们都很困惑，但后来就适应了。没有什么区别，我们来都来了，还有什么好怕的？什么都改变不了。服从命令，祈祷可以回家。所以我就回来了… 一个人回来了。上尉，你的问题很奇怪。当小队重新集结时，我会回去吗？你已经知道答案，我们发过同样的誓言。而这只会发生一次。发了誓，就要遵守它。现在不是犹豫不决的时候了。我不希望加入一次... 侦察任务。当我们抵达那里的时候... 我们会挺过去的。&lt;/p&gt;
 &lt;h1 id=&#34;一些制作过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一些制作过程&#34;&gt;#&lt;/a&gt; 一些制作过程&lt;/h1&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;0XGEG466R.png&#34; alt=&#34;solidworks 3D 建模&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;aaaaa.png&#34; alt=&#34;solidworks 3D 建模&#34;&gt;&lt;/p&gt;
@@ -275,7 +275,7 @@
 &lt;p&gt;感兴趣的小伙伴可以到 bilibili 观看制作过程的视频呀！&lt;/p&gt;
 &lt;p&gt;视频链接：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1Tp4y1c719/&#34;&gt;【坦克模型】IS-7 攻城锤 坦克世界 is7 流纹岩 3D 皮肤模型&lt;/a&gt;&lt;/p&gt;
-</content>
+&lt;/body&gt;&lt;/html&gt;</content>
         <category term="tank" />
         <category term="zatan" />
         <updated>2024-05-26T08:19:13.185Z</updated>

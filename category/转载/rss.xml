@@ -11,24 +11,24 @@
         <category>CUDA</category>
         <category>AI</category>
         <category>novel</category>
-        <category>compiler</category>
         <category>compile</category>
+        <category>compiler</category>
         <category>accelerate</category>
         <category>conv</category>
         <category>Linux</category>
         <category>openBlas</category>
-        <category>gemm</category>
+        <category>lib</category>
         <category>cmake</category>
         <category>runtime</category>
         <category>tvm</category>
+        <category>gemm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>lib</category>
         <category>llm</category>
-        <category>systemc</category>
-        <category>quantize</category>
         <category>bar</category>
         <category>baz</category>
+        <category>systemc</category>
+        <category>quantize</category>
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
@@ -38,7 +38,7 @@
             <link>https://forcheetah.github.io/2025/12/14/Article03/</link>
             <category>Article</category>
             <pubDate>Sun, 14 Dec 2025 20:10:34 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
 &lt;p&gt;转载一些有趣的文章，侵删。&lt;/p&gt;
 &lt;p&gt;导读：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -117,7 +117,7 @@
  化用《国际歌》：“这是最后的斗争，团结起来到明天！”&lt;br&gt;
 “最初的承诺”：回到人类共同体的原初理想 —— 平等、互助、自由。&lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/10/06/Article02/</guid>
@@ -125,7 +125,7 @@
             <link>https://forcheetah.github.io/2025/10/06/Article02/</link>
             <category>Article</category>
             <pubDate>Mon, 06 Oct 2025 16:33:43 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
 &lt;p&gt;转载一些有趣的文章，侵删。&lt;/p&gt;
 &lt;p&gt;导读：2021 年，北大中文系男足再度遭遇医学男足，这次又有怎样的火花呢？&lt;/p&gt;
 &lt;p&gt;后卫打飞乌龙球，中文男足 0:14 惜败医学&lt;/p&gt;
@@ -198,7 +198,7 @@
 &lt;h1 id=&#34;6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6&#34;&gt;#&lt;/a&gt; 6.&lt;/h1&gt;
 &lt;p&gt;赛后，虽然比半年前多丢了 2 球，但中文男足的队员们并没有太沮丧，依然有说有笑。陈晔晗看着这群队员们，想起自己想要重振中文男足雄风的春秋大梦，不禁苦笑了一声。&lt;/p&gt;
 &lt;p&gt;他默默地点了一根烟，说道：“从那一回以后，我便觉得医学并非一件紧要事。②输再多倒也无妨了。”&lt;/p&gt;
- ]]></description>
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/09/15/Article01/</guid>
@@ -206,7 +206,7 @@
             <link>https://forcheetah.github.io/2025/09/15/Article01/</link>
             <category>Article</category>
             <pubDate>Mon, 15 Sep 2025 22:46:32 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序&#34;&gt;#&lt;/a&gt; 序&lt;/h1&gt;
 &lt;p&gt;转载一些有趣的文章，侵删。&lt;/p&gt;
 &lt;p&gt;导读：2020 年，北大中文系男足和医学系男足比赛，公众号发布的战况报道火了。&lt;/p&gt;
 &lt;h1 id=&#34;1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1&#34;&gt;#&lt;/a&gt; 1&lt;/h1&gt;
@@ -256,7 +256,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;1757947575680.jpg&#34; alt=&#34;图4&#34;&gt;&lt;/p&gt;
 &lt;p&gt;队员们兴高采烈地进行了合影，来纪念这场时间最早的百廿献礼。照片中只有周冠麟神色严峻，因为即使伤了这么多人，下场比赛，还是轮不到他首发。&lt;/p&gt;
 &lt;p&gt;不论如何，还是提前祝中文系 120 岁生日快乐罢&lt;/p&gt;
- ]]></description>
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
     </channel>
 </rss>

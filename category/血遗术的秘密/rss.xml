@@ -11,24 +11,24 @@
         <category>CUDA</category>
         <category>AI</category>
         <category>novel</category>
-        <category>compiler</category>
         <category>compile</category>
+        <category>compiler</category>
         <category>accelerate</category>
         <category>conv</category>
         <category>Linux</category>
         <category>openBlas</category>
-        <category>gemm</category>
+        <category>lib</category>
         <category>cmake</category>
         <category>runtime</category>
         <category>tvm</category>
+        <category>gemm</category>
         <category>tengine</category>
         <category>ncnn</category>
-        <category>lib</category>
         <category>llm</category>
-        <category>systemc</category>
-        <category>quantize</category>
         <category>bar</category>
         <category>baz</category>
+        <category>systemc</category>
+        <category>quantize</category>
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
@@ -38,7 +38,7 @@
             <link>https://forcheetah.github.io/2026/01/03/NOVEL00/</link>
             <category>Article</category>
             <pubDate>Sat, 03 Jan 2026 16:35:35 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;0序章-不受欢迎的来客&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#0序章-不受欢迎的来客&#34;&gt;#&lt;/a&gt; 0 序章 - 不受欢迎的来客&lt;/h1&gt;
+            <description><![CDATA[ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&#34;0序章-不受欢迎的来客&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#0序章-不受欢迎的来客&#34;&gt;#&lt;/a&gt; 0 序章 - 不受欢迎的来客&lt;/h1&gt;
 &lt;p&gt;  夏的夜晚蚊虫不少，甲虫飞蛾时不时落在纱窗上，过一会儿又扑腾飞走。旺盛的白蜡树长到三楼高，在微弱灯光的映射下，叶子呈现黑绿色，若不是窗子上的纱窗挡着，白蜡树的树枝会伸进屋子里一探究竟。楼房由砖石建成，刷了一层斑驳不平的沙石灰，墙壁很厚，窗子很小，白蜡树又挡住本就可怜的微风，女人站在窗台前，用手使劲儿扇两下扇子。&lt;/p&gt;
 &lt;p&gt;  一个月前她和丈夫住在平房里，平房有些旧，雨天还有一个固定的地方漏水，得用个盆儿接住，然后整晚听它滴答滴答。但是胜在自由，打开门就是新鲜的空气、芳香的泥土和青草，还有女人的菜园和葡萄架。平时无聊就去朋友家坐坐，朋友也很自然地来自己家坐坐，喝茶聊天，也算惬意。丈夫平时教书，晚上回来就去摆弄他的瓶瓶罐罐，他心情好就喝两口小酒，心情不好就抽根旱烟抱怨几句，但总忘不了他的瓶瓶罐罐。女人也不去管他，吃完饭就坐在她的葡萄架下摇扇子，等到身上凉下来才去睡觉。&lt;/p&gt;
 &lt;p&gt;  有一天丈夫突然要求搬家，急匆匆的样子，没几天就搬到现在这个地方。这里有些特殊，不像以前那么自在，说不上为什么，但是朋友不会再来家里坐坐，女人也尽量减少出门的次数。丈夫把他的瓶瓶罐罐搬来了，这次没有塞到他们局促的房间里。据丈夫说，楼栋里有一些宽敞的房间，有点儿像旧式的教室，可以供他研究所用。这一点女人还算满意，再也不用看见那些奇怪的容器和吓人的液体，以及担心丈夫把屋顶炸翻。搬进来后，丈夫更痴迷他的实验了，傍晚教学回来就钻进他的实验室里不出来。脾气似乎也变得恶劣起来，经常没缘由的就开始发脾气。这不像丈夫搬家前的时候…… 那时候丈夫摆弄瓶瓶罐罐，是哼着曲儿的。有时从学校回来，带着报纸向她炫耀，大概是他某某方法又实现了突破，要不就是某种想法得到证实，不过女人也不懂。&lt;/p&gt;
@@ -66,7 +66,7 @@
   “夫人天生丽质，端庄秀丽，实在令人羡慕 ——” 陌生男人慵懒地陷在那张竹制椅子中，点起一只香烟，“教授为了这么优秀的妻子，也得多努力才是……”&lt;br&gt;
   丈夫和夫人咬住嘴唇，谁也没说话。半晌，陌生男人掏出一小节玻璃瓶，玻璃瓶只有半截手指大小，里面装着浅绿色荧光透明的液体，“少用一些，在需要的时候 ——”，男人扬起嘴角，皱纹爬上脸颊。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;谢绝转载&lt;/strong&gt;&lt;/p&gt;
- ]]></description>
+&lt;/body&gt;&lt;/html&gt; ]]></description>
         </item>
     </channel>
 </rss>
