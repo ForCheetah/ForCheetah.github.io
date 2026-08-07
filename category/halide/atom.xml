@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2025/11/15/halide2/</id>
         <title>【Halide】调度优化【2】</title>

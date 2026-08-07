@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2024/05/12/test/</id>
         <title>foo</title>

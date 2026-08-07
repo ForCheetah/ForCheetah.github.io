@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2025/04/27/Tengine02/</id>
         <title>【Tengine】推理流程脑图【2】</title>

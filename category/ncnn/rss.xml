@@ -32,6 +32,7 @@
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
+        <category>MLIR</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/04/16/ncnn01/</guid>
             <title>【NCNN】学习ncnn模型转换</title>

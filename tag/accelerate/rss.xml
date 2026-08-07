@@ -32,6 +32,7 @@
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
+        <category>MLIR</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2024/07/07/conv4/</guid>
             <title>【Winograd】卷积加速算法原理及实现</title>

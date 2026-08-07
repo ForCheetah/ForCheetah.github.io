@@ -32,6 +32,7 @@
         <category>triton</category>
         <category>tank</category>
         <category>zatan</category>
+        <category>MLIR</category>
         <item>
             <guid isPermalink="true">https://forcheetah.github.io/2025/10/06/tvmByoc02/</guid>
             <title>【BYOC】TVM切分子图</title>

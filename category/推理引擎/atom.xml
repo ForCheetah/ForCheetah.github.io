@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2024/06/16/engine2/</id>
         <title>【推理引擎】常见AI推理框架</title>

@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2025/08/10/compile04/</id>
         <title>【脉动阵列】脉动阵列类型</title>

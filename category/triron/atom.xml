@@ -29,6 +29,7 @@
     <category term="triton" />
     <category term="tank" />
     <category term="zatan" />
+    <category term="MLIR" />
     <entry>
         <id>https://forcheetah.github.io/2026/06/21/triton01/</id>
         <title>【Triton】Triton实现矩阵乘</title>
