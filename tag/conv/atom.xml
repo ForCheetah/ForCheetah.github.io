@@ -602,6 +602,9 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/08/18/mlir02/&#34;&gt;【MLIR】跟着 Toy 语言学习 MLIR【2】pattern 匹配和重写&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/08/22/mlir03/&#34;&gt;【MLIR】跟着 Toy 语言学习 MLIR【3】通过接口实现通用转换&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器&#34;&gt;#&lt;/a&gt; 编译器&lt;/h1&gt;
 &lt;ul&gt;
