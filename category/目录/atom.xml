@@ -175,6 +175,9 @@
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/08/28/mlir04/&#34;&gt;【MLIR】跟着 Toy 语言学习 MLIR【4】部分降级到低层方言&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/08/29/mlir05/&#34;&gt;【MLIR】跟着 Toy 语言学习 MLIR【5】降级到 LLVM 及 CodeGen&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器&#34;&gt;#&lt;/a&gt; 编译器&lt;/h1&gt;
 &lt;ul&gt;
