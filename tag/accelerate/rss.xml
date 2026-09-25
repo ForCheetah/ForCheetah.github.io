@@ -461,6 +461,12 @@ Compute definitions and backend schedules for standard neural network operators.
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/09/12/mlir07/&#34;&gt;【MLIR】Transform Dialect【0】保持计算结构&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/09/25/mlir08/&#34;&gt;【MLIR】Transform Dialect【1】组合已有的变换&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://forcheetah.github.io/2026/09/25/mlir09/&#34;&gt;【MLIR】Transform Dialect【2】添加新的 Transformation 操作&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器&#34;&gt;#&lt;/a&gt; 编译器&lt;/h1&gt;
 &lt;ul&gt;
